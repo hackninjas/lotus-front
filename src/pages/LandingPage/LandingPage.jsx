@@ -1,13 +1,45 @@
 import React from 'react';
-import { Box, Flex } from '@chakra-ui/react';
-import { Header } from './Header';
+import {
+  Box,
+  Flex,
+  Image,
+  Button,
+  useDisclosure,
+  Code,
+} from '@chakra-ui/react';
+import logo from '../../assets/images/logo.png';
+import { CustomDrawer } from '../../shared/CustomDrawer';
+import { Login } from 'pages/Login';
 
 export const LandingPage = () => {
+  const { isOpen, onToggle } = useDisclosure();
+
   return (
     <Flex textAlign="center" fontSize="xl" position="relative" h="90vh">
-      <Header />
-      <Flex flex={0.7} direction="column" pt="32"></Flex>
-      <Box flex={0.3} pt="32" bg="lotusGreen.100"></Box>
+      <Box flex={0.7}>
+        <Flex py="10" pl="14" alignItems="center">
+          <Box w="50px">
+            <Image src={logo} objectFit="cover" w="100%" />
+          </Box>
+        </Flex>
+        <Code>Landing page</Code>
+      </Box>
+      <Box flex={0.3} bg="lotusGreen.100">
+        <Flex py="10" px="14" justifyContent="flex-end">
+          <Button
+            variant="primaryOutline"
+            fontSize="sm"
+            fontWeight="normal"
+            px="10"
+            onClick={onToggle}
+          >
+            Login
+          </Button>
+        </Flex>
+        <CustomDrawer isOpen={isOpen} onClose={onToggle}>
+          <Login />
+        </CustomDrawer>
+      </Box>
     </Flex>
   );
 };
