@@ -1,35 +1,25 @@
 import React from 'react';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import {
-  ChakraProvider,
-  Box,
-  VStack,
-  Code,
-  Grid,
-  theme,
-} from '@chakra-ui/react';
-import { ColorModeSwitcher } from './ColorModeSwitcher';
+import { ChakraProvider, theme } from '@chakra-ui/react';
+import { MainRouter } from './router';
+import { Global, css } from '@emotion/react';
+
+const GlobalStyles = css`
+  /* tt commons */
+  // TODO : fix me, load up fon face correctly
+  @font-face {
+    font-family: 'TT Commons Regular';
+    font-style: normal;
+    font-weight: normal;
+    src: local('TT Commons Regular'), url('assets/fonts/tt-commons/TT Commons Extrabold.woff') format('woff');
+    }
+`;
 
 function App() {
   return (
-    <BrowserRouter>
-      <Switch>
-         <Route path="/">
-            <ChakraProvider theme={theme}>
-            <Box textAlign="center" fontSize="xl">
-             <Grid minH="100vh" p={3}>
-            <ColorModeSwitcher justifySelf="flex-end" />
-           <VStack spacing={8}>
-            {/* <Text>
-              Edit <Code fontSize="xl">src/App.js</Code> and save to reload.
-            </Text> */}
-           </VStack>
-           </Grid>
-         </Box>
+    <ChakraProvider theme={theme}>
+      <Global styles={GlobalStyles} />
+      <MainRouter />
     </ChakraProvider>
-    </Route>
-    </Switch>
-    </BrowserRouter>
   );
 }
 
