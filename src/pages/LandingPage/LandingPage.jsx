@@ -1,16 +1,12 @@
 import React from 'react';
-import { Box, VStack, Code, Grid, Text } from '@chakra-ui/react';
-
+import {
+  Box,
+} from '@chakra-ui/react';
+import { Header } from './Header';
 export const LandingPage = () => {
   return (
-    <Box textAlign="center" fontSize="xl">
-      <Grid minH="100vh" p={3}>
-        <VStack spacing={8}>
-          <Text>
-             <Code fontSize="xl">Landing Page</Code> 
-          </Text>
-        </VStack>
-      </Grid>
+    <Box textAlign="center" fontSize="xl" position="relative">
+      <Header/>
     </Box>
   );
 };
