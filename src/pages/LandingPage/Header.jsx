@@ -8,7 +8,11 @@ import {
 } from '@chakra-ui/react';
 import logo from '../../assets/images/logo.png';
 import { CustomDrawer } from '../../shared/CustomDrawer';
-import { Login } from 'pages/Login';
+import { Login } from 'pages/Auth/Login';
+import { Account } from 'pages/Auth/Account';
+import { ForgotPassword } from 'pages/Auth/ForgotPassword';
+import { ResetPassword } from 'pages/Auth/ResetPassword';
+import { ResetSuccess } from 'pages/Auth/ResetSuccess';
 
 export const Header = () => {
   const { isOpen, onToggle } = useDisclosure();
@@ -42,7 +46,11 @@ export const Header = () => {
         </Button>
       </Flex>
       <CustomDrawer isOpen={isOpen} onClose={onToggle}>
-          <Login/>
+          {/* <Login/> */}
+          <Account />
+          {/* <ForgotPassword /> */}
+          {/* <ResetSuccess /> */}
+          {/* <ResetPassword /> */}
       </CustomDrawer>
     </>
   );

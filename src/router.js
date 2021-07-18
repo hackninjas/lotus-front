@@ -7,7 +7,7 @@ export const MainRouter = () => {
   return (
     <BrowserRouter>
       <Switch>
-        <Route path="/" component={LandingPage}/>       
+        <Route exact path="/" component={LandingPage} />
       </Switch>
     </BrowserRouter>
   );
