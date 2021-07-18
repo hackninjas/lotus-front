@@ -3,6 +3,16 @@ import {
   ButtonStyles as Button,
 } from "../styles/components";
 
+
+const styles = {
+  global: (props) => ({
+    "*":{
+      color: "lotusBlack"
+    }
+  }),
+}
+
+
 const theme = extendTheme({
   colors: {
     lotusGreen: {
@@ -20,6 +30,7 @@ const theme = extendTheme({
   components: {
     Button
   },
+  styles
 });
 
 export default theme;

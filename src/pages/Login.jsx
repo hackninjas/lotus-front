@@ -4,7 +4,7 @@ import React from 'react';
 export const Login = () => {
   return (
     <Box w="100%">
-      <Heading color="lotusBlack">Login</Heading>
+      <Heading>Login</Heading>
     </Box>
   );
 };

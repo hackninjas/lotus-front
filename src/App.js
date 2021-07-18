@@ -13,6 +13,10 @@ const GlobalStyles = css`
     font-weight: normal;
     src: local('TT Commons Regular'), url('assets/fonts/tt-commons/TT Commons Extrabold.woff') format('woff');
     }
+
+    body{
+      color: "lotusBlack"
+    }
 `;
 
 function App() {
