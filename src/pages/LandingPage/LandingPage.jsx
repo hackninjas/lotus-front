@@ -5,6 +5,7 @@ import {
   Image,
   Button,
   useDisclosure,
+  Text,
   Code,
 } from '@chakra-ui/react';
 import logo from '../../assets/images/logo.png';

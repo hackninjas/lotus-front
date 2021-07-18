@@ -7,7 +7,8 @@ import {
 const styles = {
   global: (props) => ({
     "*":{
-      color: "lotusBlack"
+      color: "lotusBlack",
+      fontFamily: "TTcommon Regular, sans-serif",
     }
   }),
 }

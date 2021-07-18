@@ -1,30 +1,17 @@
 import React from 'react';
 import { ChakraProvider } from '@chakra-ui/react';
 import { MainRouter } from './router';
-import { Global, css } from '@emotion/react';
-import theme from "./utils/theme";
-
-const GlobalStyles = css`
-  /* tt commons */
-  // TODO : fix me, load up fon face correctly
-  @font-face {
-    font-family: 'TT Commons Regular';
-    font-style: normal;
-    font-weight: normal;
-    src: local('TT Commons Regular'), url('assets/fonts/tt-commons/TT Commons Extrabold.woff') format('woff');
-    }
-
-    body{
-      color: "lotusBlack"
-    }
-`;
+import theme from './utils/theme';
+import FontFace from './styles/font-face';
 
 function App() {
   return (
-    <ChakraProvider theme={theme}>
-      <Global styles={GlobalStyles} />
-      <MainRouter />
-    </ChakraProvider>
+    <>
+      <ChakraProvider theme={theme}>
+        <MainRouter />
+      </ChakraProvider>
+      <FontFace />
+    </>
   );
 }
 
