@@ -1,7 +1,8 @@
 import React from 'react';
-import { ChakraProvider, theme } from '@chakra-ui/react';
+import { ChakraProvider } from '@chakra-ui/react';
 import { MainRouter } from './router';
 import { Global, css } from '@emotion/react';
+import theme from "./utils/theme";
 
 const GlobalStyles = css`
   /* tt commons */
