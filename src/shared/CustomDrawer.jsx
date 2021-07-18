@@ -6,9 +6,9 @@ export const CustomDrawer = ({ children, isOpen, onClose }) => {
   return (
     <>
       {isOpen && <Box bg="rgba(0,0,0, 0.5)" w="100%" style={{ zIndex: 10 }} />}
-      <Slide direction="bottom" in={isOpen} style={{ zIndex: 10 }}>
+      <Slide  bg="rgba(0,0,0, 0.5)" direction="bottom" in={isOpen} style={{ zIndex: 10 }}>
         <Flex
-          h="90vh"
+          h="95vh"
           color="white"
           mt="4"
           bg="white"
