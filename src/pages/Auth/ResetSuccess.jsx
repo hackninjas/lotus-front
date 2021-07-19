@@ -1,38 +1,37 @@
-import { Box, Text, Center, Divider } from '@chakra-ui/layout';
+import { Box, Text, Center, Divider, Flex, Stack } from '@chakra-ui/layout';
 import { Image } from '@chakra-ui/react';
 import React from 'react';
 import logo from '../../assets/images/logo.png';
-import correct from '../../assets/images/correct.svg'
-
+import correct from '../../assets/images/correct.svg';
 
 export const ResetSuccess = () => {
   return (
-    <Box w="80%">
-        <Center>
-            <Box w="50px">
-                 <Image src={logo} objectFit="cover" w="100%"/>
-            </Box>
-        </Center>
-        <Image src={correct} borderRadius="full" border="1px solid teal" boxSize="30px" mt={10}/>
-        <Text 
-            color="#0C0C0C"
-            fontWeight="bold"
-            fontSize="sm">
-            Password reset successfully. Login to continue.
-          </Text>
-          <Divider 
-        variant="dashed"
-        fontWeight="bold"
-        mt={6}
+    <Box textAlign="left">
+      <Center>
+        <Box w="50px">
+          <Image src={logo} objectFit="cover" w="100%" />
+        </Box>
+      </Center>
+      <Stack spacing="5" mt="10">
+        <Flex
+          border="1px solid #00CECE"
+          borderRadius="full"
+          w="14"
+        justifyContent="center"
+          h="14"
+          p="2"
         >
-        </Divider>
-        <Text 
-            color=" #2D2D2D"
-            fontSize="sm"
-            mt={6}>
-                Sed a magna semper, porta purus eu, ullamcorper liguia.
-                Nam sit amet consectetior sapien. Etiam duat, viveriaisklkd.
-           </Text>
+          <Image src={correct} />
+        </Flex>
+        <Text color="#0C0C0C" fontWeight="bold" fontSize="sm">
+          Password reset successfully. Login to continue.
+        </Text>
+        <Divider variant="dashed" fontWeight="bold"></Divider>
+        <Text color=" #2D2D2D" fontSize="sm" >
+          Sed a magna semper, porta purus eu, ullamcorper liguia. Nam sit amet
+          consectetior sapien. Etiam duat, viveriaisklkd.
+        </Text>
+      </Stack>
     </Box>
   );
 };

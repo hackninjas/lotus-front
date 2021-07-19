@@ -42,11 +42,11 @@ export const LandingPage = () => {
           </Button>
         </Flex>
         <CustomDrawer isOpen={isOpen} onClose={onToggle}>
-          {/* <Login /> */}
+          <Login />
           {/* <Account /> */}
           {/* <ForgotPassword/> */}
           {/* <ResetPassword/> */}
-          <ResetSuccess/>
+          {/* <ResetSuccess/> */}
         </CustomDrawer>
       </Box>
     </Flex>
