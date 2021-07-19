@@ -36,16 +36,11 @@ export const Layout = ({ children, step }) => {
             </Text>
             <Flex>
               {Steps.map((stepName, index) => (
-                <Flex key={index}>
+                <Flex key={index} ml={index > 0 ? "2" : "0"}>
                   <Text
                     pb="1"
-                    cursor="pointer"
                     fontSize="sm"
                     mr="1"
-                    _hover={{
-                      borderColor: 'lotusGreen.400',
-                      fontWeight: 'bold',
-                    }}
                     borderBottomWidth={2}
                     fontWeight={step === (index + 1) ? 'bold' : 'normal'}
                     borderColor={step === (index + 1) ? 'lotusGreen.400' : 'transparent'}
@@ -56,89 +51,11 @@ export const Layout = ({ children, step }) => {
                     boxSize={3}
                     mt="1"
                     style={{ transform: 'rotate(90deg)' }}
+                    display={index + 1 === Steps.length ? "none" : "block"}
                   />
                 </Flex>
               ))}
-              {/* <Flex>
-                <Text
-                  pb="1"
-                  cursor="pointer"
-                  fontSize="sm"
-                  mr="1"
-                  _hover={{
-                    borderColor: 'lotusGreen.400',
-                    fontWeight: 'bold',
-                  }}
-                  borderBottomWidth={2}
-                  fontWeight={step === 1 ? 'bold' : 'normal'}
-                  borderColor={step === 1 ? 'lotusGreen.400' : 'transparent'}
-                >
-                  BVN
-                </Text>
-                <TriangleUpIcon
-                  boxSize={3}
-                  mt="1"
-                  style={{ transform: 'rotate(90deg)' }}
-                />
-              </Flex>
-              <Flex ml="1">
-                <Text
-                  pb="1"
-                  cursor="pointer"
-                  fontSize="sm"
-                  mr="1"
-                  _hover={{
-                    borderColor: 'lotusGreen.400',
-                    fontWeight: 'bold',
-                  }}
-                  borderBottomWidth={2}
-                  borderColor="transparent"
-                >
-                  Personal
-                </Text>
-                <TriangleUpIcon
-                  boxSize={3}
-                  mt="1"
-                  style={{ transform: 'rotate(90deg)' }}
-                />
-              </Flex>
-              <Flex ml="1">
-                <Text
-                  pb="1"
-                  cursor="pointer"
-                  fontSize="sm"
-                  mr="1"
-                  _hover={{
-                    borderColor: 'lotusGreen.400',
-                    fontWeight: 'bold',
-                  }}
-                  borderBottomWidth={2}
-                  borderColor="transparent"
-                >
-                  Address
-                </Text>
-                <TriangleUpIcon
-                  boxSize={3}
-                  mt="1"
-                  style={{ transform: 'rotate(90deg)' }}
-                />
-              </Flex>
-              <Flex ml="1">
-                <Text
-                  pb="1"
-                  cursor="pointer"
-                  fontSize="sm"
-                  mr="1"
-                  _hover={{
-                    borderColor: 'lotusGreen.400',
-                    fontWeight: 'bold',
-                  }}
-                  borderBottomWidth={2}
-                  borderColor="transparent"
-                >
-                  Photo Upload
-                </Text>
-              </Flex> */}
+              
             </Flex>
           </Flex>
           <Flex alignItems="center" alignSelf="flex-end">
