@@ -7,10 +7,12 @@ import { FaFacebook } from 'react-icons/fa';
 
 export const Login = () => {
   return (
-    <Box w="80%">
-      <Heading color="lotusBlue">Welcome back</Heading>
-      <Text color="#2D2D2D" textAlign="left" fontSize="xs" mt={6}>Sed a magna semper, porta purus eu, ullamcorper liguia.
-       Nam sit amet 
+    <Box w="100%">
+      <Heading color="lotusBlue.400" textAlign="left" fontFamily="fonts.body">
+        Welcome back
+      </Heading>
+      <Text color="#2D2D2D" textAlign="left" fontSize="xs" mt={6}>
+        Sed a magna semper, porta purus eu, ullamcorper liguia. Nam sit amet
         consectetior sapien. Etiam duat, viveriaisklkd.
       </Text>
       <form>
