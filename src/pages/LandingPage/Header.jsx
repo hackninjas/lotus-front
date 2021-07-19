@@ -8,11 +8,11 @@ import {
 } from '@chakra-ui/react';
 import logo from '../../assets/images/logo.png';
 import { CustomDrawer } from '../../shared/CustomDrawer';
-import { Login } from 'pages/Auth/Login';
-import { Account } from 'pages/Auth/Account';
-import { ForgotPassword } from 'pages/Auth/ForgotPassword';
-import { ResetPassword } from 'pages/Auth/ResetPassword';
-import { ResetSuccess } from 'pages/Auth/ResetSuccess';
+// import { Login } from 'pages/Auth/Login';
+// import { Account } from 'pages/Auth/Account';
+// import { ForgotPassword } from 'pages/Auth/ForgotPassword';
+// import { ResetPassword } from 'pages/Auth/ResetPassword';
+// import { ResetSuccess } from 'pages/Auth/ResetSuccess';
 
 export const Header = () => {
   const { isOpen, onToggle } = useDisclosure();
@@ -33,24 +33,20 @@ export const Header = () => {
           <Image src={logo} objectFit="cover" w="100%" />
         </Box>
 
-        <Flex></Flex>
+          <Flex></Flex>
 
-        <Button
-          variant="primaryOutline"
-          fontSize="sm"
-          fontWeight="normal"
-          px="10"
-          onClick={onToggle}
-        >
-          Login
-        </Button>
+          <Button
+            variant="primaryOutline"
+            fontSize="sm"
+            fontWeight="normal"
+            px="10"
+            onClick={onToggle}
+          >
+            Login
+          </Button>
       </Flex>
       <CustomDrawer isOpen={isOpen} onClose={onToggle}>
-          {/* <Login/> */}
-          <Account />
-          {/* <ForgotPassword /> */}
-          {/* <ResetSuccess /> */}
-          {/* <ResetPassword /> */}
+
       </CustomDrawer>
     </>
   );
