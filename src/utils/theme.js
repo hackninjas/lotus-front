@@ -7,7 +7,7 @@ import {
 const styles = {
   global: (props) => ({
     "*":{
-      color: "lotusBlack",
+      color: "lotusTextBody",
       fontFamily: "TTcommon Regular, sans-serif",
     }
   }),
@@ -22,8 +22,14 @@ const theme = extendTheme({
       300: "#60FFFF",
       400: "#00CECE"
     },
-    lotusBlue:"#1E0B89",
-    lotusBlack :"#707070"
+    lotusBlue: {
+      100: "#518EF8",
+      200: "#175FFF",
+      300: "#4838A0",
+      400: "#1E0B89"
+    },
+    lotusBlack :"#707070",
+    lotusTextBody: "#2D2D2D"
   },
   fonts: {
     body: "TTcommon Regular, sans-serif",
