@@ -1,14 +1,11 @@
-import { Heading } from '@chakra-ui/layout'
-import React from 'react'
-import { OnboardingLayout } from 'shared/Layouts/OnboardingLayout'
+import { Heading } from '@chakra-ui/layout';
+import React from 'react';
+import { Layout } from './components/Layout';
 
 export const Onboarding = () => {
-    
-    return (
-        <OnboardingLayout>
-            <Heading>
-                Hello
-            </Heading>
-        </OnboardingLayout>
-    )
-}
+  return (
+    <Layout>
+      <Heading>Hello</Heading>
+    </Layout>
+  );
+};

@@ -6,7 +6,8 @@ import onboardingBg from 'assets/images/onboarding.png';
 import lotusWhiteLogo from 'assets/images/lotusWhite.png';
 import lotusWhiteLeaf from 'assets/images/lotusWhiteLeaf.png';
 
-export const OnboardingLayout = ({ children }) => {
+
+export const Layout = ({ children }) => {
   return (
     <Flex h="100vh">
       <Box flex={0.6}>{children}</Box>

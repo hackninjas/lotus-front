@@ -15,19 +15,21 @@ export const CustomDrawer = ({ children, isOpen, onClose }) => {
             rounded="md"
             shadow="md"
             p="8"
+            w="100%"
+            justifyContent="space-between"
           >
-            <Box flex={0.3} />
+            <Box w="30%" />
 
-            <Box flex={0.4}>{children}</Box>
+            <Box w="35%">{children}</Box>
 
-            <Flex justifyContent="flex-end" flex={0.3}>
+            <Flex justifyContent="flex-end" w="30%">
               <Button
                 onClick={onClose}
                 borderRadius="50%"
                 h="12"
                 w="12"
                 borderWidth={1}
-                mr="10"
+              
               >
                 <CloseIcon color="lotusBlack" />
               </Button>

@@ -4,8 +4,8 @@ import React from 'react';
 
 export const ResetPassword = () => {
   return (
-    <Box w="80%">
-      <Heading color="lotusBlue">Reset Password</Heading>
+    <Box>
+      <Heading color="lotusBlue.400" textAlign="left">Reset Password</Heading>
       <Text color="#2D2D2D" textAlign="left" fontSize="xs" mt={6}>
           Please type in a new password and confirm the password to
           completely reset your password.
@@ -26,7 +26,7 @@ export const ResetPassword = () => {
           px="10"
           mt={8}
           w="100%"
-          variant="primaryOutline"
+          variant="primary"
           // onClick={}
         >
            Continue
