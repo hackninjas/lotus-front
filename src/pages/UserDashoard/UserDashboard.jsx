@@ -16,7 +16,7 @@ export const UserDashboard = ({ children }) => {
 
   return (
     <Flex h="100vh">
-      <Box w="40%" position="relative">
+      <Box w="35%" position="relative">
         <Image src={dashboardBg} objectFit="cover" h="100%" w="100%" />
         <Box position="absolute" left="0" top="0" bottom="0" right="0">
           <Flex direction="column" h="100%" px="10">
@@ -50,7 +50,7 @@ export const UserDashboard = ({ children }) => {
 
       <Grid
         templateColumns="1fr"
-        w="60%"
+        w="65%"
         py="14"
         px="24"
         boxSizing="border-box"
