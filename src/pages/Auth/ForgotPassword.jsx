@@ -5,7 +5,7 @@ import React from 'react';
 export const ForgotPassword = () => {
   return (
     <Box w="100%">
-      <Heading color="lotusBlue.400" textAlign="left" textAlign="left">
+      <Heading color="lotusBlue.400" textAlign="left">
         Forgot Password
       </Heading>
       <Text color="#2D2D2D" textAlign="left" fontSize="xs" mt={6}>
