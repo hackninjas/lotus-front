@@ -3,17 +3,13 @@ import { Box, Divider, Flex, Grid, Heading, Stack } from '@chakra-ui/layout';
 import { Button, chakra, Image, Text } from '@chakra-ui/react';
 
 import dashboardBg from 'assets/images/dashboard.png';
+import lotusVioletBg from "assets/images/lotusViolet.png"
 import lotusWhiteLogo from 'assets/images/lotusWhite.png';
 import { UserContext } from 'context';
 import { formatNumberToCurrency } from 'utils/functions';
 
-export const UserDashboard = ({ children }) => {
+export const UserDashboardLayout = ({ children }) => {
   const { userData } = useContext(UserContext);
-
-  console.log('====================================');
-  console.log('userData', userData);
-  console.log('====================================');
-
   return (
     <Flex h="100vh">
       <Box w="35%" position="relative">
@@ -54,8 +50,16 @@ export const UserDashboard = ({ children }) => {
         py="14"
         px="24"
         boxSizing="border-box"
+        position="relative"
       >
         <Box>{children}</Box>
+        <Image src={lotusVioletBg} 
+        position="absolute"
+        bottom="0"
+        right="0"
+        boxSize="30rem"
+        zIndex="0"/>
+
       </Grid>
     </Flex>
   );

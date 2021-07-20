@@ -8,6 +8,7 @@ export const FontFace = () => (
         src: url('../assets/fonts/cocogoose/Cocogoose_trial.otf')
             format('otf');
       }
+      
       @font-face {
         font-family: 'TT Commons Regular';
         font-style: normal;

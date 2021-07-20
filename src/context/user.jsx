@@ -1,8 +1,9 @@
 import React, { createContext, useState, useMemo } from 'react';
 
 const initialValues = {
-  name: null,
+  name: "Chijindu Amadi",
   balance: 0.00,
+  image: "",
   accountNumber: '3115588991',
 };
 
