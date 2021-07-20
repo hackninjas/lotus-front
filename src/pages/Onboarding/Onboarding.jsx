@@ -5,10 +5,11 @@ import { Layout } from './components/Layout';
 import { Personal } from './components/Personal';
 import { PhotoUpload } from './components/PhotoUpload';
 
+const numberOfForms = 4;
+
 export const Onboarding = () => {
   const [step, setStep] = useState(0);
-  const [errors, setErrors] = useState([true, true, true, true]);
-  const numberOfForms = 4;
+  const [errors, setErrors] = useState([...new Array(numberOfForms).fill(true)]);
 
   const handleErrors = () => {
     // TODO: use formik error object to update errors state
