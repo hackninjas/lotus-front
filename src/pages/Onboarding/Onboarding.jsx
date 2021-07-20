@@ -5,7 +5,6 @@ import { Otp } from './components/Otp';
 import { Layout } from './components/Layout';
 import { Personal } from './components/Personal';
 import { PhotoUpload } from './components/PhotoUpload';
-import { Welcome } from './components/Welcome';
 
 const numberOfForms = 4;
 
@@ -31,7 +30,7 @@ export const Onboarding = () => {
   const renderForm = step => {
     switch (step) {
       case 0:
-        return <Welcome />;
+        return <Bvn />;
       case 1:
         return <Personal />;
       case 2:

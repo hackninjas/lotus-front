@@ -38,7 +38,7 @@ export const UserDashboard = ({ children }) => {
               </Flex>
               <Divider/>
 
-              <Heading color="white" fontSize="sm">Your account ha been created.</Heading>
+              <Heading color="white" fontSize="sm">Your account has been created.</Heading>
 
               <Text as="p" color="white" fontWeight="light">
               Your Lotus account number is <chakra.strong color="white">{userData.accountNumber}</chakra.strong>. Your account has a balance limit of N500,000 and a deposit limit of N50,000. Upgrade your account to enjoy maximum capacity of your account.
@@ -55,7 +55,7 @@ export const UserDashboard = ({ children }) => {
         px="24"
         boxSizing="border-box"
       >
-        <Box>{children}</Box>
+        <Box>{children} </Box>
       </Grid>
     </Flex>
   );

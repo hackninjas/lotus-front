@@ -10,8 +10,8 @@ export const MainRouter = () => {
     <BrowserRouter>
       <Switch>
         <Route exact path="/" component={LandingPage} />
-        <Route exact path="/onboarding" component={Onboarding}/>
-        <Route exact path="/dashboard" component={UserDashboard}/>
+        <Route exact path="/onboarding" component={Onboarding} />
+        <Route exact path="/dashboard" component={UserDashboard} />
       </Switch>
     </BrowserRouter>
   );

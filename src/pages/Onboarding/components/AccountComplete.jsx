@@ -1,17 +1,18 @@
 import { Box, Text, Center, Divider, Flex, Stack } from '@chakra-ui/layout';
 import { Image } from '@chakra-ui/react';
 import React from 'react';
-import logo from '../../assets/images/logo.png';
-import correct from '../../assets/images/correct.svg';
+import logo from '../../../assets/images/logo.png';
+import correct from '../../../assets/images/correct.svg';
 
 export const AccountComplete = () => {
   return (
     <Box textAlign="left">
       <Center>
         <Box w="50px">
-          <Image src={logo} objectFit="cover" w="100%" />
+          <Image src={logo} objectFit="cover" w="100%"mt="10" />
         </Box>
       </Center>
+      <Center>
       <Stack spacing="5" mt="10">
         <Flex
           border="1px solid #00CECE"
@@ -32,6 +33,7 @@ export const AccountComplete = () => {
           consectetior sapien. Etiam duat, viveriaisklkd.
         </Text>
       </Stack>
+      </Center>
     </Box>
   );
 };

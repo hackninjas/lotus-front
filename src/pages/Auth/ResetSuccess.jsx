@@ -12,6 +12,7 @@ export const ResetSuccess = () => {
           <Image src={logo} objectFit="cover" w="100%" />
         </Box>
       </Center>
+        <Center>
       <Stack spacing="5" mt="10">
         <Flex
           border="1px solid #00CECE"
@@ -21,6 +22,7 @@ export const ResetSuccess = () => {
           h="14"
           p="2"
         >
+
           <Image src={correct} />
         </Flex>
         <Text color="#0C0C0C" fontWeight="bold" fontSize="sm">
@@ -32,6 +34,7 @@ export const ResetSuccess = () => {
           consectetior sapien. Etiam duat, viveriaisklkd.
         </Text>
       </Stack>
+        </Center>
     </Box>
   );
 };
