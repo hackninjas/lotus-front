@@ -38,7 +38,7 @@ const theme = extendTheme({
   },
   fonts: {
     body: "TTcommon Regular, sans-serif",
-    cocogoose: "Cocogoose"
+    cocogoose: "TT Commons Italic"
   },
   components: {
     Button,

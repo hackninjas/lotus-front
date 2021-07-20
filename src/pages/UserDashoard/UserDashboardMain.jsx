@@ -24,19 +24,39 @@ export const UserDashboardMain = () => {
         <Flex alignItems="center" fontSize="sm">
           <Flex alignItems="center" cursor="pointer" mr="4">
             <SendIcon size="25px" />
-            <Text ml="2" color="lotusGrey">
+            <Text
+              ml="2"
+              color="lotusGrey"
+              _hover={{
+                color: 'black',
+              }}
+              fontFamily="fonts.cocogoose"
+            >
               Transactions
             </Text>
           </Flex>
           <Flex alignItems="center" cursor="pointer" mr="4">
             <DonutChartIcon />
-            <Text ml="2" color="lotusGrey">
+            <Text
+              _hover={{
+                color: 'black',
+              }}
+              as="p"
+              ml="2"
+              color="lotusGrey"
+            >
               Budget
             </Text>
           </Flex>
           <Flex alignItems="center" cursor="pointer" mr="4">
             <CreditCardIcon />
-            <Text ml="2" color="lotusGrey">
+            <Text
+              _hover={{
+                color: 'black',
+              }}
+              ml="2"
+              color="lotusGrey"
+            >
               Card
             </Text>
           </Flex>
@@ -63,9 +83,7 @@ export const UserDashboardMain = () => {
                 {userData?.name}
               </chakra.span>
             </MenuButton>
-            <MenuList 
-            fontSize="xs"
-            minWidth="28" >
+            <MenuList fontSize="xs" minWidth="28">
               <MenuItem>Settings</MenuItem>
               <MenuItem>Edit</MenuItem>
             </MenuList>
@@ -76,30 +94,37 @@ export const UserDashboardMain = () => {
       <Flex
         direction="column"
         justifyContent="center"
-        position="relative" 
+        position="relative"
         zIndex="100"
         h="100%"
         w="100%"
       >
-        <VStack spacing="4"  mx="auto" w="50%" textAlign="center">
-          <Heading position="relative" fontSize="sm" _before={{
+        <VStack spacing="4" mx="auto" w="50%" textAlign="center">
+          <Heading
+            position="relative"
+            fontSize="sm"
+            _before={{
               content: '" "',
-              height:"1px",
-              width:"60px",
-              bg:"lotusGreen.400",
-              position: "absolute",
-              bottom:"-5px",
-              left:"50%",
-              transform:"translateX(-50%)"
-
-          }}>No Activities yet.</Heading>
+              height: '1px',
+              width: '60px',
+              bg: 'lotusGreen.400',
+              position: 'absolute',
+              bottom: '-5px',
+              left: '50%',
+              transform: 'translateX(-50%)',
+            }}
+          >
+            No Activities yet.
+          </Heading>
           <Text fontWeight="normal" fontSize="sm">
             Upgrade your account to enjoy maximum capacity on your Lotus
             Account.
           </Text>
 
-          <Flex alignItems="center" >
-            <Link fontSize="sm" mr="5">Skip for now</Link>
+          <Flex alignItems="center">
+            <Link fontSize="sm" mr="5">
+              Skip for now
+            </Link>
             <Button variant="primary" fontSize="sm">
               Upgrade my account
             </Button>
