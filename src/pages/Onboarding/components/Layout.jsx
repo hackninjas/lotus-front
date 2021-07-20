@@ -54,7 +54,7 @@ export const Layout = ({ children, step, canNext, goNext, changeStep }) => {
               fontSize="sm"
               fontWeight="normal"
               px="10"
-              // isDisabled={canNext}
+              // isDisabled={canNext} // TODO : remove comment when handleErrors is implement in Onboarding.jsx
               onClick={goNext}
             >
               Continue
