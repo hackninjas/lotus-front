@@ -1,5 +1,5 @@
 import { Onboarding } from 'pages/Onboarding/Onboarding';
-import { UserDashboard } from 'pages/UserDashoard/UserDashboard';
+import { UserDashboardMain } from 'pages/UserDashoard/UserDashboardMain';
 import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { LandingPage } from './pages';
@@ -11,7 +11,7 @@ export const MainRouter = () => {
       <Switch>
         <Route exact path="/" component={LandingPage} />
         <Route exact path="/onboarding" component={Onboarding}/>
-        <Route exact path="/dashboard" component={UserDashboard}/>
+        <Route exact path="/dashboard" component={UserDashboardMain}/>
       </Switch>
     </BrowserRouter>
   );

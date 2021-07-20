@@ -1,6 +1,7 @@
 import { extendTheme } from "@chakra-ui/react";
 import {
   ButtonStyles as Button,
+  MenuStyles as Menu
 } from "../styles/components";
 
 
@@ -22,6 +23,9 @@ const theme = extendTheme({
       300: "#60FFFF",
       400: "#00CECE"
     },
+    lotusRed: {
+      100: "#FF2B22",
+    },
     lotusBlue: {
       100: "#518EF8",
       200: "#175FFF",
@@ -29,14 +33,16 @@ const theme = extendTheme({
       400: "#1E0B89"
     },
     lotusBlack :"#707070",
-    lotusTextBody: "#2D2D2D"
+    lotusTextBody: "#2D2D2D",
+    lotusGrey: "#9B9B9B"
   },
   fonts: {
     body: "TTcommon Regular, sans-serif",
     cocogoose: "Cocogoose"
   },
   components: {
-    Button
+    Button,
+    Menu
   },
   styles
 });
