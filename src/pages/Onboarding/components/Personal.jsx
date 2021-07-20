@@ -1,5 +1,5 @@
 import { Box, Text, Flex } from '@chakra-ui/layout';
-import { FormControl, FormLabel, Input, Checkbox, InputLeftAddon, InputGroup, InputLeftElement, Image } from '@chakra-ui/react';
+import { FormControl, FormLabel, Input, Checkbox, InputLeftAddon, InputGroup, InputLeftElement, Image, IconButton } from '@chakra-ui/react';
 import React from 'react';
 import male from '../../../assets/images/male.svg';
 import female from '../../../assets/images/woman.svg';
@@ -50,25 +50,39 @@ export const Personal = () => {
           <FormLabel color="#2D2D2D" fontSize="sm">
             Male
           </FormLabel>
-          <InputGroup>
+          <IconButton
+            colorScheme="none"
+            aria-label="Call Segun"
+            icon={ <Image src={male} color="gray.300"/>}
+            border="1px solid black"
+            w="20"
+          />
+          {/* <InputGroup>
                <InputLeftElement
                   pointerEvents="none"
                   children={<Image src={male} color="gray.300" pl={4}/>}
                 />
-           </InputGroup>
-          <Input w={0.9} type="name" placeholder="Male" fontSize="xs" pl={12} />
+           </InputGroup> */}
+          {/* <Input w={0.9} type="name" placeholder="Male" fontSize="xs" pl={12} /> */}
         </FormControl>
         <FormControl mt={8}ml={8} >
           <FormLabel color="#2D2D2D" fontSize="sm">
             Female
           </FormLabel>
-          <InputGroup>
+          <IconButton
+            colorScheme="none"
+            aria-label="Call Segun"
+            icon={ <Image src={female} color="gray.300"/>}
+            border="1px solid black"
+            w="20"
+          />
+          {/* <InputGroup>
                <InputLeftElement
                   pointerEvents="none"
                   children={<Image src={female} color="gray.300" pl={4}/>}
                 />
-           </InputGroup>
-          <Input w={0.9} type="name" placeholder="Female" fontSize="xs" pl={12}/>
+           </InputGroup> */}
+          {/* <Input w={0.9} type="name" placeholder="Female" fontSize="xs" pl={12}/> */}
         </FormControl>
         </Flex>
         </Flex>
@@ -76,7 +90,7 @@ export const Personal = () => {
         
         <Checkbox mt={4}>
           <Text fontSize="xs" color="#2D2D2D">
-               Select to confirm your details are correct & up to date
+               Select to confirm your details are correct & up to date.
            </Text>
          </Checkbox>
     </Box>
