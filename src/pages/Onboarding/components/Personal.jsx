@@ -1,5 +1,5 @@
 import { Box, Text, Flex } from '@chakra-ui/layout';
-import { FormControl, FormLabel, Input, Checkbox, InputLeftAddon, InputGroup, InputLeftElement, Image, IconButton } from '@chakra-ui/react';
+import { FormControl, FormLabel, Input, Checkbox, InputLeftAddon, InputGroup, Image, IconButton } from '@chakra-ui/react';
 import React from 'react';
 import male from '../../../assets/images/male.svg';
 import female from '../../../assets/images/woman.svg';

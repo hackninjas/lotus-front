@@ -16,7 +16,8 @@ import {
 } from '@chakra-ui/react';
 import { UserContext } from 'context';
 import { UserDashboardLayout } from './components/UserDashboardLayout';
-import danger1 from '../../assets/images/danger1.svg';
+import { AlertWrapper } from 'shared/Alert';
+import AlertIcon from 'assets/svg/danger.svg';
 
 export const UpgradeAccount = () => {
   const { userData } = useContext(UserContext);
@@ -78,9 +79,8 @@ export const UpgradeAccount = () => {
         zIndex="100"
         h="100%"
         w="100%"
-        top="-100"
       >
-        <VStack spacing="4" mx="auto" w="50%" textAlign="center">
+        <VStack spacing="4" mx="auto" w="100%" textAlign="center">
           <Heading
             position="relative"
             fontSize="sm"
@@ -100,6 +100,112 @@ export const UpgradeAccount = () => {
           <Text fontWeight="normal" fontSize="sm">
             By upgrading your account, you can enjoy maximum capacity of your Lotus bank account.
           </Text>
+          <Flex justifyContent="space-between">
+             <AlertWrapper variant="default">
+                <Flex justifyContent="space-between">
+                  <Box flex={1}>
+                    <Text color="#0C0C0C" fontSize="xs">
+                      Bank Verification Number (BVN)
+                    </Text>
+                    <Text color="#0C0C0C" fontSize="xs">
+                      Please kindly Provide your bvn for verification
+                    </Text>
+                  </Box>
+                   <Flex
+                    alignItems="center"
+                    justifyContent="center"
+                    borderWidth={1}
+                    borderColor="lotusOrange"
+                    borderRadius="50%"
+                    height="50px"
+                    width="50px"
+                    p="2"
+                    ml="4"
+                  >
+                    <Image src={AlertIcon} objectFit="100%" w="100%" />
+                  </Flex>
+                </Flex>
+              </AlertWrapper>
+          <AlertWrapper variant="default">
+                <Flex justifyContent="space-between">
+                  <Box flex={1}>
+                    <Text color="#0C0C0C" fontSize="xs">
+                        Means of Identification
+                    </Text>
+                    <Text color="#0C0C0C" fontSize="xs">
+                      Please provide a valid means of identification
+                    </Text>
+                  </Box>
+                   <Flex
+                    alignItems="center"
+                    justifyContent="center"
+                    borderWidth={1}
+                    borderColor="lotusOrange"
+                    borderRadius="50%"
+                    height="50px"
+                    width="50px"
+                    p="2"
+                    ml="4"
+                  >
+                    <Image src={AlertIcon} objectFit="100%" w="100%" />
+                  </Flex>
+                </Flex>
+              </AlertWrapper>
+          </Flex>
+          <Flex justifyContent="space-evenly">
+             <AlertWrapper variant="default">
+                <Flex justifyContent="space-between">
+                  <Box flex={1}>
+                    <Text color="#0C0C0C" fontSize="xs">
+                      Proof of Address
+                    </Text>
+                    <Text color="#0C0C0C" fontSize="xs">
+                      Please Provide a valid proof of 
+                      address document
+                    </Text>
+                  </Box>
+                   <Flex
+                    alignItems="center"
+                    justifyContent="center"
+                    borderWidth={1}
+                    borderColor="lotusOrange"
+                    borderRadius="50%"
+                    height="50px"
+                    width="50px"
+                    p="2"
+                    ml="4"
+                  >
+                    <Image src={AlertIcon} objectFit="100%" w="100%" />
+                  </Flex>
+                </Flex>
+              </AlertWrapper>
+          <AlertWrapper variant="default">
+                <Flex justifyContent="space-between">
+                  <Box flex={1}>
+                    <Text color="#0C0C0C" fontSize="xs">
+                      Signature
+                    </Text>
+                    <Text color="#0C0C0C" fontSize="xs">
+                      Please kindly Provide your valid signature
+                    </Text>
+                  </Box>
+                   <Flex
+                    alignItems="center"
+                    justifyContent="center"
+                    borderWidth={1}
+                    borderColor="lotusOrange"
+                    borderRadius="50%"
+                    height="50px"
+                    width="50px"
+                    p="2"
+                    ml="4"
+                  >
+                    <Image src={AlertIcon} objectFit="100%" w="100%" />
+                  </Flex>
+                </Flex>
+              </AlertWrapper>
+          </Flex>
+         
         </VStack>
       </Flex>
     </UserDashboardLayout>

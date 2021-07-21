@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { Avatar } from '@chakra-ui/avatar';
-import { Flex, Heading, VStack, HStack } from '@chakra-ui/layout';
+import { Flex, Heading, VStack } from '@chakra-ui/layout';
 import { ChevronDownIcon, ArrowBackIcon, ViewIcon, ViewOffIcon, CheckCircleIcon } from '@chakra-ui/icons';
 import {
   Button,
@@ -81,7 +81,6 @@ export const BankVerificationNumber = () => {
         zIndex="100"
         h="100%"
         w="100%"
-        top="-70"
       >
         <VStack spacing="4" mx="auto" w="50%" textAlign="center">
           <Heading
@@ -104,14 +103,13 @@ export const BankVerificationNumber = () => {
             By upgrading your account, you can enjoy maximum capacity of your Lotus bank account.
           </Text>
 
-          <Flex alignItems="center">
+          <Flex alignItems="left">
             <form>
                 <FormLabel fontSize="xs" fontWeight="bold" mt={10} color="#2D2D2D">
                     Your bank verification number
                 </FormLabel>
             <InputGroup size="md">
                 <Input
-                //    w="150"
                     pr="4.5rem"
                     type={show ? "text" : "password"}
                     placeholder="bvn"
@@ -124,10 +122,10 @@ export const BankVerificationNumber = () => {
             </InputGroup>
             </form>
           </Flex>
-          <HStack w="50%" justifyContent="start">
+          <Flex w="70%" justifyContent="left" ml="12">
             <CheckCircleIcon />
-            <Text fontSize="xs">Verified</Text>
-        </HStack>
+            <Text fontSize="xs" ml="2">Verified</Text>
+        </Flex>
         </VStack>
       </Flex>
     </UserDashboardLayout>
