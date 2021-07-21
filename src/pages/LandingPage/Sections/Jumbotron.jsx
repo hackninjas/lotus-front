@@ -65,6 +65,7 @@ export const Jumbotron = () => {
           flex={{ base: 0.7, lg: 0.5 }}
           justifyContent="space-between"
           flexWrap="wrap"
+          display={{base:"none", md:"flex"}}
         >
           {Links?.map(({ label, value }) => (
             <Link fontSize="sm" key={value}>
