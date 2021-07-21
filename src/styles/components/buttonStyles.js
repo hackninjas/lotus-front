@@ -5,6 +5,7 @@ export const ButtonStyles = {
     primary: {
       bg: 'lotusBlue.400',
       color: 'white',
+      fontSize: "sm",
       _hover: {
         bg: 'transparent',
         color: 'lotusBlue.400',
