@@ -46,14 +46,15 @@ export const Features = () => {
         </Text>
       </Box>
 
-      <Flex mt="16">
+      <Flex mt="16" w={{ base: '80%', lg: '50%' }} justifyContent="space-around" flexWrap="wrap">
         {FeatureItems.map(({ icon, label }) => (
           <Flex
             fontSize="sm"
             direction="column"
             alignItems="center"
             justifyContent="center"
-            mr="10"
+            mb="10"
+          
           >
             <Flex
               p="4"
