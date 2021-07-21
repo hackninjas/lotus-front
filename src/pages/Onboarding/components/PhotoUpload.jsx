@@ -1,10 +1,18 @@
 import React from 'react';
 import { Box, Text, Flex } from '@chakra-ui/layout';
-import {Avatar, IconButton} from '@chakra-ui/react'
+import {Avatar, IconButton, VStack} from '@chakra-ui/react'
 
 export const PhotoUpload = () => {
   return (
-    <Box>
+       <Flex
+        direction="column"
+        justifyContent="center"
+        position="relative"
+        zIndex="100"
+        h="100%"
+        w="100%"
+        top="-100"
+      >
         <Text color="#0C0C0C" fontWeight="bold" fontSize="md">
           Upload Photo
         </Text>    
@@ -13,15 +21,15 @@ export const PhotoUpload = () => {
          photo is most recommended for this process. You can change your image later.
        </Text>
 
-        <Flex
+        <VStack
         direction="column" >
           <IconButton
             colorScheme="none"
-            aria-label="Call Segun"
             icon={ <Avatar  size="2xl" left="30" top="130" />}
           />
-        </Flex>
+        </VStack>
+          <Text>Upload Photo</Text>
 
-    </Box>
+    </Flex>
   );
 };

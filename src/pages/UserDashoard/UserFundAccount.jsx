@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { Avatar } from '@chakra-ui/avatar';
-import { Flex, Heading, Link, VStack } from '@chakra-ui/layout';
+import { Flex, Heading, VStack } from '@chakra-ui/layout';
 import { ChevronDownIcon } from '@chakra-ui/icons';
 import {
   Button,
@@ -16,7 +16,7 @@ import { UserContext } from 'context';
 import { CreditCardIcon, DonutChartIcon, SendIcon } from 'shared/Icons';
 import { UserDashboardLayout } from './components/UserDashboardLayout';
 
-export const UserDashboardMain = () => {
+export const UserFundAccount = () => {
   const { userData } = useContext(UserContext);
   return (
     <UserDashboardLayout>
@@ -117,19 +117,13 @@ export const UserDashboardMain = () => {
             No Activities yet.
           </Heading>
           <Text fontWeight="normal" fontSize="sm">
-            Upgrade your account to enjoy maximum capacity on your Lotus
-            Account.
+            You have not performed any transaction yet.
+            Kindly fund your account
           </Text>
 
           <Flex alignItems="center">
-            <Link fontSize="sm" mr="5">
-              Skip for now
-            </Link>
-            <Button 
-            variant="primary"
-             fontSize="sm"
-             >
-              Upgrade my account
+            <Button variant="primary" fontSize="sm">
+              Fund My Account
             </Button>
           </Flex>
         </VStack>

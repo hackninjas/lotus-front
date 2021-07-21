@@ -4,9 +4,9 @@ import React from 'react';
 import logo from '../../assets/images/logo.png';
 import correct from '../../assets/images/correct.svg';
 
-export const ResetSuccess = () => {
+export const IdVerifyResponse = () => {
   return (
-    <Box textAlign="left">
+    <Box textAlign="left" mt={10}>
       <Center>
         <Box w="50px">
           <Image src={logo} objectFit="cover" w="100%" />
@@ -18,7 +18,7 @@ export const ResetSuccess = () => {
           border="1px solid #00CECE"
           borderRadius="full"
           w="14"
-         justifyContent="center"
+        justifyContent="center"
           h="14"
           p="2"
         >
@@ -26,7 +26,7 @@ export const ResetSuccess = () => {
           <Image src={correct} />
         </Flex>
         <Text color="#0C0C0C" fontWeight="bold" fontSize="sm">
-          Password reset successfully. Login to continue.
+            Your ID card has been submitted for verification.
         </Text>
         <Divider variant="dashed" fontWeight="bold"></Divider>
         <Text color=" #2D2D2D" fontSize="sm" >

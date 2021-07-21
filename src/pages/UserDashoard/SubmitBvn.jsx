@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { Avatar } from '@chakra-ui/avatar';
-import { Flex, Heading, Link, VStack } from '@chakra-ui/layout';
-import { ChevronDownIcon } from '@chakra-ui/icons';
+import { Flex, Heading, VStack } from '@chakra-ui/layout';
+import { ChevronDownIcon, ArrowBackIcon } from '@chakra-ui/icons';
 import {
   Button,
   Menu,
@@ -11,19 +11,25 @@ import {
   Text,
   AvatarBadge,
   chakra,
+  InputGroup,
+  Input,
+  FormLabel
 } from '@chakra-ui/react';
 import { UserContext } from 'context';
-import { CreditCardIcon, DonutChartIcon, SendIcon } from 'shared/Icons';
 import { UserDashboardLayout } from './components/UserDashboardLayout';
 
-export const UserDashboardMain = () => {
+export const SubmitBvn = () => {
   const { userData } = useContext(UserContext);
   return (
     <UserDashboardLayout>
       <Flex justifyContent="space-between" alignItems="center">
         <Flex alignItems="center" fontSize="sm">
           <Flex alignItems="center" cursor="pointer" mr="4">
-            <SendIcon size="25px" />
+              <Button
+              borderRadius="150px"
+              >
+                  <ArrowBackIcon size="35px" />
+              </Button>
             <Text
               ml="2"
               color="lotusGrey"
@@ -32,32 +38,7 @@ export const UserDashboardMain = () => {
               }}
               fontFamily="fonts.cocogoose"
             >
-              Transactions
-            </Text>
-          </Flex>
-          <Flex alignItems="center" cursor="pointer" mr="4">
-            <DonutChartIcon />
-            <Text
-              _hover={{
-                color: 'black',
-              }}
-              as="p"
-              ml="2"
-              color="lotusGrey"
-            >
-              Budget
-            </Text>
-          </Flex>
-          <Flex alignItems="center" cursor="pointer" mr="4">
-            <CreditCardIcon />
-            <Text
-              _hover={{
-                color: 'black',
-              }}
-              ml="2"
-              color="lotusGrey"
-            >
-              Card
+              Back
             </Text>
           </Flex>
         </Flex>
@@ -98,6 +79,7 @@ export const UserDashboardMain = () => {
         zIndex="100"
         h="100%"
         w="100%"
+        top="-70"
       >
         <VStack spacing="4" mx="auto" w="50%" textAlign="center">
           <Heading
@@ -114,24 +96,25 @@ export const UserDashboardMain = () => {
               transform: 'translateX(-50%)',
             }}
           >
-            No Activities yet.
+            Bank Verification Number (BVN)
           </Heading>
-          <Text fontWeight="normal" fontSize="sm">
-            Upgrade your account to enjoy maximum capacity on your Lotus
-            Account.
+          <Text fontWeight="normal" fontSize="xs">
+            Please kindly provide your BVN for verification.
           </Text>
 
           <Flex alignItems="center">
-            <Link fontSize="sm" mr="5">
-              Skip for now
-            </Link>
-            <Button 
-            variant="primary"
-             fontSize="sm"
-             >
-              Upgrade my account
-            </Button>
+                <form>
+                <FormLabel fontSize="xs" fontWeight="bold" mt={10} color="#2D2D2D">
+                    Your bank verification number
+                </FormLabel>
+            <InputGroup size="md">
+                <Input type="number" w="full" />
+            </InputGroup>
+            </form>
           </Flex>
+            <Button variant="primary" fontSize="xs">
+              Submit for Verification
+            </Button>
         </VStack>
       </Flex>
     </UserDashboardLayout>
