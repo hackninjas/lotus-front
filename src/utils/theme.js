@@ -34,7 +34,8 @@ const theme = extendTheme({
     },
     lotusBlack :"#707070",
     lotusTextBody: "#2D2D2D",
-    lotusGrey: "#9B9B9B"
+    lotusGrey: "#9B9B9B",
+    lotusOrange:"#FFA429"
   },
   fonts: {
     body: "TTcommon Regular, sans-serif",
