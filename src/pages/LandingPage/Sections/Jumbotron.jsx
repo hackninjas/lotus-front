@@ -78,6 +78,7 @@ export const Jumbotron = () => {
           fontWeight="normal"
           px="10"
           onClick={onToggle}
+          display={{base:"none", md:"block"}}
         >
           Login
         </Button>
@@ -94,31 +95,6 @@ export const Jumbotron = () => {
             bottom="20"
             left="0"
           />
-          {/* <Flex
-            py="10"
-            px="14"
-            alignItems="center"
-            justifyContent="space-between"
-            position="relative"
-            zIndex="10"
-          >
-            <Box w="50px">
-              <Image src={logo} objectFit="cover" w="100%" />
-            </Box>
-
-            <Flex
-              flex={{ base: 0.9, lg: 0.5 }}
-              justifyContent="space-between"
-              flexWrap="wrap"
-            >
-              {Links?.map(({ label, value }) => (
-                <Link fontSize="sm" key={value}>
-                  {label}
-                </Link>
-              ))}
-            </Flex>
-          </Flex> */}
-
           <Stack
             mt="10"
             ml={{ base: '14', lg: '28' }}
@@ -170,17 +146,6 @@ export const Jumbotron = () => {
             top="28"
             right={{ base: '10', lg: '28' }}
           />
-          {/* <Flex py="14" px="14" justifyContent="flex-end">
-            <Button
-              variant="primaryOutline"
-              fontSize="sm"
-              fontWeight="normal"
-              px="10"
-              onClick={onToggle}
-            >
-              Login
-            </Button>
-          </Flex> */}
           <CustomDrawer isOpen={isOpen} onClose={onToggle}>
             <Login />
             {/* <Account /> */}

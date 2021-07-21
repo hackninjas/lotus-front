@@ -73,7 +73,8 @@ export const Login = () => {
       <Text fontSize="xs" my={4}>
         or continue
       </Text>
-      <Flex justifyContent="space-between">
+      <Flex justifyContent="space-between" direction={{base:"column", sm:"row"}}>
+
         <Flex
           cursor="pointer"
           _hover={{
@@ -85,6 +86,7 @@ export const Login = () => {
           p="0.5"
           pr="2.5"
           flex={0.45}
+          mb={{base: "8", sm:"0"}}
         >
           <Flex
             height="43px"

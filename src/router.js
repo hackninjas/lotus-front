@@ -1,3 +1,4 @@
+import { LoginMobile } from 'pages/LoginMobile';
 import { Onboarding } from 'pages/Onboarding/Onboarding';
 import { UserDashboardMain } from 'pages/UserDashoard/UserDashboardMain';
 import React from 'react';
@@ -12,6 +13,7 @@ export const MainRouter = () => {
         <Route exact path="/" component={LandingPage} />
         <Route exact path="/onboarding" component={Onboarding}/>
         <Route exact path="/dashboard" component={UserDashboardMain}/>
+        <Route exact path="/login" component={LoginMobile}/>
       </Switch>
     </BrowserRouter>
   );
