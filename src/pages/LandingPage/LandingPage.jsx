@@ -16,6 +16,9 @@ import { ForgotPassword } from 'pages/Auth/ForgotPassword';
 import { ResetPassword } from 'pages/Auth/ResetPassword';
 import { ResetSuccess } from 'pages/Auth/ResetSuccess';
 
+import lotusGreenBg from 'assets/images/lotusGreen.png';
+import creditTwo from 'assets/svg/creditTwo.svg';
+
 export const LandingPage = () => {
   const { isOpen, onToggle } = useDisclosure();
 
@@ -29,7 +32,9 @@ export const LandingPage = () => {
         </Flex>
         <Code>Landing page</Code>
       </Box>
-      <Box flex={0.3} bg="lotusGreen.100">
+      <Box flex={0.3} bg="lotusGreen.100" position="relative">
+        <Image src={lotusGreenBg} position="absolute" top="0" right="0" />
+        <Image src={creditTwo} position="absolute" top="28" right="28" />
         <Flex py="10" px="14" justifyContent="flex-end">
           <Button
             variant="primaryOutline"
