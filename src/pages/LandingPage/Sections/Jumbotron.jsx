@@ -87,7 +87,7 @@ export const Jumbotron = () => {
           spacing="10"
           w="55%"
           position="relative"
-          zIndex="20"
+          zIndex="2"
         >
           <Heading fontSize="5vw">
             We are the <chakra.span color="lotusGreen.400">new</chakra.span>{' '}

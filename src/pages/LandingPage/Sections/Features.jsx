@@ -4,6 +4,7 @@ import { Text, Box, chakra } from '@chakra-ui/react';
 import { ReactComponent as RateIcon } from 'assets/svg/rate.svg';
 import { ReactComponent as TransferIcon } from 'assets/svg/transfer.svg';
 import { ReactComponent as BankIcon } from 'assets/svg/bank.svg';
+import { ReactComponent as PiggyIcon } from 'assets/svg/piggy.svg';
 
 const FeatureItems = [
   {
@@ -20,7 +21,7 @@ const FeatureItems = [
   },
   {
     label: 'Quick account opening',
-    icon: <></>,
+    icon: <PiggyIcon width="40" height="50" />,
   },
 ];
 
