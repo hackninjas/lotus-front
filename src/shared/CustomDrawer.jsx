@@ -5,7 +5,7 @@ import { CloseIcon } from '@chakra-ui/icons';
 export const CustomDrawer = ({ children, isOpen, onClose }) => {
   return (
     <>
-      <Slide direction="bottom" in={isOpen} style={{ zIndex: 10 }}>
+      <Slide direction="bottom" in={isOpen} style={{ zIndex: 10 }} >
         <Box>
          
           <Flex
@@ -17,6 +17,7 @@ export const CustomDrawer = ({ children, isOpen, onClose }) => {
             p="8"
             w="100%"
             justifyContent="space-between"
+            overflow="auto"
           >
             <Box w="30%" />
 

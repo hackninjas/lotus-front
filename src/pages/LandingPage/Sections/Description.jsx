@@ -8,7 +8,7 @@ import Pic3 from 'assets/images/pexels-ivan-samkov-7620568@2x.png';
 
 export const Description = () => {
   return (
-    <Stack mt="28" px={{base:"10", lg:"0"}} spacing={{base:"28",lg:"96"}} pl={{lg:"40"}}>
+    <Stack mt="28" px={{base:"10"}} spacing={{base:"28",lg:"96"}} pl={{lg:"40"}}>
       <Flex>
         <Flex
           bg="lotusFadedPink"
@@ -99,7 +99,7 @@ export const Description = () => {
 
           {/* second  */}
 
-      <Flex >
+      <Flex>
         <Flex
           bg="lotusGreen.200"
           borderRadius="lg"
@@ -163,6 +163,7 @@ export const Description = () => {
           <Box
             flex={1}
             position="relative"
+            
             display={{base:"none", lg:"block"}}
             w="40%"
             _after={{
