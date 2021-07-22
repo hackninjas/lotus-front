@@ -30,8 +30,8 @@ export const Sidebar = () => {
           <DrawerBody>
             {
               <Flex flexWrap="wrap" direction="column" mt="20">
-                {Links?.map(({ label, value }) => (
-                  <Link fontSize="md" fontWeight="bold" p="5" key={value} as={RLink}>
+                {Links?.map(({ label, link }) => (
+                  <Link fontSize="md" fontWeight="bold" p="5" key={link} as={RLink} to={`/${link}`}>
                     {label}
                   </Link>
                 ))}

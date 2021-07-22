@@ -22,8 +22,8 @@ export const Links = [
 export const Footer = () => {
   return (
     <Box
-      mt="96"
-      px="28"
+      mt={{base:"40",lg:"96"}}
+      px={{base:"10",lg:"28"}}
       pb="40"
       bgGradient="linear(to-b, white, lotusGreen.100, lotusFadedPink)"
     >
@@ -39,7 +39,8 @@ export const Footer = () => {
 
         <Stack spacing="5" flex={0.25} mb={{ base: '10', md: '0' }}>
           <Heading 
-          fontSize="x-large">Our Address</Heading>
+         fontSize={{base:"1.2rem",lg:"2rem"}}
+          >Our Address</Heading>
           <Text fontSize="sm">
             Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
             nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
@@ -48,7 +49,9 @@ export const Footer = () => {
           </Text>
         </Stack>
         <Stack spacing="5" flex={0.25} mb={{ base: '10', md: '0' }}>
-          <Heading fontSize="x-large">Get In touch</Heading>
+          <Heading 
+          fontSize={{base:"1.2rem",lg:"2rem"}}
+          >Get In touch</Heading>
           <Flex direction="column">
             {Links?.map(({ label, link }) => (
               <Link fontSize="sm" mb="5" key={link} href={link}>
@@ -58,7 +61,9 @@ export const Footer = () => {
           </Flex>
         </Stack>
         <Stack spacing="5" flex={0.25}>
-          <Heading fontSize="x-large">Help Center</Heading>
+          <Heading 
+         fontSize={{base:"1.2rem",lg:"2rem"}}
+          >Help Center</Heading>
           <Text fontSize="sm">
             Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
             nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam

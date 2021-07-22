@@ -8,8 +8,8 @@ import Pic3 from 'assets/images/pexels-ivan-samkov-7620568@2x.png';
 
 export const Description = () => {
   return (
-    <Stack mt="28" spacing={{base:"28",lg:"96"}} pl={{lg:"40"}}>
-      <Flex px="10" >
+    <Stack mt="28" px={{base:"10", lg:"0"}} spacing={{base:"28",lg:"96"}} pl={{lg:"40"}}>
+      <Flex>
         <Flex
           bg="lotusFadedPink"
           borderRadius="lg"
@@ -20,7 +20,7 @@ export const Description = () => {
           _before={{
             content: '""',
             height: '14',
-            width: '2px',
+            width: {...{base:"1px",lg:'2px'}},
             position: 'absolute',
             right: 14,
             top: -1,
@@ -35,7 +35,7 @@ export const Description = () => {
             top: -14,
             color: 'black',
             fontSize: 'xx-large',
-            fontWeight: 'bold',
+            fontWeight: {...{base:"normal",lg:'bold'}},
           }}
         >
           <Box
@@ -66,7 +66,7 @@ export const Description = () => {
             <Stack spacing="8">
               <Heading
                 color="lotusBlue.400"
-                fontSize="2rem"
+                fontSize={{base:"1.2rem",lg:"2rem"}}
                 fontWeight="bold"
                 fontFamily="font.cocogoose"
               >
@@ -99,7 +99,7 @@ export const Description = () => {
 
           {/* second  */}
 
-      <Flex px="10" >
+      <Flex >
         <Flex
           bg="lotusGreen.200"
           borderRadius="lg"
@@ -108,11 +108,11 @@ export const Description = () => {
           position="relative"
           _before={{
             content: '""',
-            height: '2px',
-            width: '80px',
+            height: {...{base:"14",lg:'2px'}},
+            width: {...{base:"1px",lg:'80px'}},
             position: 'absolute',
-            left: -6,
-            top: 10,
+            left: {...{base:"14",lg:-6}},
+            top: {...{base:-1,lg:10}},
             background: 'black',
            
           }}
@@ -121,18 +121,18 @@ export const Description = () => {
             height: '14',
             width: 'max-content',
             position: 'absolute',
-            left: -16,
-            top: 4,
+            left: {...{base:"10", lg:"-16"}},
+            top:{...{base:"-14", lg:"4"}},
             color: 'black',
             fontSize: 'xx-large',
-            fontWeight: 'bold',
+            fontWeight: {...{base:"normal",lg:'bold'}},
           }}
         >
           <Box w={{base:"100%", lg:"50%"}} mr="10">
             <Stack spacing="8" pt="10">
               <Heading
                 color="lotusBlue.400"
-                fontSize="2rem"
+                fontSize={{base:"1.2rem",lg:"2rem"}}
                 fontWeight="bold"
                 fontFamily="font.cocogoose"
               >
@@ -182,7 +182,7 @@ export const Description = () => {
       </Flex>
 
        {/* 3rd */}
-      <Flex px="10" >
+      <Flex>
         <Flex
           bg="lotusFadedPink"
           borderRadius="lg"
@@ -193,7 +193,7 @@ export const Description = () => {
           _before={{
             content: '""',
             height: '14',
-            width: '2px',
+            width: {...{base:"1px",lg:'2px'}},
             position: 'absolute',
             right: 14,
             top: -1,
@@ -208,7 +208,7 @@ export const Description = () => {
             top: -14,
             color: 'black',
             fontSize: 'xx-large',
-            fontWeight: 'bold',
+            fontWeight: {...{base:"normal",lg:'bold'}},
           }}
         >
           <Box
@@ -240,7 +240,7 @@ export const Description = () => {
             <Stack spacing="8">
               <Heading
                 color="lotusBlue.400"
-                fontSize="2rem"
+                fontSize={{base:"1.2rem",lg:"2rem"}}
                 fontWeight="bold"
                 fontFamily="font.cocogoose"
               >
