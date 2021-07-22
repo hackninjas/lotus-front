@@ -35,6 +35,7 @@ export const Layout = ({ children, step, canNext, goNext, changeStep }) => {
             </Text>
             <Flex>
               {steps.map((stepName, index) => (
+                <React.Fragment key={index}>
                 <BreadCrumbItem
                   index={index}
                   step={step}
@@ -42,6 +43,7 @@ export const Layout = ({ children, step, canNext, goNext, changeStep }) => {
                   isLast={index + 1 === steps.length}
                   changeStep={changeStep}
                 />
+                </React.Fragment>
               ))}
             </Flex>
           </Flex>
