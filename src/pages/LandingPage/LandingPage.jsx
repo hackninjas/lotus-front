@@ -1,16 +1,19 @@
 import React from 'react';
-import { Box, VStack, Code, Grid, Text } from '@chakra-ui/react';
+import {
+  Box,
+} from '@chakra-ui/react';
+import { Features } from './Sections/Features';
+import { Jumbotron } from './Sections/Jumbotron';
+import { Description } from './Sections/Description';
+
+
 
 export const LandingPage = () => {
   return (
-    <Box textAlign="center" fontSize="xl">
-      <Grid minH="100vh" p={3}>
-        <VStack spacing={8}>
-          <Text>
-             <Code fontSize="xl">Landing Page</Code> 
-          </Text>
-        </VStack>
-      </Grid>
+    <Box>
+      <Jumbotron/>
+      <Features/>
+      <Description/>
     </Box>
   );
 };
