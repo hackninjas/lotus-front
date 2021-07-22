@@ -35,11 +35,12 @@ const theme = extendTheme({
     lotusBlack :"#707070",
     lotusTextBody: "#2D2D2D",
     lotusGrey: "#9B9B9B",
-    lotusOrange:"#FFA429"
+    lotusOrange:"#FFA429",
+    lotusFadedPink:"#F9F7FF"
   },
   fonts: {
     body: "TTcommon Regular, sans-serif",
-    cocogoose: "TT Commons Italic"
+    cocogoose: "Cocogoose"
   },
   components: {
     Button,
