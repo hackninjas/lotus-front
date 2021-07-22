@@ -1,3 +1,4 @@
+import { LoginMobile } from 'pages/LoginMobile';
 import { Onboarding } from 'pages/Onboarding/Onboarding';
 import { UserDashboardMain } from 'pages/UserDashoard/UserDashboardMain';
 import { UserFundAccount } from 'pages/UserDashoard/UserFundAccount';
@@ -21,6 +22,7 @@ export const MainRouter = () => {
       <Switch>
         <Route exact path="/" component={LandingPage} />
         <Route exact path="/onboarding" component={Onboarding} />
+        <Route exact path="/login" component={LoginMobile}/>
         <Route exact path="/dashboard" component={UserDashboardMain} />
         <Route exact path="/upgrade" component={UpgradeAccount} />
         <Route exact path="/fund" component={UserFundAccount} />
@@ -32,6 +34,8 @@ export const MainRouter = () => {
         <Route exact path="/address" component={AddressProof} />
         <Route exact path="/signature" component={Signature} />
         <Route exact path="/response" component={SignatureResponse} />
+        {/* <Route exact path="/onboarding" component={Onboarding}/>
+        <Route exact path="/dashboard" component={UserDashboardMain}/> */}
       </Switch>
     </BrowserRouter>
   );
