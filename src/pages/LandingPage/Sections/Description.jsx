@@ -170,7 +170,7 @@ export const Description = () => {
               zIndex: '1',
             }}
           >
-            <Image src={Pic2} zIndex="2" w="100%" position="absolute" right="-10" />
+            <Image src={Pic2} zIndex="2" position="absolute" right="-10" />
           </Box>
         </Flex>
       </Flex>
