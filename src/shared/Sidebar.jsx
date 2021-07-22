@@ -1,5 +1,5 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
+import { useHistory, Link as RLink } from 'react-router-dom';
 import {
   Drawer,
   DrawerBody,
@@ -31,7 +31,7 @@ export const Sidebar = () => {
             {
               <Flex flexWrap="wrap" direction="column" mt="20">
                 {Links?.map(({ label, value }) => (
-                  <Link fontSize="md" fontWeight="bold" p="5" key={value}>
+                  <Link fontSize="md" fontWeight="bold" p="5" key={value} as={RLink}>
                     {label}
                   </Link>
                 ))}
