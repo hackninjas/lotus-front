@@ -12,6 +12,7 @@ import {
   chakra,
   Stack,
 } from '@chakra-ui/react';
+import { Link as RLink} from "react-router-dom";
 
 import { CustomDrawer } from 'shared/CustomDrawer';
 
@@ -30,17 +31,17 @@ import { Sidebar } from 'shared/Sidebar';
 export const Links = [
   {
     label: 'Banking',
-    value: 'banking',
+    link: 'banking',
   },
   {
     label: 'How it works',
-    value: 'how',
+    link: 'how',
   },
   {
     label: 'Features',
-    value: 'feature',
+    link: 'feature',
   },
-  { label: 'About us', value: 'about' },
+  { label: 'About us', link: 'about' },
 ];
 
 export const Jumbotron = () => {
@@ -67,8 +68,8 @@ export const Jumbotron = () => {
           flexWrap="wrap"
           display={{base:"none", md:"flex"}}
         >
-          {Links?.map(({ label, value }) => (
-            <Link fontSize="sm" key={value}>
+          {Links?.map(({ label, link }) => (
+            <Link fontSize="sm" key={link} as={RLink} to={`/${link}`}>
               {label}
             </Link>
           ))}
