@@ -33,7 +33,7 @@ export const Features = () => {
       direction="column"
       alignItems="center"
     >
-      <Heading fontSize="4vw" color="lotusBlue.400" textAlign="center">
+      <Heading  fontSize={{base:"1.2rem",lg:"2rem"}} color="lotusBlue.400" textAlign="center">
         The Bank that covers <br /> all your needs
       </Heading>
 
