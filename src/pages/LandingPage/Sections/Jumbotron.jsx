@@ -26,6 +26,7 @@ import creditTwo from 'assets/images/creditTwo.png';
 import gradientBg from 'assets/images/gradientBg.png';
 import logo from 'assets/images/logo.png';
 import { Sidebar } from 'shared/Sidebar';
+import { Register } from './Register';
 
 export const Links = [
   {
@@ -128,9 +129,10 @@ export const Jumbotron = () => {
               dolores et ea rebum.
             </Text>
             <Flex alignItems="center" direction={{base:"column", md:"row"}}>
-              <Button variant="primary" fontWeight="normal" px="10">
+              {/* <Button variant="primary" fontWeight="normal" px="10">
                 Open a Bank Account
-              </Button>
+              </Button> */}
+              <Register/>
               <Link fontSize="sm" mt={{base:"4", md:"0"}} ml={{base:"0",md:"10"}} fontWeight="bold">
                 Learn More
               </Link>
