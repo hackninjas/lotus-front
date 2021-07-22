@@ -54,7 +54,7 @@ export const Features = () => {
             alignItems="center"
             justifyContent="center"
             mb="10"
-          
+            key={label}
           >
             <Flex
               p="4"
