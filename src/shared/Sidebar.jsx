@@ -21,7 +21,7 @@ export const Sidebar = () => {
 
   return (
     <>
-      <Icon onClick={onOpen} as={HamburgerIcon} w={8} h={8} />
+      <Icon onClick={onOpen} as={HamburgerIcon} w={8} h={8} display={{base:"block", sm:"none"}} />
       <Drawer isOpen={isOpen} placement="right" onClose={onClose}>
         <DrawerOverlay />
         <DrawerContent>
