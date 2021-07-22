@@ -8,13 +8,14 @@ import Pic3 from 'assets/images/pexels-ivan-samkov-7620568@2x.png';
 
 export const Description = () => {
   return (
-    <Stack mt="28" spacing="96" pl="40">
+    <Stack mt="28" spacing={{base:"28",lg:"96"}} pl={{lg:"40"}}>
       <Flex px="10" >
         <Flex
           bg="lotusFadedPink"
           borderRadius="lg"
           p="10"
-          pr="40"
+          pr={{base:"10",lg:"40"}}
+          direction={{base:"column", lg:'row'}}
           position="relative"
           _before={{
             content: '""',
@@ -41,6 +42,7 @@ export const Description = () => {
             w="40%"
             position="relative"
             mr="14"
+            display={{base:"none", lg:"block"}}
             _after={{
               content: '""',
               height: 48,
@@ -56,11 +58,11 @@ export const Description = () => {
               src={Pic1}
               maxWidth="120%"
               zIndex="2"
-              position="absolute"
-              left="-20"
+              position={{base:"relative",lg:"absolute"}}
+              left={{base:"0",lg:"-20"}}
             />
           </Box>
-          <Box w="50%">
+          <Box w={{lg:"50%"}}>
             <Stack spacing="8">
               <Heading
                 color="lotusBlue.400"
@@ -87,12 +89,15 @@ export const Description = () => {
                 sadipscing elitr, sed diam nonumy.
               </Text>
             </Stack>
-            <Button variant="primary" mt="14" fontWeight="normal">
+            <Button variant="primary" mt="14" fontWeight="normal" px="10">
               Open a Bank Account
             </Button>
           </Box>
         </Flex>
       </Flex>
+
+
+          {/* second  */}
 
       <Flex px="10" >
         <Flex
@@ -123,7 +128,7 @@ export const Description = () => {
             fontWeight: 'bold',
           }}
         >
-          <Box w="50%" mr="10">
+          <Box w={{base:"100%", lg:"50%"}} mr="10">
             <Stack spacing="8" pt="10">
               <Heading
                 color="lotusBlue.400"
@@ -150,7 +155,7 @@ export const Description = () => {
                 sadipscing elitr, sed diam nonumy.
               </Text>
             </Stack>
-            <Button variant="primary" mt="14" fontWeight="normal">
+            <Button variant="primary" mt="14" fontWeight="normal" px="10">
               Open a Bank Account
             </Button>
           </Box>
@@ -158,6 +163,7 @@ export const Description = () => {
           <Box
             flex={1}
             position="relative"
+            display={{base:"none", lg:"block"}}
             w="40%"
             _after={{
               content: '""',
@@ -175,13 +181,14 @@ export const Description = () => {
         </Flex>
       </Flex>
 
-
+       {/* 3rd */}
       <Flex px="10" >
         <Flex
           bg="lotusFadedPink"
           borderRadius="lg"
           p="10"
-          pr="40"
+          pr={{base:"10",lg:"40"}}
+          direction={{base:"column", lg:'row'}}
           position="relative"
           _before={{
             content: '""',
@@ -205,6 +212,7 @@ export const Description = () => {
           }}
         >
           <Box
+            display={{base:"none", lg:"block"}}
             w="40%"
             position="relative"
             mr="14"
@@ -228,7 +236,7 @@ export const Description = () => {
               left="-20"
             />
           </Box>
-          <Box w="50%">
+          <Box w={{lg:"50%"}}>
             <Stack spacing="8">
               <Heading
                 color="lotusBlue.400"
@@ -255,7 +263,7 @@ export const Description = () => {
                 sadipscing elitr, sed diam nonumy.
               </Text>
             </Stack>
-            <Button variant="primary" mt="14" fontWeight="normal">
+            <Button variant="primary" mt="14" fontWeight="normal" px="10">
               Open a Bank Account
             </Button>
           </Box>

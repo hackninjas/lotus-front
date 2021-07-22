@@ -6,7 +6,6 @@ import {
   Button,
   useDisclosure,
   Text,
-  Code,
   Heading,
   Link,
   chakra,
@@ -129,7 +128,7 @@ export const Jumbotron = () => {
               dolores et ea rebum.
             </Text>
             <Flex alignItems="center">
-              <Button variant="primary" fontWeight="normal">
+              <Button variant="primary" fontWeight="normal" px="10">
                 Open a Bank Account
               </Button>
               <Link fontSize="sm" ml="10" fontWeight="bold">
