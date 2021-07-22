@@ -26,7 +26,7 @@ import creditTwo from 'assets/images/creditTwo.png';
 import gradientBg from 'assets/images/gradientBg.png';
 import logo from 'assets/images/logo.png';
 import { Sidebar } from 'shared/Sidebar';
-import { Register } from './Register';
+import { Register } from '../RegisterToggle';
 
 export const Links = [
   {
@@ -55,7 +55,7 @@ export const Jumbotron = () => {
         alignItems="center"
         justifyContent="space-between"
         position="absolute"
-        zIndex="10"
+        zIndex="2"
         w="100vw"
       >
         <Box w="50px">

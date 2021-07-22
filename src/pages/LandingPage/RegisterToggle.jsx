@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box, Button, Heading, useDisclosure } from '@chakra-ui/react';
 import { CustomDrawer } from 'shared/CustomDrawer';
-import { Login } from 'pages/Auth/Login';
+import { Register as RegisterPage } from 'pages/Auth/Register';
 
 export const Register = () => {
   const { isOpen, onToggle } = useDisclosure();
@@ -11,7 +11,7 @@ export const Register = () => {
         Open a Bank Account
       </Button>
       <CustomDrawer isOpen={isOpen} onClose={onToggle}>
-        <Login/>
+        <RegisterPage/>
       </CustomDrawer>
     </Box>
   );
