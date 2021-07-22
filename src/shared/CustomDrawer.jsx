@@ -1,11 +1,20 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Box, Button, Slide, Flex } from '@chakra-ui/react';
 import { CloseIcon } from '@chakra-ui/icons';
 
 export const CustomDrawer = ({ children, isOpen, onClose }) => {
+
+  useEffect(() => {
+    if(isOpen){
+      document.body.style.overflow = 'hidden'
+    }
+    else {
+      document.body.style.overflow = 'auto'
+    }
+  },[isOpen])
   return (
     <>
-      <Slide direction="bottom" in={isOpen} style={{ zIndex: 10 }} >
+      <Slide direction="bottom" in={isOpen} style={{ zIndex: 1000 }} >
         <Box>     
           <Flex
             h="95vh"
