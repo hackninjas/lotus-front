@@ -52,7 +52,7 @@ export const Register = () => {
           // bg="lotusBlue.400"
           // onClick={}
         >
-          Login
+          Open Bank Account
         </Button>
       </form>
       <Box textAlign="center" mt="4">
