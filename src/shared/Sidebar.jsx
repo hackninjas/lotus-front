@@ -1,5 +1,5 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
+import { useHistory, Link as RLink } from 'react-router-dom';
 import {
   Drawer,
   DrawerBody,
@@ -21,7 +21,7 @@ export const Sidebar = () => {
 
   return (
     <>
-      <Icon onClick={onOpen} as={HamburgerIcon} w={8} h={8} display={{base:"block", sm:"none"}} />
+      <Icon onClick={onOpen} as={HamburgerIcon} w={8} h={8} display={{base:"block", md:"none"}} />
       <Drawer isOpen={isOpen} placement="right" onClose={onClose}>
         <DrawerOverlay />
         <DrawerContent>
@@ -30,8 +30,8 @@ export const Sidebar = () => {
           <DrawerBody>
             {
               <Flex flexWrap="wrap" direction="column" mt="20">
-                {Links?.map(({ label, value }) => (
-                  <Link fontSize="md" fontWeight="bold" p="5" key={value}>
+                {Links?.map(({ label, link }) => (
+                  <Link fontSize="md" fontWeight="bold" p="5" key={link} as={RLink} to={`/${link}`}>
                     {label}
                   </Link>
                 ))}

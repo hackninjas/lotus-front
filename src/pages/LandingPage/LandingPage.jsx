@@ -5,6 +5,8 @@ import {
 import { Features } from './Sections/Features';
 import { Jumbotron } from './Sections/Jumbotron';
 import { Description } from './Sections/Description';
+import { GetInTouch } from './Sections/GetInTouch';
+import { Footer } from './Sections/Footer';
 
 
 
@@ -14,6 +16,8 @@ export const LandingPage = () => {
       <Jumbotron/>
       <Features/>
       <Description/>
+      <GetInTouch/>
+      <Footer/>
     </Box>
   );
 };

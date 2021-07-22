@@ -6,12 +6,12 @@ import {
   Button,
   useDisclosure,
   Text,
-  Code,
   Heading,
   Link,
   chakra,
   Stack,
 } from '@chakra-ui/react';
+import { Link as RLink} from "react-router-dom";
 
 import { CustomDrawer } from 'shared/CustomDrawer';
 
@@ -30,17 +30,17 @@ import { Sidebar } from 'shared/Sidebar';
 export const Links = [
   {
     label: 'Banking',
-    value: 'banking',
+    link: 'banking',
   },
   {
     label: 'How it works',
-    value: 'how',
+    link: 'how',
   },
   {
     label: 'Features',
-    value: 'feature',
+    link: 'feature',
   },
-  { label: 'About us', value: 'about' },
+  { label: 'About us', link: 'about' },
 ];
 
 export const Jumbotron = () => {
@@ -67,8 +67,8 @@ export const Jumbotron = () => {
           flexWrap="wrap"
           display={{base:"none", md:"flex"}}
         >
-          {Links?.map(({ label, value }) => (
-            <Link fontSize="sm" key={value}>
+          {Links?.map(({ label, link }) => (
+            <Link fontSize="sm" key={link} as={RLink} to={`/${link}`}>
               {label}
             </Link>
           ))}
@@ -104,7 +104,7 @@ export const Jumbotron = () => {
             position="relative"
             zIndex="2"
           >
-            <Heading fontSize="5vw">
+            <Heading  fontSize={{base:"1.4rem",lg:"4.5rem"}}>
               We are the <chakra.span color="lotusGreen.400">new</chakra.span>{' '}
               <Flex>
                 {' '}
@@ -127,11 +127,11 @@ export const Jumbotron = () => {
               erat, sed diam voluptua. At vero eos et accusam et justo duo
               dolores et ea rebum.
             </Text>
-            <Flex alignItems="center">
-              <Button variant="primary" fontWeight="normal">
+            <Flex alignItems="center" direction={{base:"column", md:"row"}}>
+              <Button variant="primary" fontWeight="normal" px="10">
                 Open a Bank Account
               </Button>
-              <Link fontSize="sm" ml="10" fontWeight="bold">
+              <Link fontSize="sm" mt={{base:"4", md:"0"}} ml={{base:"0",md:"10"}} fontWeight="bold">
                 Learn More
               </Link>
             </Flex>

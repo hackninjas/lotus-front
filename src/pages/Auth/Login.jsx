@@ -6,11 +6,14 @@ import {
   Button,
   Divider,
   Flex,
-  CircularProgress
+  CircularProgress,
 } from '@chakra-ui/react';
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+//   Link,
+// } from '@chakra-ui/react';
+import { Link as RLink } from 'react-router-dom';
 import { FcGoogle } from 'react-icons/fc';
 import { FaFacebook } from 'react-icons/fa';
 
@@ -141,19 +144,20 @@ export const Login = () => {
                             )}
         </Button>
       </form>
-      <Link>
-        <Box
+      <Box textAlign="center" mt="4">
+        <Link
           color="lotusBlue.400"
-          as="u"
           fontSize="xs"
           fontWeight="bold"
           textAlign="left"
-          justifyContent="end"
+          textAlign="center"
+          as={RLink}
+          to="/recover-password"
         >
           Forgot Password?
-        </Box>
-      </Link>
-      <Text mt={10} fontSize="xs">
+        </Link>
+      </Box>
+      <Text mt={10} fontSize="xs" textAlign="center">
         Don't have a bank account with us?
         <Link to="/account">
           <Text as="u" color="lotusBlue.400" fontWeight="bold">
@@ -162,11 +166,13 @@ export const Login = () => {
         </Link>
       </Text>
       <Divider variant="dashed" fontWeight="bold" mt={6}></Divider>
-      <Text fontSize="xs" my={4}>
+      <Text fontSize="xs" my={4} textAlign="center">
         or continue
       </Text>
-      <Flex justifyContent="space-between" direction={{base:"column", sm:"row"}}>
-
+      <Flex
+        justifyContent="space-between"
+        direction={{ base: 'column', sm: 'row' }}
+      >
         <Flex
           cursor="pointer"
           _hover={{
@@ -178,7 +184,7 @@ export const Login = () => {
           p="0.5"
           pr="2.5"
           flex={0.45}
-          mb={{base: "8", sm:"0"}}
+          mb={{ base: '8', sm: '0' }}
         >
           <Flex
             height="43px"
@@ -216,9 +222,7 @@ export const Login = () => {
             bg="white"
             borderWidth={1}
           >
-            <FcGoogle
-              style={{ width: '100%', height: '80%' }}
-            />
+            <FcGoogle style={{ width: '100%', height: '80%' }} />
           </Flex>
           <Text color="black" fontSize="sm" ml="3">
             With Google
