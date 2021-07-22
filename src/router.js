@@ -11,6 +11,7 @@ import { OtherID } from 'pages/UserDashoard/OtherID';
 import { AddressProof } from 'pages/UserDashoard/AddressProof';
 import { SignatureResponse } from 'pages/UserDashoard/SignatureResponse';
 import { Signature } from 'pages/UserDashoard/Signature';
+import {Welcome} from "pages/Onboarding/components/Welcome"
 import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { LandingPage } from './pages';
@@ -34,8 +35,8 @@ export const MainRouter = () => {
         <Route exact path="/address" component={AddressProof} />
         <Route exact path="/signature" component={Signature} />
         <Route exact path="/response" component={SignatureResponse} />
-        {/* <Route exact path="/onboarding" component={Onboarding}/>
-        <Route exact path="/dashboard" component={UserDashboardMain}/> */}
+        {/* {/* <Route exact path="/onboarding" component={Onboarding}/> */}
+        <Route exact path="/welcome" component={Welcome}/> 
       </Switch>
     </BrowserRouter>
   );

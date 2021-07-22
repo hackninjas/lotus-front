@@ -14,13 +14,21 @@ export const Account = () => {
         consectetior sapien. Etiam duat, viveriaisklkd.
       </Text>
       <form>
-        <FormControl mt={8} isRequired>
+        <FormControl mt={4} isRequired>
+              <FormLabel color="#2D2D2D" fontSize="sm">FullName</FormLabel>
+              <Input type="email" placeholder="Enter Your Name" />
+            </FormControl>
+        <FormControl mt={4} isRequired>
               <FormLabel color="#2D2D2D" fontSize="sm">Email</FormLabel>
               <Input type="email" placeholder="Enter email" />
             </FormControl>
-        <FormControl mt={8} isRequired>
+        <FormControl mt={4} isRequired>
               <FormLabel color="#2D2D2D" fontSize="sm">Password</FormLabel>
-              <Input type="password" placeholder="Enter password" />
+              <Input type="email" placeholder="Enter password" />
+            </FormControl>
+        <FormControl mt={4} isRequired>
+              <FormLabel color="#2D2D2D" fontSize="sm">Confirm Password</FormLabel>
+              <Input type="password" placeholder="confirm password" />
             </FormControl>
              <Button
         variant="primary"

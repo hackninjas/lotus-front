@@ -6,13 +6,95 @@ import {
   Button,
   Divider,
   Flex,
+  CircularProgress
 } from '@chakra-ui/react';
-import React from 'react';
+import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { FcGoogle } from 'react-icons/fc';
 import { FaFacebook } from 'react-icons/fa';
 
+import API from '../../api/axios';
+
+import ErrorMessage from 'shared/ErrorMessage';
+
 export const Login = () => {
+
+  const defaultState = {
+    email : "",
+    password : ""
+  }
+
+  const { push, replace } = useHistory();
+
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [state, setState] = useState(defaultState);
+    const [error, setError] = useState('');
+    const [toastValue, setToastValue] = useState('');
+    const [isLoading, setIsLoading] = useState(false);
+
+    const updateState = (key, value) => {
+    setState({
+      ...state,
+      [key]: value,
+    });
+  };
+
+    const login = async event => {
+        event.preventDefault();
+        setIsLoading(true);
+
+        API.post('/api/Onboarding/login', state)
+      .then((res) => {
+        const data = res.data.data;
+        localStorage.setItem('token', data);
+        // const decoded = jwt.verify(
+        //   data,
+        //   process.env.REACT_APP_JWT_SECRET 
+        // );
+        // const { user_id, full_name, email, role, phone, student_id } = JSON.parse(
+        //   JSON.stringify(decoded),
+        // );
+        // setAuthState({ user_id, full_name, email, role, phone, student_id });
+        setIsLoading(false);
+        replace('/login');
+      })
+      .catch((e) => {
+        setTimeout(() => {
+        }, 3000);
+
+        let message = event.response?.data?.message;
+        if (!message) {
+          setToastValue('Network error');
+          setIsLoading(false);
+          console.log(message)
+          push('/login');
+          return;
+        }
+        // if (message && message.indexOf('/') === -1) {
+        //   setToastValue(message);
+        //   setIsLoading(false);
+        // }
+
+        // const val = message.split('/');
+
+        // if (val[0] === 'Token sent') {
+        //   setAuthState({
+        //     user_id: val[1],
+        //     phone: val[2]
+        //   });
+        //   setIsLoading(false);
+        //   push('/register/verify-phone');
+        // }
+        // if (val[0] === 'Email sent') {
+        //   setToastValue('Check your email for verification');
+        //   setIsLoading(false);
+        //   push('/login');
+        // }
+      });
+        
+    };
   return (
     <Box w="100%">
       <Heading color="lotusBlue.400" textAlign="left">
@@ -22,31 +104,41 @@ export const Login = () => {
         Sed a magna semper, porta purus eu, ullamcorper liguia. Nam sit amet
         consectetior sapien. Etiam duat, viveriaisklkd.
       </Text>
-      <form>
+      <form  onSubmit={login}>
         <FormControl mt={8} isRequired>
           <FormLabel color="#2D2D2D" fontSize="sm">
             Email
           </FormLabel>
-          <Input type="email" placeholder="Enter email" />
+          <Input 
+          type="email" 
+          placeholder="Enter email"                                 
+          onChange = {(event) => updateState('email', event.currentTarget.value)}
+ />
         </FormControl>
         <FormControl mt={8} isRequired>
           <FormLabel color="#2D2D2D" fontSize="sm">
             Password
           </FormLabel>
-          <Input type="password" placeholder="Enter password" />
+          <Input
+           type="password"
+            placeholder="Enter password" 
+            onChange = {(event) => updateState('password', event.currentTarget.value)}
+            />
         </FormControl>
         <Button
           variant="primary"
-          // color="white"
           fontSize="sm"
           fontWeight="normal"
           px="10"
           mt={8}
           w="100%"
-          // bg="lotusBlue.400"
-          // onClick={}
+          type="submit"
         >
-          Login
+           {isLoading ? (
+                                <CircularProgress isIndeterminate size="24px" color="white" />
+                            ): (
+                                'Login'
+                            )}
         </Button>
       </form>
       <Link>

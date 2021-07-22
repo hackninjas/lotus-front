@@ -2,7 +2,7 @@ import { Box, Text, Center, Divider, Flex, Stack } from '@chakra-ui/layout';
 import { Image } from '@chakra-ui/react';
 import React from 'react';
 import logo from '../../assets/images/logo.png';
-import correct from '../../assets/images/correct.svg';
+import correct from '../../assets/svg/correct.svg';
 
 export const IdVerifyResponse = () => {
   return (
