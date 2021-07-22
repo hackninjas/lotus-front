@@ -4,6 +4,7 @@ import {
 } from '@chakra-ui/react';
 import { Features } from './Sections/Features';
 import { Jumbotron } from './Sections/Jumbotron';
+import { Description } from './Sections/Description';
 
 
 
@@ -12,6 +13,7 @@ export const LandingPage = () => {
     <Box>
       <Jumbotron/>
       <Features/>
+      <Description/>
     </Box>
   );
 };

@@ -50,7 +50,7 @@ export const Jumbotron = () => {
     <Box position="relative">
       <Flex
         py="10"
-        px="14"
+        px={{base:"10",sm:"14"}}
         alignItems="center"
         justifyContent="space-between"
         position="absolute"
@@ -87,20 +87,20 @@ export const Jumbotron = () => {
       </Flex>
 
       <Flex position="relative" h="82vh">
-        <Box flex={0.7} position="relative" pt="40">
+        <Box flex={{base:1,sm:0.7}} position="relative" pt="40">
           <Image
             src={gradientBg}
             position="absolute"
             zIndex="1"
             w="100%"
-            bottom="20"
+            bottom={{base:"40",sm:"20"}}
             left="0"
           />
           <Stack
             mt="10"
-            ml={{ base: '14', lg: '28' }}
+            ml={{ base: '10', sm: '28' }}
             spacing="10"
-            w="55%"
+            w={{base:"80%",sm:"55%"}}
             position="relative"
             zIndex="2"
           >
@@ -137,7 +137,7 @@ export const Jumbotron = () => {
             </Flex>
           </Stack>
         </Box>
-        <Box flex={0.3} bg="lotusGreen.100" position="relative">
+        <Box flex={{base:0,sm:0.3}} bg="lotusGreen.100" position="relative">
           <Image src={lotusGreenBg} position="absolute" top="0" right="0" />
           <Image
             src={creditTwo}
