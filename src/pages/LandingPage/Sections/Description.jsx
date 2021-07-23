@@ -70,14 +70,14 @@ export const Description = () => {
           </Box>
           <Box w={{ lg: '50%' }}>
             <Stack spacing="8">
-              <Heading
+              <Box
                 color="lotusBlue.400"
                 fontSize={{ base: '1.2rem', lg: '2rem' }}
                 fontWeight="bold"
                 fontFamily="font.cocogoose"
               >
                 Get an account in just <br /> a few easy steps.
-              </Heading>
+              </Box>
               <Text fontSize="sm">
                 Consetetur sadipscing elitr, sed diam nonumy eirmod tempor
                 invidunt ut labore et dolore magna aliquyam erat, sed diam
@@ -136,14 +136,14 @@ export const Description = () => {
         >
           <Box w={{ base: '100%', lg: '50%' }} mr="10">
             <Stack spacing="8" pt="10">
-              <Heading
+              <Box
                 color="lotusBlue.400"
                 fontSize={{ base: '1.2rem', lg: '2rem' }}
                 fontWeight="bold"
                 fontFamily="font.cocogoose"
               >
                 Minimum documents <br /> required.
-              </Heading>
+              </Box>
               <Text fontSize="sm">
                 Consetetur sadipscing elitr, sed diam nonumy eirmod tempor
                 invidunt ut labore et dolore magna aliquyam erat, sed diam
@@ -243,14 +243,14 @@ export const Description = () => {
           </Box>
           <Box w={{ lg: '50%' }}>
             <Stack spacing="8">
-              <Heading
+              <Box
                 color="lotusBlue.400"
                 fontSize={{ base: '1.2rem', lg: '2rem' }}
                 fontWeight="bold"
                 fontFamily="font.cocogoose"
               >
                 Start Banking.
-              </Heading>
+              </Box>
               <Text fontSize="sm">
                 Consetetur sadipscing elitr, sed diam nonumy eirmod tempor
                 invidunt ut labore et dolore magna aliquyam erat, sed diam
