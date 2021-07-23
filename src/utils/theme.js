@@ -5,14 +5,14 @@ import {
 } from "../styles/components";
 
 
-// const styles = {
-//   global: (props) => ({
-//     "*":{
-//       color: "lotusTextBody",
-//       fontFamily: "TTcommon Regular, sans-serif",
-//     }
-//   }),
-// }
+const styles = {
+  global: (props) => ({
+    "*":{
+      color: "lotusTextBody",
+      fontFamily: "TTcommon Regular, sans-serif",
+    }
+  }),
+}
 
 
 const theme = extendTheme({
@@ -46,7 +46,7 @@ const theme = extendTheme({
     Button,
     Menu
   },
-  // styles
+  styles
 });
 
 export default theme;

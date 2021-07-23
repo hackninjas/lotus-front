@@ -10,6 +10,7 @@ import {
   useDisclosure,
 } from '@chakra-ui/react';
 import React, { useState, useContext } from 'react';
+import {Link as RLink} from "react-router-dom";
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 
@@ -27,19 +28,16 @@ const password_regex =
 const email_regex = /[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/;
 
 const validationSchema = Yup.object().shape({
-  password: Yup.string()
-    .required('Required')
-    // .min(8, 'Password too short should be atleast 8 characters long')
-    // .matches(
-    //   password_regex,
-    //   'Minimum eight characters, at least one upper case English letter, one lower case English letter, one number and one special character'
-    // )
-    ,
-  email: Yup.string()
-    .min(3)
-    // .max(30)
-    // .required('Required')
-    // .matches(email_regex, 'invalid email'),
+  password: Yup.string().required('Required'),
+  // .min(8, 'Password too short should be atleast 8 characters long')
+  // .matches(
+  //   password_regex,
+  //   'Minimum eight characters, at least one upper case English letter, one lower case English letter, one number and one special character'
+  // )
+  email: Yup.string().min(3),
+  // .max(30)
+  // .required('Required')
+  // .matches(email_regex, 'invalid email'),
 });
 
 export const Login = () => {
@@ -70,76 +68,51 @@ export const Login = () => {
           Sed a magna semper, porta purus eu, ullamcorper liguia. Nam sit amet
           consectetior sapien. Etiam duat, viveriaisklkd.
         </Text>
-        <form onSubmit={() => {}}>
-          {/* {error && <ErrorMessage message={error} />} */}
-          <FormControl mt={8}>
+        <form>
+          <FormControl mt={8} isRequired>
             <FormLabel color="#2D2D2D" fontSize="sm">
               Email
             </FormLabel>
-            <Input
-              color="lotusBlue.400"
-              name="email"
-              value={values.email}
-              placeholder="Enter email"
-              onChange={handleChange}
-            />
-            {errors.email && touched.email && (
-              <Text fontSize="xs" color="red" mt="2">
-                {errors.email}
-              </Text>
-            )}
+            <Input type="email" placeholder="Enter email" />
           </FormControl>
-          <FormControl mt={8}>
+          <FormControl mt={8} isRequired>
             <FormLabel color="#2D2D2D" fontSize="sm">
               Password
             </FormLabel>
-            <Input
-              color="lotusBlue.400"
-              name="password"
-              value={values.password}
-              placeholder="Enter password"
-              onChange={handleChange}
-            />
-
-            {errors.password && touched.password && (
-              <Text fontSize="xs" color="red" mt="2">
-                {errors.password}
-              </Text>
-            )}
+            <Input type="password" placeholder="Enter password" />
           </FormControl>
           <Button
             variant="primary"
+            // color="white"
             fontSize="sm"
             fontWeight="normal"
             px="10"
             mt={8}
             w="100%"
-            type="submit"
-            isLoading={isLoading}
+            // bg="lotusBlue.400"
+            // onClick={}
           >
             Login
           </Button>
         </form>
-        <Box
-          textAlign="right"
-          mt="4"
-          color="#2D2D2D"
-          fontWeight="bold"
-          fontSize="xs"
-        >
-          <Link to="/recover-password">Forgot Password?</Link>
+        <Box textAlign="center" mt="4">
+          <Link
+            color="lotusBlue.400"
+            fontSize="xs"
+            fontWeight="bold"
+            textAlign="left"
+            textAlign="center"
+            as={RLink}
+            to="/recover-password"
+          >
+            Forgot Password?
+          </Link>
         </Box>
-        <Text
-          mt={10}
-          fontSize="xs"
-          textAlign="left"
-          color="#2D2D2D"
-          fontWeight="bold"
-        >
+        <Text mt={10} fontSize="xs" textAlign="center">
           Don't have a bank account with us?
-          <Link onClick={onToggle}>
-            <Text as="u" color="lotusBlue.400" fontWeight="bold" ml={2}>
-              Open A Bank Account
+          <Link to="/account">
+            <Text as="u" color="lotusBlue.400" fontWeight="bold">
+              Open Bank Account
             </Text>
           </Link>
         </Text>
