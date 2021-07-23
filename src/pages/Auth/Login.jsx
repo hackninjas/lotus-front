@@ -7,22 +7,26 @@ import {
   Divider,
   Flex,
   CircularProgress,
+  useDisclosure
 } from '@chakra-ui/react';
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-//   Link,
-// } from '@chakra-ui/react';
 import { Link as RLink } from 'react-router-dom';
 import { FcGoogle } from 'react-icons/fc';
 import { FaFacebook } from 'react-icons/fa';
+import { CustomDrawer } from 'shared/CustomDrawer';
+import {Account } from './Account';
+
 
 import API from '../../api/axios';
 
 import ErrorMessage from 'shared/ErrorMessage';
+// import {userLogin} from 'utils/mockApi'
 
 export const Login = () => {
-
+  const { isOpen, onToggle } = useDisclosure();
+  
   const defaultState = {
     email : "",
     password : ""
@@ -30,11 +34,11 @@ export const Login = () => {
 
   const { push, replace } = useHistory();
 
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+    // const [email, setEmail] = useState('');
+    // const [password, setPassword] = useState('');
     const [state, setState] = useState(defaultState);
-    const [error, setError] = useState('');
-    const [toastValue, setToastValue] = useState('');
+    const [error, /*setError*/] = useState('');
+    const [/*toastValue*/, setToastValue] = useState('');
     const [isLoading, setIsLoading] = useState(false);
 
     const updateState = (key, value) => {
@@ -51,23 +55,16 @@ export const Login = () => {
         API.post('/api/Onboarding/login', state)
       .then((res) => {
         const data = res.data.data;
-        localStorage.setItem('token', data);
-        // const decoded = jwt.verify(
-        //   data,
-        //   process.env.REACT_APP_JWT_SECRET 
-        // );
-        // const { user_id, full_name, email, role, phone, student_id } = JSON.parse(
-        //   JSON.stringify(decoded),
-        // );
-        // setAuthState({ user_id, full_name, email, role, phone, student_id });
+        // localStorage.setItem('token', data);
+        console.log(data);
         setIsLoading(false);
         replace('/login');
       })
       .catch((e) => {
-        setTimeout(() => {
-        }, 3000);
+        // setTimeout(() => {
+        // }, 3000);
 
-        let message = event.response?.data?.message;
+        let message = e.response?.data?.message;
         if (!message) {
           setToastValue('Network error');
           setIsLoading(false);
@@ -75,30 +72,14 @@ export const Login = () => {
           push('/login');
           return;
         }
-        // if (message && message.indexOf('/') === -1) {
-        //   setToastValue(message);
-        //   setIsLoading(false);
-        // }
-
-        // const val = message.split('/');
-
-        // if (val[0] === 'Token sent') {
-        //   setAuthState({
-        //     user_id: val[1],
-        //     phone: val[2]
-        //   });
-        //   setIsLoading(false);
-        //   push('/register/verify-phone');
-        // }
-        // if (val[0] === 'Email sent') {
-        //   setToastValue('Check your email for verification');
-        //   setIsLoading(false);
-        //   push('/login');
-        // }
       });
+
+     
         
     };
+
   return (
+    <>
     <Box w="100%">
       <Heading color="lotusBlue.400" textAlign="left">
         Welcome back
@@ -108,6 +89,7 @@ export const Login = () => {
         consectetior sapien. Etiam duat, viveriaisklkd.
       </Text>
       <form  onSubmit={login}>
+          {error && <ErrorMessage message={error} />}
         <FormControl mt={8} isRequired>
           <FormLabel color="#2D2D2D" fontSize="sm">
             Email
@@ -150,7 +132,7 @@ export const Login = () => {
           fontSize="xs"
           fontWeight="bold"
           textAlign="left"
-          textAlign="center"
+          // textAlign="center"
           as={RLink}
           to="/recover-password"
         >
@@ -159,9 +141,9 @@ export const Login = () => {
       </Box>
       <Text mt={10} fontSize="xs" textAlign="center">
         Don't have a bank account with us?
-        <Link to="/account">
+        <Link onClick={onToggle}>
           <Text as="u" color="lotusBlue.400" fontWeight="bold">
-            Open Bank Account
+            Open A Bank Account
           </Text>
         </Link>
       </Text>
@@ -230,5 +212,9 @@ export const Login = () => {
         </Flex>
       </Flex>
     </Box>
+    <CustomDrawer isOpen={isOpen} onClose={onToggle}>
+         <Account/>
+      </CustomDrawer>
+      </>
   );
 };

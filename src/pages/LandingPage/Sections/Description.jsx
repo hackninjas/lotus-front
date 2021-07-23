@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Image } from '@chakra-ui/react';
+import { Image } from '@chakra-ui/react';
 import { Box, Flex, Heading, Spacer, Stack, Text } from '@chakra-ui/layout';
 
 import Pic1 from 'assets/images/pexels-keira-burton-6147067.png';

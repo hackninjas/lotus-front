@@ -16,10 +16,11 @@ import { Link as RLink} from "react-router-dom";
 import { CustomDrawer } from 'shared/CustomDrawer';
 
 import { Login } from 'pages/Auth/Login';
-import { Account } from 'pages/Auth/Account';
-import { ForgotPassword } from 'pages/Auth/ForgotPassword';
-import { ResetPassword } from 'pages/Auth/ResetPassword';
-import { ResetSuccess } from 'pages/Auth/ResetSuccess';
+// import { Register } from 'pages/Auth/Register';
+// import { Account } from 'pages/Auth/Account';
+// import { ForgotPassword } from 'pages/Auth/ForgotPassword';
+// import { ResetPassword } from 'pages/Auth/ResetPassword';
+// import { ResetSuccess } from 'pages/Auth/ResetSuccess';
 
 import lotusGreenBg from 'assets/images/lotusGreen.png';
 import creditTwo from 'assets/images/creditTwo.png';

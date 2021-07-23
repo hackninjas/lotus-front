@@ -12,7 +12,7 @@ const UserContext = createContext(initialValues);
 const { Provider } = UserContext;
 
 const UserProvider = ({ children }) => {
-  const [userData, setUserData] = useState(initialValues);
+const [userData, /*setUserData*/] = useState(initialValues);
 
   const contextValue = useMemo(
     () => ({

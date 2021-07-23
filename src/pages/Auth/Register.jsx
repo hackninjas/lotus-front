@@ -10,7 +10,7 @@ import {
   useDisclosure,
 } from '@chakra-ui/react';
 import React from 'react';
-import { Link as RLink } from 'react-router-dom';
+// import { Link as RLink } from 'react-router-dom';
 import { FcGoogle } from 'react-icons/fc';
 import { FaFacebook } from 'react-icons/fa';
 import { CustomDrawer } from 'shared/CustomDrawer';
@@ -22,13 +22,19 @@ export const Register = () => {
       <>
     <Box w="100%">
       <Heading color="lotusBlue.400" textAlign="left">
-      Open a bank account
+      Register
       </Heading>
       <Text color="#2D2D2D" textAlign="left" fontSize="xs" mt={6}>
         Sed a magna semper, porta purus eu, ullamcorper liguia. Nam sit amet
         consectetior sapien. Etiam duat, viveriaisklkd.
       </Text>
       <form>
+        <FormControl mt={8} isRequired>
+          <FormLabel color="#2D2D2D" fontSize="sm">
+            FullName
+          </FormLabel>
+          <Input type="email" placeholder="Enter your name" />
+        </FormControl>
         <FormControl mt={8} isRequired>
           <FormLabel color="#2D2D2D" fontSize="sm">
             Email
@@ -40,6 +46,12 @@ export const Register = () => {
             Password
           </FormLabel>
           <Input type="password" placeholder="Enter password" />
+        </FormControl>
+        <FormControl mt={8} isRequired>
+          <FormLabel color="#2D2D2D" fontSize="sm">
+            confirm Password
+          </FormLabel>
+          <Input type="password" placeholder="Confirm password" />
         </FormControl>
         <Button
           variant="primary"
@@ -55,7 +67,7 @@ export const Register = () => {
           Open Bank Account
         </Button>
       </form>
-      <Box textAlign="center" mt="4">
+      {/* <Box textAlign="center" mt="4">
         <Link
           color="lotusBlue.400"
           fontSize="xs"
@@ -67,7 +79,7 @@ export const Register = () => {
         >
           Forgot Password?
         </Link>
-      </Box>
+      </Box> */}
       <Text mt={10} fontSize="xs" textAlign="center">
       Already have a bank account? 
         <Link onClick={onToggle}>
