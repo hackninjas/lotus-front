@@ -6,6 +6,7 @@ import {
   Button,
   Divider,
   Flex,
+  CircularProgress,
 } from '@chakra-ui/react';
 import React, { useState } from 'react';
 import { Link as RLink } from 'react-router-dom';
@@ -47,13 +48,12 @@ export const Login = () => {
         password: '',
       },
       validationSchema,
-      onSubmit: async (values) => {
-        setIsLoading(true)
-        const res = await loginWithPhone(values)
-        setIsLoading(false)
+      onSubmit: async values => {
+        setIsLoading(true);
+        const res = await loginWithPhone(values);
+        setIsLoading(false);
       },
     });
-
 
   return (
     <>
@@ -101,34 +101,22 @@ export const Login = () => {
               </Text>
             )}
           </FormControl>
-          {/* <Button
+          <Button
             variant="primary"
-            // colorScheme="primary"
             fontSize="sm"
             fontWeight="normal"
             px="10"
             mt={8}
             w="100%"
             type="submit"
-            isLoading={true}
+            disabled={true}
           >
-            Login
-          </Button> */}
-          <Button
-          variant="primary"
-          fontSize="sm"
-          fontWeight="normal"
-          px="10"
-          mt={8}
-          w="100%"
-          type="submit"
-        >
-           {isLoading ? (
-                                <CircularProgress isIndeterminate size="24px" color="white" />
-                            ): (
-                                'Login'
-                            )}
-        </Button>
+            {isLoading ? (
+              <CircularProgress isIndeterminate size="24px" color="white" />
+            ) : (
+              'Login'
+            )}
+          </Button>
         </form>
         <Box textAlign="center" mt="4">
           <Link
