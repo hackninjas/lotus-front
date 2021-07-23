@@ -6,7 +6,6 @@ import {
   Button,
   Divider,
   Flex,
-  CircularProgress,
 } from '@chakra-ui/react';
 import React, { useState } from 'react';
 import { Link as RLink } from 'react-router-dom';
@@ -53,7 +52,7 @@ export const Login = () => {
       onSubmit: async values => {
         try {
           setIsLoading(true);
-           await loginWithPhone(values);
+          await loginWithPhone(values);
 
           /// TODO: handle redirect here
 
@@ -119,13 +118,9 @@ export const Login = () => {
             mt={8}
             w="100%"
             type="submit"
-            disabled={isLoading}
+            isLoading={isLoading}
           >
-            {isLoading ? (
-              <CircularProgress isIndeterminate size="24px" color="white" />
-            ) : (
-              'Login'
-            )}
+            Login
           </Button>
         </form>
         <Box textAlign="center" mt="4">
