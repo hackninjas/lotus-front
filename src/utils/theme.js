@@ -5,14 +5,14 @@ import {
 } from "../styles/components";
 
 
-const styles = {
-  global: (props) => ({
-    "*":{
-      color: "lotusTextBody",
-      fontFamily: "TTcommon Regular, sans-serif",
-    }
-  }),
-}
+// const styles = {
+//   global: (props) => ({
+//     "*":{
+//       color: "lotusTextBody",
+//       fontFamily: "TTcommon Regular, sans-serif",
+//     }
+//   }),
+// }
 
 
 const theme = extendTheme({
@@ -38,15 +38,15 @@ const theme = extendTheme({
     lotusOrange:"#FFA429",
     lotusFadedPink:"#F9F7FF"
   },
-  fonts: {
-    body: "TTcommon Regular, sans-serif",
-    cocogoose: "Cocogoose"
-  },
+  // fonts: {
+  //   body: "TTcommon Regular, sans-serif",
+  //   cocogoose: "Cocogoose"
+  // },
   components: {
     Button,
     Menu
   },
-  styles
+  // styles
 });
 
 export default theme;

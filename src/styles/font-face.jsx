@@ -169,5 +169,3 @@ export const FontFace = () => (
     `}
   </style>
 );
-
-export default FontFace;

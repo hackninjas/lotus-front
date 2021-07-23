@@ -106,7 +106,7 @@ export const Jumbotron = () => {
             position="relative"
             zIndex="2"
           >
-            <Heading  fontSize={{base:"1.4rem",lg:"4.5rem"}}>
+            <Box fontWeight="bold" fontSize={{base:"1.4rem",lg:"4vw"}}>
               We are the <chakra.span color="lotusGreen.400">new</chakra.span>{' '}
               <Flex>
                 {' '}
@@ -122,7 +122,7 @@ export const Jumbotron = () => {
                   &nbsp;
                 </Box>
               </Flex>
-            </Heading>
+            </Box>
             <Text as="p" fontSize="sm">
               Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
               nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
@@ -130,9 +130,7 @@ export const Jumbotron = () => {
               dolores et ea rebum.
             </Text>
             <Flex alignItems="center" direction={{base:"column", md:"row"}}>
-              {/* <Button variant="primary" fontWeight="normal" px="10">
-                Open a Bank Account
-              </Button> */}
+          
               <Register/>
               <Link fontSize="sm" mt={{base:"4", md:"0"}} ml={{base:"0",md:"10"}} fontWeight="bold">
                 Learn More
