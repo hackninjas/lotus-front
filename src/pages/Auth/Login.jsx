@@ -44,7 +44,7 @@ export const Login = () => {
   const { isOpen, onToggle } = useDisclosure();
   const { setUserData } = useContext(UserContext);
 
-  const { values, handleChange, errors, touched } = useFormik({
+  const { values, handleChange, errors, touched, handleSubmit } = useFormik({
     initialValues: {
       email: '',
       password: '',
@@ -68,7 +68,7 @@ export const Login = () => {
           Sed a magna semper, porta purus eu, ullamcorper liguia. Nam sit amet
           consectetior sapien. Etiam duat, viveriaisklkd.
         </Text>
-        <form>
+        <form onSubmit={handleSubmit}>
           <FormControl mt={8} isRequired>
             <FormLabel color="#2D2D2D" fontSize="sm">
               Email
@@ -89,6 +89,7 @@ export const Login = () => {
             px="10"
             mt={8}
             w="100%"
+            type="submit"
             // bg="lotusBlue.400"
             // onClick={}
           >
