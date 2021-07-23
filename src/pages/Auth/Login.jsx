@@ -6,57 +6,54 @@ import {
   Button,
   Divider,
   Flex,
-  CircularProgress,
-  useDisclosure,
 } from '@chakra-ui/react';
-import React, { useState, useContext } from 'react';
-import {Link as RLink} from "react-router-dom";
+import React, { useState } from 'react';
+import { Link as RLink } from 'react-router-dom';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 
-import { useHistory, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { FcGoogle } from 'react-icons/fc';
 import { FaFacebook } from 'react-icons/fa';
-import { Account } from './Account';
-import { UserContext } from '../../context/user';
-import API from '../../api/axios';
-import ErrorMessage from 'shared/ErrorMessage';
-import { Register } from './Register';
+import { PasswordInput } from 'shared/PasswordInput';
+import { loginWithPhone } from 'api/api';
 
 const password_regex =
   /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-])/;
 const email_regex = /[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/;
 
 const validationSchema = Yup.object().shape({
-  password: Yup.string().required('Required'),
-  // .min(8, 'Password too short should be atleast 8 characters long')
-  // .matches(
-  //   password_regex,
-  //   'Minimum eight characters, at least one upper case English letter, one lower case English letter, one number and one special character'
-  // )
-  email: Yup.string().min(3),
-  // .max(30)
-  // .required('Required')
-  // .matches(email_regex, 'invalid email'),
+  password: Yup.string()
+    .required('Required')
+    .min(8, 'Password too short should be atleast 8 characters long')
+    .matches(
+      password_regex,
+      'Minimum eight characters, at least one upper case English letter, one lower case English letter, one number and one special character'
+    ),
+  email: Yup.string()
+    .email()
+    .min(3)
+    .max(30)
+    .required('Required')
+    .matches(email_regex, 'invalid email'),
 });
 
 export const Login = () => {
-  // const { isOpen, onToggle } = useDisclosure();
-  const { setUserData } = useContext(UserContext);
-
-  const { values, handleChange, errors, touched, handleSubmit } = useFormik({
-    initialValues: {
-      email: '',
-      password: '',
-    },
-    validationSchema,
-    onSubmit: values => {
-      console.log(values);
-    },
-  });
-
-  const { replace } = useHistory();
   const [isLoading, setIsLoading] = useState(false);
+  const { values, handleChange, errors, touched, handleSubmit, handleBlur } =
+    useFormik({
+      initialValues: {
+        email: '',
+        password: '',
+      },
+      validationSchema,
+      onSubmit: async (values) => {
+        setIsLoading(true)
+        const res = await loginWithPhone(values)
+        setIsLoading(false)
+      },
+    });
+
 
   return (
     <>
@@ -73,25 +70,47 @@ export const Login = () => {
             <FormLabel color="#2D2D2D" fontSize="sm">
               Email
             </FormLabel>
-            <Input type="email" placeholder="Enter email" />
+            <Input
+              placeholder="Enter email"
+              color="lotusBlue.400"
+              name="email"
+              value={values.email}
+              onChange={handleChange}
+              onBlur={handleBlur}
+            />
+            {errors.email && touched.email && (
+              <Text fontSize="xs" color="red" mt="2">
+                {errors.email}
+              </Text>
+            )}
           </FormControl>
           <FormControl mt={8} isRequired>
             <FormLabel color="#2D2D2D" fontSize="sm">
               Password
             </FormLabel>
-            <Input type="password" placeholder="Enter password" />
+
+            <PasswordInput
+              value={values.password}
+              handleBlur={handleBlur}
+              handleChange={handleChange}
+            />
+
+            {errors.password && touched.password && (
+              <Text fontSize="xs" color="red" mt="2">
+                {errors.password}
+              </Text>
+            )}
           </FormControl>
           <Button
             variant="primary"
-            // color="white"
+            // colorScheme="primary"
             fontSize="sm"
             fontWeight="normal"
             px="10"
             mt={8}
             w="100%"
             type="submit"
-            // bg="lotusBlue.400"
-            // onClick={}
+            isLoading={true}
           >
             Login
           </Button>
@@ -101,7 +120,6 @@ export const Login = () => {
             color="lotusBlue.400"
             fontSize="xs"
             fontWeight="bold"
-            textAlign="left"
             textAlign="center"
             as={RLink}
             to="/recover-password"
@@ -182,9 +200,6 @@ export const Login = () => {
           </Flex>
         </Flex>
       </Box>
-      {/* <CustomDrawer isOpen={isOpen} onClose={onToggle}>
-         <Account/>
-      </CustomDrawer> */}
     </>
   );
 };

@@ -18,7 +18,7 @@ function App() {
   return (
     <>
       <ChakraProvider theme={theme}>
-      <Global styles={GlobalStyles} />
+      {/* <Global styles={GlobalStyles} /> */}
         <UserProvider>
           <MainRouter />
         </UserProvider>
