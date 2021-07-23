@@ -18,6 +18,7 @@ import { FcGoogle } from 'react-icons/fc';
 import { FaFacebook } from 'react-icons/fa';
 import { PasswordInput } from 'shared/PasswordInput';
 import { loginWithPhone } from 'api/api';
+import { useToast } from 'hooks/useToast';
 
 const password_regex =
   /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-])/;
@@ -41,6 +42,7 @@ const validationSchema = Yup.object().shape({
 
 export const Login = () => {
   const [isLoading, setIsLoading] = useState(false);
+  const { toastErrorSuccess } = useToast();
   const { values, handleChange, errors, touched, handleSubmit, handleBlur } =
     useFormik({
       initialValues: {
@@ -49,9 +51,17 @@ export const Login = () => {
       },
       validationSchema,
       onSubmit: async values => {
-        setIsLoading(true);
-        const res = await loginWithPhone(values);
-        setIsLoading(false);
+        try {
+          setIsLoading(true);
+           await loginWithPhone(values);
+
+          /// TODO: handle redirect here
+
+          toastErrorSuccess('success', 'login successfull');
+        } catch (error) {
+          toastErrorSuccess('error', error.message);
+          setIsLoading(false);
+        }
       },
     });
 
@@ -109,7 +119,7 @@ export const Login = () => {
             mt={8}
             w="100%"
             type="submit"
-            disabled={true}
+            disabled={isLoading}
           >
             {isLoading ? (
               <CircularProgress isIndeterminate size="24px" color="white" />
@@ -123,7 +133,6 @@ export const Login = () => {
             color="lotusBlue.400"
             fontSize="xs"
             fontWeight="bold"
-            textAlign="center"
             as={RLink}
             to="/recover-password"
           >

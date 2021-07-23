@@ -20,19 +20,11 @@ export const PasswordInput = ({value, handleChange, handleBlur}) => {
           onBlur={handleBlur}
           name="password"
         />
-        {/* <Input
-              type="password"
-              name="password"
-              value={values.password}
-              placeholder="Enter password"
-              onChange={handleChange}
-              onBlur={handleBlur}
-            /> */}
         <InputRightElement background="transparent">
           <IconButton
             aria-label="password toggle button"
             background="transparent"
-            icon={hidden ? <ViewOffIcon /> : <ViewIcon />}
+            icon={hidden ? <ViewOffIcon  color="black"/> : <ViewIcon color="black"/>}
             onClick={handleClick}          
           />
         </InputRightElement>
