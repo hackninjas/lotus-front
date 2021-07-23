@@ -172,7 +172,7 @@ export const Register = () => {
           Forgot Password?
         </Link>
       </Box> */}
-      <Text mt={10} fontSize="xs" textAlign="left" color="#2D2D2D" fontWeight="bold">
+      <Text mt={10} fontSize="xs" textAlign="center" color="#2D2D2D" fontWeight="bold">
       Already have a bank account? 
         <Link onClick={onToggle}>
           <Text as="u" color="lotusBlue.400" fontWeight="bold" ml={2}>
