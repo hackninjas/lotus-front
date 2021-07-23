@@ -101,7 +101,7 @@ export const Login = () => {
               </Text>
             )}
           </FormControl>
-          <Button
+          {/* <Button
             variant="primary"
             // colorScheme="primary"
             fontSize="sm"
@@ -113,7 +113,22 @@ export const Login = () => {
             isLoading={true}
           >
             Login
-          </Button>
+          </Button> */}
+          <Button
+          variant="primary"
+          fontSize="sm"
+          fontWeight="normal"
+          px="10"
+          mt={8}
+          w="100%"
+          type="submit"
+        >
+           {isLoading ? (
+                                <CircularProgress isIndeterminate size="24px" color="white" />
+                            ): (
+                                'Login'
+                            )}
+        </Button>
         </form>
         <Box textAlign="center" mt="4">
           <Link
