@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, Text, Flex, Heading, Image, Stack, Link } from '@chakra-ui/react';
-import { Link as RLink } from 'react-router-dom';
+// import { Link as RLink } from 'react-router-dom';
 
 import logo from 'assets/images/logo.png';
 

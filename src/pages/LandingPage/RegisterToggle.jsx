@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Button, Heading, useDisclosure } from '@chakra-ui/react';
+import { Box, Button, useDisclosure } from '@chakra-ui/react';
 import { CustomDrawer } from 'shared/CustomDrawer';
 import { Register as RegisterPage } from 'pages/Auth/Register';
 

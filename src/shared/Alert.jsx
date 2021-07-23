@@ -18,7 +18,9 @@ export const AlertWrapper = ({children, variant = "default"}) => {
            bg: "white",
            borderRadius: "5px",
            p:"5",
-           border: "1px solid black"
+           ml:"4",
+           border: "1px solid black",
+           width:"100%"
         }
     }
 

@@ -1,12 +1,18 @@
 import { Box, Heading, Text } from '@chakra-ui/layout';
-import { FormLabel, FormControl, Input, Button, Divider, Flex, Checkbox} from '@chakra-ui/react';
+import { FormLabel, FormControl, Input, Button, Divider, Flex, Checkbox, useDisclosure} from '@chakra-ui/react';
 import React from 'react';
 import {Link} from 'react-router-dom';
 import { FcGoogle } from 'react-icons/fc';
 import { FaFacebook } from 'react-icons/fa';
+import { CustomDrawer } from 'shared/CustomDrawer';
+import { Login } from './Login';
+
 
 export const Account = () => {
+    const { isOpen, onToggle } = useDisclosure();
+
   return (
+    <>
     <Box w="100%">
       <Heading color="lotusBlue.400" textAlign="left">Open a bank account</Heading>
       <Text color="#2D2D2D" textAlign="left" fontSize="xs" mt={6}>Sed a magna semper, porta purus eu, ullamcorper liguia.
@@ -14,13 +20,13 @@ export const Account = () => {
         consectetior sapien. Etiam duat, viveriaisklkd.
       </Text>
       <form>
-        <FormControl mt={8} isRequired>
+        <FormControl mt={4} isRequired>
               <FormLabel color="#2D2D2D" fontSize="sm">Email</FormLabel>
               <Input type="email" placeholder="Enter email" />
             </FormControl>
-        <FormControl mt={8} isRequired>
+        <FormControl mt={4} isRequired>
               <FormLabel color="#2D2D2D" fontSize="sm">Password</FormLabel>
-              <Input type="password" placeholder="Enter password" />
+              <Input type="email" placeholder="Enter password" />
             </FormControl>
              <Button
         variant="primary"
@@ -44,8 +50,10 @@ export const Account = () => {
        
       <Text mt={10} fontSize="xs" fontWeight="bold">
         Already have an account? 
-        <Link to="/login">
-            <Text as="u" color ="lotusBlue.400" fontWeight="bold">Login</Text>
+         <Link onClick={onToggle}>
+          <Text as="u" color="lotusBlue.400" fontWeight="bold">
+            Login
+          </Text>
         </Link>
         </Text>
         <Divider 
@@ -114,5 +122,9 @@ export const Account = () => {
         </Flex>
       </Flex>
     </Box>
+    <CustomDrawer isOpen={isOpen} onClose={onToggle}>
+         <Login/>
+      </CustomDrawer>
+      </>
   );
 };

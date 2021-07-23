@@ -1,4 +1,4 @@
-import Icon, { IconProps, createIcon } from "@chakra-ui/icon";
+import Icon from "@chakra-ui/icon";
 
 export const CreditCardIcon = ({
     size = "20px",

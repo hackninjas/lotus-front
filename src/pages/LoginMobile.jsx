@@ -1,5 +1,5 @@
-import { Button } from '@chakra-ui/button';
-import { Box, Code } from '@chakra-ui/layout';
+// import { Button } from '@chakra-ui/button';
+import { Box } from '@chakra-ui/layout';
 import { ArrowBackIcon } from '@chakra-ui/icons';
 import React from 'react';
 import { useHistory } from 'react-router-dom';

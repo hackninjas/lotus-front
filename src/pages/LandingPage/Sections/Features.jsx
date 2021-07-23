@@ -1,5 +1,5 @@
 import React from 'react';
-import { Flex, Heading } from '@chakra-ui/layout';
+import { Flex } from '@chakra-ui/layout';
 import { Text, Box, chakra } from '@chakra-ui/react';
 import { ReactComponent as RateIcon } from 'assets/svg/rate.svg';
 import { ReactComponent as TransferIcon } from 'assets/svg/transfer.svg';

@@ -9,7 +9,7 @@ export const BreadCrumbItem = ({ index, step, label, isLast, changeStep }) => {
     if(index === step ){
         setIsVisited(true)
     }
-  },[step])
+  },[index, step])
 
   return (
     <Flex
