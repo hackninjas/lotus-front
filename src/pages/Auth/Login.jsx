@@ -9,39 +9,53 @@ import {
   CircularProgress,
   useDisclosure
 } from '@chakra-ui/react';
-import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
-import { Link } from 'react-router-dom';
-import { Link as RLink } from 'react-router-dom';
+import React, { useState, useContext } from 'react';
+import { useHistory, Link } from 'react-router-dom';
 import { FcGoogle } from 'react-icons/fc';
 import { FaFacebook } from 'react-icons/fa';
 import { CustomDrawer } from 'shared/CustomDrawer';
 import {Account } from './Account';
-
-
+import { UserContext } from '../../context/user';
 import API from '../../api/axios';
 
 import ErrorMessage from 'shared/ErrorMessage';
-// import {userLogin} from 'utils/mockApi'
 
 export const Login = () => {
   const { isOpen, onToggle } = useDisclosure();
-  
+  const { setUserData } = useContext(UserContext);
+  const validate = (values) => {
+    const errors = {};
+    // Validate email
+   if (!values.email) {
+     errors.email = 'Required';
+   } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
+     errors.email = 'Invalid email address';
+   }
+    // Validate Password
+   if (!values.password) {
+     errors.password = 'Required';
+   } else if (values.password.length < 8) {
+     errors.password = 'Invalid password length';
+   }
+   setFieldErrors(errors)
+ };
   const defaultState = {
     email : "",
     password : ""
   }
 
-  const { push, replace } = useHistory();
-
-    // const [email, setEmail] = useState('');
-    // const [password, setPassword] = useState('');
+    const { replace } = useHistory();
+    const [fieldErrors, setFieldErrors] = useState(defaultState);
     const [state, setState] = useState(defaultState);
-    const [error, /*setError*/] = useState('');
-    const [/*toastValue*/, setToastValue] = useState('');
+    const [error, setError] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
 
     const updateState = (key, value) => {
+      setError(null);
+      setFieldErrors({
+      ...fieldErrors,
+      [key]: '',
+    });
     setState({
       ...state,
       [key]: value,
@@ -51,34 +65,35 @@ export const Login = () => {
     const login = async event => {
         event.preventDefault();
         setIsLoading(true);
-
+        validate(state);
         API.post('/api/Onboarding/login', state)
       .then((res) => {
         const data = res.data.data;
-        // localStorage.setItem('token', data);
+        const {firstName, lastName, passport} = data.profile;
+        const {accountNumber, accountBalance} = data.account;
+        localStorage.setItem('token', data.accessToken);
+        setUserData({ 
+          name: `${firstName} ${lastName}`,
+          balance: accountBalance ? accountBalance : 0.00,
+          image: passport ? passport : '',
+          accountNumber: accountNumber,
+        })
         console.log(data);
         setIsLoading(false);
-        replace('/login');
+        replace('/dashboard');
       })
       .catch((e) => {
-        // setTimeout(() => {
-        // }, 3000);
-
+       if (!e.response) {
+        setError('Network Error. Try again!');
+         setIsLoading(false);
+       }
         let message = e.response?.data?.message;
-        if (!message) {
-          setToastValue('Network error');
-          setIsLoading(false);
-          console.log(message)
-          push('/login');
-          return;
-        }
-      });
-
-     
-        
+        setError(message);
+         setIsLoading(false);
+      }); 
     };
 
-  return (
+    return (
     <>
     <Box w="100%">
       <Heading color="lotusBlue.400" textAlign="left">
@@ -90,21 +105,24 @@ export const Login = () => {
       </Text>
       <form  onSubmit={login}>
           {error && <ErrorMessage message={error} />}
-        <FormControl mt={8} isRequired>
+        <FormControl mt={8}>
           <FormLabel color="#2D2D2D" fontSize="sm">
             Email
           </FormLabel>
           <Input 
+          color="lotusBlue.400"
           type="email" 
           placeholder="Enter email"                                 
           onChange = {(event) => updateState('email', event.currentTarget.value)}
- />
+        />
+        {fieldErrors.email && <Text color="red">{ fieldErrors.email }</Text> }
         </FormControl>
-        <FormControl mt={8} isRequired>
+        <FormControl mt={8}>
           <FormLabel color="#2D2D2D" fontSize="sm">
             Password
           </FormLabel>
           <Input
+            color="lotusBlue.400"
            type="password"
             placeholder="Enter password" 
             onChange = {(event) => updateState('password', event.currentTarget.value)}
@@ -126,23 +144,17 @@ export const Login = () => {
                             )}
         </Button>
       </form>
-      <Box textAlign="center" mt="4">
+      <Box textAlign="right" mt="4" color="#2D2D2D" fontWeight="bold" fontSize="xs">
         <Link
-          color="lotusBlue.400"
-          fontSize="xs"
-          fontWeight="bold"
-          textAlign="left"
-          // textAlign="center"
-          as={RLink}
           to="/recover-password"
         >
           Forgot Password?
         </Link>
       </Box>
-      <Text mt={10} fontSize="xs" textAlign="center">
+      <Text mt={10} fontSize="xs" textAlign="left" color="#2D2D2D" fontWeight="bold">
         Don't have a bank account with us?
         <Link onClick={onToggle}>
-          <Text as="u" color="lotusBlue.400" fontWeight="bold">
+          <Text as="u" color="lotusBlue.400" fontWeight="bold" ml={2}>
             Open A Bank Account
           </Text>
         </Link>
@@ -212,9 +224,9 @@ export const Login = () => {
         </Flex>
       </Flex>
     </Box>
-    <CustomDrawer isOpen={isOpen} onClose={onToggle}>
+    {/* <CustomDrawer isOpen={isOpen} onClose={onToggle}>
          <Account/>
-      </CustomDrawer>
+      </CustomDrawer> */}
       </>
   );
 };

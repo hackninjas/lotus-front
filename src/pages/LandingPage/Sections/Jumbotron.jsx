@@ -6,7 +6,6 @@ import {
   Button,
   useDisclosure,
   Text,
-  Heading,
   Link,
   chakra,
   Stack,
