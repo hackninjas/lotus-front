@@ -17,11 +17,11 @@ import * as Yup from 'yup';
 import { useHistory, Link } from 'react-router-dom';
 import { FcGoogle } from 'react-icons/fc';
 import { FaFacebook } from 'react-icons/fa';
-import { CustomDrawer } from 'shared/CustomDrawer';
 import { Account } from './Account';
 import { UserContext } from '../../context/user';
 import API from '../../api/axios';
 import ErrorMessage from 'shared/ErrorMessage';
+import { Register } from './Register';
 
 const password_regex =
   /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-])/;
@@ -41,7 +41,7 @@ const validationSchema = Yup.object().shape({
 });
 
 export const Login = () => {
-  const { isOpen, onToggle } = useDisclosure();
+  // const { isOpen, onToggle } = useDisclosure();
   const { setUserData } = useContext(UserContext);
 
   const { values, handleChange, errors, touched, handleSubmit } = useFormik({
