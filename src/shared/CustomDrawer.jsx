@@ -23,21 +23,23 @@ export const CustomDrawer = ({ children, isOpen, onClose }) => {
             rounded="md"
             shadow="md"
             p="8"
+
             w="100%"
             justifyContent="space-between"
             overflow="auto"
           >
-            <Box w="30%" />
+            <Box w={{md:"30%"}} />
 
-            <Box w="35%">{children}</Box>
+            <Box w={{base:"90%",lg:"35%"}}>{children}</Box>
 
-            <Flex justifyContent="flex-end" w="30%">
+            <Flex justifyContent="flex-end" w={{md:"30%"}}>
               <Button
                 onClick={onClose}
                 borderRadius="50%"
                 h="12"
                 w="12"
                 borderWidth={1}
+                position="absolute"
               
               >
                 <CloseIcon color="lotusBlack" />
