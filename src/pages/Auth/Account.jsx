@@ -4,8 +4,8 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import { FcGoogle } from 'react-icons/fc';
 import { FaFacebook } from 'react-icons/fa';
-import { CustomDrawer } from 'shared/CustomDrawer';
-import { Login } from './Login';
+// import { CustomDrawer } from 'shared/CustomDrawer';
+// import { Login } from './Login';
 
 
 export const Account = () => {
@@ -122,9 +122,9 @@ export const Account = () => {
         </Flex>
       </Flex>
     </Box>
-    <CustomDrawer isOpen={isOpen} onClose={onToggle}>
+    {/* <CustomDrawer isOpen={isOpen} onClose={onToggle}>
          <Login/>
-      </CustomDrawer>
+      </CustomDrawer> */}
       </>
   );
 };

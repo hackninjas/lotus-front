@@ -19,6 +19,7 @@ export const PasswordInput = ({value, handleChange, handleBlur}) => {
           value={value}
           onBlur={handleBlur}
           name="password"
+          color="lotusBlue.400"
         />
         <InputRightElement background="transparent">
           <IconButton

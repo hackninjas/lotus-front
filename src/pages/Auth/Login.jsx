@@ -8,6 +8,7 @@ import {
   Flex,
 } from '@chakra-ui/react';
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import { Link as RLink } from 'react-router-dom';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
@@ -16,7 +17,7 @@ import { Link } from 'react-router-dom';
 import { FcGoogle } from 'react-icons/fc';
 import { FaFacebook } from 'react-icons/fa';
 import { PasswordInput } from 'shared/PasswordInput';
-import { loginWithPhone } from 'api/api';
+import { loginWithEmail } from 'api/api';
 import { useToast } from 'hooks/useToast';
 
 const password_regex =
@@ -40,6 +41,7 @@ const validationSchema = Yup.object().shape({
 });
 
 export const Login = () => {
+  const { replace } = useHistory();
   const [isLoading, setIsLoading] = useState(false);
   const { toastErrorSuccess } = useToast();
   const { values, handleChange, errors, touched, handleSubmit, handleBlur } =
@@ -52,11 +54,12 @@ export const Login = () => {
       onSubmit: async values => {
         try {
           setIsLoading(true);
-          await loginWithPhone(values);
-
+          await loginWithEmail(values);
+          replace('/dashboard')
+          
+          toastErrorSuccess('success', 'login successful');
           /// TODO: handle redirect here
 
-          toastErrorSuccess('success', 'login successfull');
         } catch (error) {
           toastErrorSuccess('error', error.message);
           setIsLoading(false);
@@ -123,11 +126,13 @@ export const Login = () => {
             Login
           </Button>
         </form>
-        <Box textAlign="center" mt="4">
+        <Box 
+        textAlign="right" 
+        mt="4"  
+        color="lotusBlue.400" 
+        fontWeight="bold" 
+        fontSize="xs">
           <Link
-            color="lotusBlue.400"
-            fontSize="xs"
-            fontWeight="bold"
             as={RLink}
             to="/recover-password"
           >
@@ -137,7 +142,7 @@ export const Login = () => {
         <Text mt={10} fontSize="xs" textAlign="center">
           Don't have a bank account with us?
           <Link to="/account">
-            <Text as="u" color="lotusBlue.400" fontWeight="bold">
+            <Text as="u" color="lotusBlue.400" fontWeight="bold" ml={2}>
               Open Bank Account
             </Text>
           </Link>
