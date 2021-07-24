@@ -28,7 +28,6 @@ import { bvnVerify } from 'api/api';
 const validationSchema = Yup.object().shape({
   bvn: Yup.string()
     .required('Required').length(10)
-    // .min(10, 'Bvn too short should be atleast 10 numbers long')
 });
 
 export const SubmitBvn = () => {
