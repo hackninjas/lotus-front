@@ -11,86 +11,73 @@ import {
   CircularProgress
 } from '@chakra-ui/react';
 import React, { useState, useContext } from 'react';
+import { useFormik } from 'formik';
+import * as Yup from 'yup';
 import { useHistory } from 'react-router-dom';
+
 import { FcGoogle } from 'react-icons/fc';
 import { FaFacebook } from 'react-icons/fa';
 import { CustomDrawer } from 'shared/CustomDrawer';
 import { Login } from './Login';
 import { UserContext } from '../../context/user';
-import API from '../../api/axios';
+import { registerUser } from 'api/api';
+import { PasswordInput } from 'shared/PasswordInput';
+import { useToast } from 'hooks/useToast';
 
-import ErrorMessage from 'shared/ErrorMessage';
+const password_regex =
+  /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-])/;
+const email_regex = /[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/;
+
+const validationSchema = Yup.object().shape({
+  password: Yup.string()
+    .required('Required')
+    .min(8, 'Password too short should be atleast 8 characters long')
+    .matches(
+      password_regex,
+      'Minimum eight characters, at least one upper case English letter, one lower case English letter, one number and one special character'
+    ),
+  confirmPassword: Yup.string()
+    .required('Required')
+    .min(8, 'Password too short should be atleast 8 characters long')
+    .matches(
+      password_regex,
+      'Minimum eight characters, at least one upper case English letter, one lower case English letter, one number and one special character'
+    ),
+  email: Yup.string()
+    .email()
+    .min(3)
+    .max(30)
+    .required('Required')
+    .matches(email_regex, 'invalid email'),
+});
 
 export const Register = () => {
   const { isOpen, onToggle } = useDisclosure();
-   const { setUserData } = useContext(UserContext);
-    const validate = (values) => {
-    const errors = {};
-    // Validate email
-   if (!values.email) {
-     errors.email = 'Required';
-   } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
-     errors.email = 'Invalid email address';
-   }
-    // Validate Password
-   if (!values.password) {
-     errors.password = 'Required';
-   } else if (values.password.length < 8) {
-     errors.password = 'Invalid password length';
-   }
-   setFieldErrors(errors)
- };
-
-  const defaultState = {
-    fullName: "",
-    email : "",
-    password : "",
-    confirmPassword : ""
-  }
-
- const { replace } = useHistory();
-    const [fieldErrors, setFieldErrors] = useState(defaultState);
-    const [state, setState] = useState(defaultState);
-    const [error, setError] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
+  const { toastErrorSuccess } = useToast();
+  const { values, handleChange, errors, touched, handleSubmit, handleBlur } =
+    useFormik({
+      initialValues: {
+        fullName: "",
+        email: "",
+        password: "",
+        confirmPassword: "",
+      },
+      validationSchema,
+      onSubmit: async values => {
+        try {
+          setIsLoading(true);
+          await registerUser(values);
 
-     const updateState = (key, value) => {
-      setError(null);
-      setFieldErrors({
-      ...fieldErrors,
-      [key]: '',
-    });
-    setState({
-      ...state,
-      [key]: value,
-    });
-  };
+          /// TODO: handle redirect here
 
-  const register = async (event) => {
-    event.preventDefault();
-    setIsLoading(true);
-    validate(state);
-    const { fullName, email } = state;
-    API.post('/api/Onboarding/register_user', { fullName, email })
-      .then((res) => {
-        const data = res.data.data;
-        localStorage.setItem('token', data.accessToken);
-         setUserData({ 
-          name: fullName,
-        })
-        setIsLoading(false);
-         replace('/login');
-      })
-      .catch((e) => {
-        if (!e.response) {
-          setError('Network Error. Try Again!');
+          toastErrorSuccess('success', 'Registration Successful');
+        } catch (error) {
+          toastErrorSuccess('error', error.message);
           setIsLoading(false);
         }
-        let message = e.response?.data?.message;
-          setError(message);
-          setIsLoading(false);
-      });
-  };
+      },
+    });
  
   return (
       <>
@@ -102,47 +89,67 @@ export const Register = () => {
         Sed a magna semper, porta purus eu, ullamcorper liguia. Nam sit amet
         consectetior sapien. Etiam duat, viveriaisklkd.
       </Text>
-      <form onSubmit={register}>
-          {error && <ErrorMessage message={error} />}
+      <form onSubmit={handleSubmit}>
         <FormControl mt={8} isRequired>
           <FormLabel color="#2D2D2D" fontSize="sm">
             FullName
           </FormLabel>
           <Input 
-          type="text" 
           placeholder="Enter your name" 
-          onChange = {(event) => updateState('FullName', event.currentTarget.value)}
+          color="lotusBlue.400"
+          name="fullName"
+          values={values.fullName}
+          onChange ={handleChange}
+          onBlur={handleBlur}
           />
+           {errors.fullName && touched.fullName && (
+              <Text fontSize="xs" color="red" mt="2">
+                {errors.fullName}
+              </Text>
+            )}
         </FormControl>
         <FormControl mt={8} isRequired>
           <FormLabel color="#2D2D2D" fontSize="sm">
             Email
           </FormLabel>
           <Input 
-          type="email" 
           placeholder="Enter email" 
-           onChange = {(event) => updateState('email', event.currentTarget.value)}
+          color="lotusBlue.400"
+          name="email"
+          values={values.email}
+          onChange ={handleChange}
+          onBlur={handleBlur}
           />
-          {fieldErrors.email && <Text color="red">{ fieldErrors.email }</Text> }
 
         </FormControl>
         <FormControl mt={8} isRequired>
           <FormLabel color="#2D2D2D" fontSize="sm">
             Password
           </FormLabel>
-          <Input 
-          type="password" 
-          placeholder="Enter password" 
-          onChange = {(event) => updateState('password', event.currentTarget.value)}
-          />
-          {fieldErrors.password && <Text color="red">{ fieldErrors.password }</Text> }
 
+          <PasswordInput
+              value={values.password}
+              handleBlur={handleBlur}
+              handleChange={handleChange}
+          />
+           {errors.password && touched.password && (
+              <Text fontSize="xs" color="red" mt="2">
+                {errors.password}
+              </Text>
+            )}
         </FormControl>
         <FormControl mt={8} isRequired>
           <FormLabel color="#2D2D2D" fontSize="sm">
-            confirm Password
+            Confirm Password
           </FormLabel>
-          <Input type="password" placeholder="Confirm password" />
+          <Input 
+          name="confirmPassword" 
+          placeholder="Confirm password" 
+          color="lotusBlue.400" 
+          value={values.confirmPassword}
+           onChange ={handleChange}
+          onBlur={handleBlur}
+          />
         </FormControl>
         <Button
           variant="primary"
@@ -151,27 +158,13 @@ export const Register = () => {
           px="10"
           mt={8}
           w="100%"
+          type="submit"
+          isLoading= {isLoading}       
         >
-            {isLoading ? (
-                                <CircularProgress isIndeterminate size="24px" color="white" />
-                            ): (
-                                'Login'
-                            )}        
+          Register
         </Button>
       </form>
-      {/* <Box textAlign="center" mt="4">
-        <Link
-          color="lotusBlue.400"
-          fontSize="xs"
-          fontWeight="bold"
-          textAlign="left"
-          textAlign="center"
-          as={RLink}
-          to="/recover-password"
-        >
-          Forgot Password?
-        </Link>
-      </Box> */}
+      
       <Text mt={10} fontSize="xs" textAlign="center" color="#2D2D2D" fontWeight="bold">
       Already have a bank account? 
         <Link onClick={onToggle}>

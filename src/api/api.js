@@ -1,7 +1,8 @@
 import API from './axios';
 
 const routes = {
-  accountLoginPhone: `/api/Onboarding/login`,
+  accountLoginEmail: `/api/Onboarding/login`,
+  registerAsUser: `/api/Onboarding/register_user`,
 };
 
 const DEFAULT_ERROR_MESSAGE = 'An error occurred, please try again';
@@ -19,12 +20,33 @@ const getErrorMsg = error => {
 
   return DEFAULT_ERROR_MESSAGE;
 };
+const getSuccessMsg = status => {
 
-export const loginWithPhone = async loginDetails => {
+      const data = status?.response?.data;
+      const message = data.message;
+      localStorage.setItem('token', data.accessToken);
+
+      return message 
+};
+
+export const loginWithEmail = async loginDetails => {
   try {
-    await API.post(routes.accountLoginPhone, loginDetails);
+    await API.post(routes.accountLoginEmail, loginDetails);
+    let message = getSuccessMsg()
+    console.log(message)
   } catch (error) {
     let message = getErrorMsg(error);
     throw new Error(message);
   }
 };
+
+export const registerUser = async registerDetails => {
+  try {
+    await API.post(routes.registerAsUser, registerDetails);
+  } catch (error) {
+    let message = getErrorMsg(error);
+    throw new Error(message)
+  }
+};
+
+
