@@ -56,6 +56,7 @@ export const SubmitBvn = () => {
         } catch (error) {
           toastErrorSuccess('error', error.message);
           setIsLoading(false);
+          console.error(error.message)
         }
       },
     });

@@ -50,11 +50,9 @@ export const registerUser = async registerDetails => {
 
 export const bvnVerify = async bvn => {
   try {
-    console.log('it gt here', bvn);
     await API.get(routes.validateBvn, { params: { bvn } });
   } catch (error) {
     let message = getErrorMsg(error);
-    console.log(message);
     throw new Error(message);
   }
 };
