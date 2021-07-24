@@ -3,6 +3,7 @@ import { Box, Text } from '@chakra-ui/layout'
 import { FormControl, FormLabel , PinInput, PinInputField, HStack} from '@chakra-ui/react';
 
 export const Otp = () => {
+    
     return (
         <Box>
                 <Text color="#0C0C0C" fontWeight="bold" fontSize="md">

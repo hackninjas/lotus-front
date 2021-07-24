@@ -11,6 +11,7 @@ import { OtherID } from 'pages/UserDashoard/OtherID';
 import { AddressProof } from 'pages/UserDashoard/AddressProof';
 import { SignatureResponse } from 'pages/UserDashoard/SignatureResponse';
 import { Signature } from 'pages/UserDashoard/Signature';
+import { Otp } from 'pages/Onboarding/components/Otp';
 import {Welcome} from "pages/Onboarding/components/Welcome"
 import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
@@ -27,6 +28,7 @@ export const MainRouter = () => {
         <Route exact path="/dashboard" component={UserDashboardMain} />
         <Route exact path="/upgrade" component={UpgradeAccount} />
         <Route exact path="/fund" component={UserFundAccount} />
+        <Route exact path="/otp" component={Otp} />
         <Route exact path="/verify" component={BankVerificationNumber} />
         <Route exact path="/submit" component={SubmitBvn} />
         <Route exact path="/idverify" component={IdVerifyResponse} />

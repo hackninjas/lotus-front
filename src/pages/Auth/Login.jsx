@@ -55,10 +55,10 @@ export const Login = () => {
         try {
           setIsLoading(true);
           await loginWithEmail(values);
-          replace('/dashboard')
           
           toastErrorSuccess('success', 'login successful');
           /// TODO: handle redirect here
+          replace('/dashboard')
 
         } catch (error) {
           toastErrorSuccess('error', error.message);

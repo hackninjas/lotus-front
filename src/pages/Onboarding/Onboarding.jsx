@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Address } from './components/Address';
 import { Bvn } from './components/Bvn';
-// import { Otp } from './components/Otp';
+import { Otp } from './components/Otp';
 import { Layout } from './components/Layout';
 import { Personal } from './components/Personal';
 import { PhotoUpload } from './components/PhotoUpload';
