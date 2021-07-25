@@ -9,7 +9,15 @@ import { BreadCrumbItem } from './BreadCrumbItem';
 
 const steps = ['BVN', 'Personal', 'Address', 'Photo Upload'];
 
-export const Layout = ({ children, step, canNext, goNext, changeStep }) => {
+export const Layout = ({
+  children,
+  step,
+  canNext,
+  goNext,
+  changeStep,
+  onSubmit,
+  isLoading
+}) => {
   return (
     <Flex h="100vh">
       <Grid
@@ -36,13 +44,13 @@ export const Layout = ({ children, step, canNext, goNext, changeStep }) => {
             <Flex>
               {steps.map((stepName, index) => (
                 <React.Fragment key={index}>
-                <BreadCrumbItem
-                  index={index}
-                  step={step}
-                  label={stepName}
-                  isLast={index + 1 === steps.length}
-                  changeStep={changeStep}
-                />
+                  <BreadCrumbItem
+                    index={index}
+                    step={step}
+                    label={stepName}
+                    isLast={index + 1 === steps.length}
+                    changeStep={changeStep}
+                  />
                 </React.Fragment>
               ))}
             </Flex>
@@ -56,10 +64,11 @@ export const Layout = ({ children, step, canNext, goNext, changeStep }) => {
               fontSize="sm"
               fontWeight="normal"
               px="10"
-              // isDisabled={canNext} // TODO : remove comment when handleErrors is implement in Onboarding.jsx
-              onClick={goNext}
+              isDisabled={canNext}
+              onClick={step + 1 === steps.length ? onSubmit : goNext}
+              isLoading={isLoading}
             >
-              Continue
+              {step + 1 === steps.length ? 'submit' : 'Continue'}
             </Button>
           </Flex>
         </Flex>

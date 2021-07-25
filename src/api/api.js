@@ -9,6 +9,7 @@ const routes = {
   sendCode: `/api/Onboarding/verifyPhone_sendOtp`,
   verifyCode: `/api/Onboarding/verifyPhone_validateOtp`,
   resendCode: `/api/Onboarding/resend_otp`,
+  openAccount: '/api/Onboarding/open_account'
 };
 
 const DEFAULT_ERROR_MESSAGE = 'An error occurred, please try again';
@@ -47,6 +48,15 @@ export const loginWithEmail = async loginDetails => {
 export const registerUser = async registerDetails => {
   try {
     await API.post(routes.registerAsUser, registerDetails);
+  } catch (error) {
+    let message = getErrorMsg(error);
+    throw new Error(message);
+  }
+};
+
+export const openAccount = async data => {
+  try {
+    await API.post(routes.openAccount, data);
   } catch (error) {
     let message = getErrorMsg(error);
     throw new Error(message);
