@@ -1,5 +1,6 @@
 import { LoginMobile } from 'pages/LoginMobile';
 import { Onboarding } from 'pages/Onboarding/Onboarding';
+import { OnboardWithoutBvn } from 'pages/Onboarding/onboardWithoutBvn';
 import { UserDashboardMain } from 'pages/UserDashoard/UserDashboardMain';
 import { UserFundAccount } from 'pages/UserDashoard/UserFundAccount';
 import { UpgradeAccount } from 'pages/UserDashoard/UpgradeAccount';
@@ -24,13 +25,10 @@ export const MainRouter = () => {
     <BrowserRouter>
       <Switch>
         <Route exact path="/" component={LandingPage} />
-        <Route exact path="/onboarding" component={Onboarding} />
         <Route exact path="/login" component={LoginMobile} />
-        <Route
-          exact
-          path="/login/password_recovery"
-          component={ForgotPassword}
-        />
+        <Route exact path="/onboarding" component={Onboarding} />
+        <Route exact path="/onboard-bvn" component={OnboardWithoutBvn} />
+        <Route exact path="/password-recovery" component={ForgotPassword} />
         <Route exact path="/dashboard" component={UserDashboardMain} />
         <Route exact path="/upgrade" component={UpgradeAccount} />
         <Route exact path="/fund" component={UserFundAccount} />

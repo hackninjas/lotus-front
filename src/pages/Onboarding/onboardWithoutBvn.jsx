@@ -1,6 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Address } from './components/Address';
-import { Bvn } from './components/Bvn';
 import { Otp } from './components/Otp';
 import { Layout } from './components/Layout';
 import { Personal } from './components/Personal';
@@ -35,9 +34,9 @@ const validationSchema = Yup.object().shape({
   address: Yup.string().required('Required'),
 });
 
-export const Onboarding = () => {
+export const OnboardWithoutBvn = () => {
   const { toastErrorSuccess } = useToast()
-  const [step, setStep] = useState(0);
+  const [step, setStep] = useState(1);
   const [errors] = useState([...new Array(numberOfForms).fill(false)]);
   const [isFormSubmitting, setIsFormSubmitting] = useState(false);
   const { userData } = useContext(UserContext);
@@ -60,13 +59,12 @@ export const Onboarding = () => {
   const renderForm = (step, props) => {
     switch (step) {
       case 0:
-        return <Bvn formik={props} />;
-      case 1:
         return <Personal formik={props} />;
-      case 2:
+      case 1:
         return <Address formik={props} />;
-      case 3:
+      case 2:
         return <PhotoUpload formik={props} />;
+   
 
       default:
         break;
@@ -96,9 +94,9 @@ export const Onboarding = () => {
       onSubmit={ async (values) => {
         let data = values;
 
-        if (data.bvn) {
-          data = { ...values, isBvnProvided: true, email: userData.email };
-        }
+        // if (data.bvn) {
+        //   data = { ...values, isBvnProvided: true, email: userData.email };
+        // }
 
         console.log('====================================');
         console.log("data", data);
@@ -106,7 +104,6 @@ export const Onboarding = () => {
         try {
           setIsFormSubmitting(true)
           await openAccount(data);
-          window.location = '/'
           toastErrorSuccess('success', 'login successful');
           setIsFormSubmitting(true)
         } catch (error) {

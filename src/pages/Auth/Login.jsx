@@ -6,10 +6,10 @@ import {
   Button,
   Divider,
   Flex,
-  useDisclosure
+  // useDisclosure
 } from '@chakra-ui/react';
 import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
+// import { useHistory } from 'react-router-dom';
 import { Link as RLink } from 'react-router-dom';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
@@ -20,8 +20,8 @@ import { FaFacebook } from 'react-icons/fa';
 import { PasswordInput } from 'shared/PasswordInput';
 import { loginWithEmail } from 'api/api';
 import { useToast } from 'hooks/useToast';
-import { CustomDrawer } from 'shared/CustomDrawer';
-import { Register } from './Register';
+// import { CustomDrawer } from 'shared/CustomDrawer';
+// import { Register } from './Register';
 
 
 
@@ -46,8 +46,6 @@ const validationSchema = Yup.object().shape({
 });
 
 export const Login = () => {
-  // const { isOpen, onToggle } = useDisclosure();
-  const { replace } = useHistory();
   const [isLoading, setIsLoading] = useState(false);
   const { toastErrorSuccess } = useToast();
   const { values, handleChange, errors, touched, handleSubmit, handleBlur } =
@@ -62,13 +60,14 @@ export const Login = () => {
           setIsLoading(true);
           await loginWithEmail(values);
           
-          toastErrorSuccess('success', 'login successful');
           /// TODO: handle redirect here
-          replace('/dashboard')
+          window.location = '/dashboard';
+          toastErrorSuccess('success', 'login successful');
 
         } catch (error) {
           toastErrorSuccess('error', error.message);
           setIsLoading(false);
+          // window.location = '/';
         }
       },
     });
@@ -140,7 +139,7 @@ export const Login = () => {
         fontSize="xs">
           <Link
             as={RLink}
-            to="/recover-password"
+            to="/password-recovery"
           >
             Forgot Password?
           </Link>

@@ -1,4 +1,4 @@
-import { Box, Heading, Text } from '@chakra-ui/layout';
+import { Box, Heading, Text, Center } from '@chakra-ui/layout';
 import { FormLabel, FormControl, Input, Button } from '@chakra-ui/react';
 import React, {useState} from 'react';
 // import { useHistory } from 'react-router-dom';
@@ -51,10 +51,11 @@ export const ForgotPassword = () => {
 
   return (
     <Box w="100%">
-      <Heading color="lotusBlue.400" textAlign="left">
+      <Heading color="lotusBlue.400" textAlign="center" mt={8}>
         Forgot Password
       </Heading>
-      <Text color="#2D2D2D" textAlign="left" fontSize="xs" mt={6}>
+      <Center>
+      <Text color="#2D2D2D" textAlign="center" fontSize="xs" mt={6}>
         Sed a magna semper, porta purus eu, ullamcorper liguia. Nam sit amet
         consectetior sapien. Etiam duat, viveriaisklkd.
       </Text>
@@ -90,6 +91,7 @@ export const ForgotPassword = () => {
           Send Link
         </Button>
       </form>
+      </Center>
     </Box>
   );
 };
