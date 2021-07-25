@@ -13,6 +13,7 @@ import { SignatureResponse } from 'pages/UserDashoard/SignatureResponse';
 import { Signature } from 'pages/UserDashoard/Signature';
 import { Otp } from 'pages/Onboarding/components/Otp';
 import {Welcome} from "pages/Onboarding/components/Welcome"
+import {ForgotPassword} from "pages/Auth/ForgotPassword";
 import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { LandingPage } from './pages';
@@ -24,7 +25,12 @@ export const MainRouter = () => {
       <Switch>
         <Route exact path="/" component={LandingPage} />
         <Route exact path="/onboarding" component={Onboarding} />
-        <Route exact path="/login" component={LoginMobile}/>
+        <Route exact path="/login" component={LoginMobile} />
+        <Route
+          exact
+          path="/login/password_recovery"
+          component={ForgotPassword}
+        />
         <Route exact path="/dashboard" component={UserDashboardMain} />
         <Route exact path="/upgrade" component={UpgradeAccount} />
         <Route exact path="/fund" component={UserFundAccount} />
@@ -37,8 +43,7 @@ export const MainRouter = () => {
         <Route exact path="/address" component={AddressProof} />
         <Route exact path="/signature" component={Signature} />
         <Route exact path="/response" component={SignatureResponse} />
-        {/* {/* <Route exact path="/onboarding" component={Onboarding}/> */}
-        <Route exact path="/welcome" component={Welcome}/> 
+        <Route exact path="/welcome" component={Welcome} />
       </Switch>
     </BrowserRouter>
   );

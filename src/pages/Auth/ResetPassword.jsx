@@ -2,52 +2,54 @@ import { Box, Heading, Text } from '@chakra-ui/layout';
 import { FormLabel, FormControl, Input, Button } from '@chakra-ui/react';
 import React, {useState} from 'react';
 import {useHistory} from 'react-router-dom';
-import API from '../../api/axios';
+
+import { resetPassword } from 'api/api';
+import { PasswordInput } from 'shared/PasswordInput';
+
+import { useFormik } from 'formik';
+import * as Yup from 'yup';
+import { useToast } from 'hooks/useToast';
+
+
+const password_regex =
+  /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-])/;
+
+const validationSchema = Yup.object().shape({
+  password: Yup.string()
+    .required('Required')
+    .min(8, 'Password too short should be atleast 8 characters long')
+    .matches(
+      password_regex,
+      'Minimum eight characters, at least one upper case English letter, one lower case English letter, one number and one special character'
+    ),
+});
 
 export const ResetPassword = () => {
+  const {push} = useHistory();
+   const [isLoading, setIsLoading] = useState(false);
+  const { toastErrorSuccess } = useToast();
 
-    const [/*loginStatus*/, setLoginStatus] = useState(false);
-  const [/*toastValue*/, setToastValue] = useState('');
-  const { push } = useHistory();
-  const [state, setState] = useState('');
-  const [checkPassword, setCheckPassword] = useState({
-    password: '',
-    check: true,
-  });
+  const { values, handleChange, errors, touched, handleSubmit, handleBlur } =
+    useFormik({
+      initialValues: {
+        password: "",
+        confirmPassword: "",
+      },
+      validationSchema,
+      onSubmit: async values => {
+        try {
+          setIsLoading(true);
+          await resetPassword(values);
+          
+          push('/reset/success');
+          toastErrorSuccess('success', 'Registration Successful');
+        } catch (error) {
+          toastErrorSuccess('error', error.message);
+          setIsLoading(false);
+        }
+      },
+    });
 
-    const [/*isLoading*/, setIsLoading] = useState(false);
-  const handleCheckPassword = (event) => {
-    event.preventDefault();
-    const { value } = event.currentTarget;
-    setCheckPassword({ password: value, check: false });
-    value !== state
-      ? setCheckPassword({ password: value, check: false })
-      : setCheckPassword({ password: value, check: true });
-  };
-
-  const setNewPassword = async ( event ) => {
-      event.preventDefault();
-      // Validate before submission
-      if (typeof formError !== 'string' && checkPassword.check) {
-        setIsLoading(true);
-        const data = {
-          password: state,
-        };
-        API.post(`/api/Onboarding/reset_password`, data)
-          .then((_res) => {
-            push('/login/success');
-          })
-          .catch((e) => {
-            let message = e.response.data.message;
-            setToastValue(message);
-            setLoginStatus(true);
-            setTimeout(() => {
-              setLoginStatus(false);
-            }, 3000);
-          });
-        setIsLoading(false);
-      }
-    };
 
   return (
     <Box>
@@ -56,33 +58,45 @@ export const ResetPassword = () => {
           Please type in a new password and confirm the password to
           completely reset your password.
       </Text>
-      <form>
-        <FormControl mt={8} isRequired>
-              <FormLabel color="#2D2D2D" fontSize="sm">New Password</FormLabel>
-              <Input 
-              type="password" 
-              placeholder=""
-              onChange={(event) => {setState(event.currentTarget.value)}}
-                 />
+      <form onSubmit={handleSubmit}>
+         <FormControl mt={8} isRequired>
+          <FormLabel color="#2D2D2D" fontSize="sm">
+            Password
+          </FormLabel>
+
+          <PasswordInput
+              value={values.password}
+              handleBlur={handleBlur}
+              handleChange={handleChange}
+          />
+           {errors.password && touched.password && (
+              <Text fontSize="xs" color="red" mt="2">
+                {errors.password}
+              </Text>
+            )}
         </FormControl>
         <FormControl mt={8} isRequired>
-              <FormLabel color="#2D2D2D" fontSize="sm">Confirm New Password</FormLabel>
-              <Input 
-              type="password" 
-              placeholder=""
-              onChange={handleCheckPassword}
-               />
+          <FormLabel color="#2D2D2D" fontSize="sm">
+            Confirm Password
+          </FormLabel>
+          <Input 
+          name="confirmPassword" 
+          placeholder="Confirm password" 
+          color="lotusBlue.400" 
+          value={values.confirmPassword}
+           onChange ={handleChange}
+          onBlur={handleBlur}
+          />
         </FormControl>
-             <Button
-          color="white"
+          <Button
+          variant="primary"
           fontSize="sm"
           fontWeight="normal"
           px="10"
           mt={8}
           w="100%"
-          variant="primary"
-          onClick={setNewPassword}
-
+          type="submit"
+          isLoading= {isLoading}       
         >
            Continue
         </Button>

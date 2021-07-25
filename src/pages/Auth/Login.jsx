@@ -6,6 +6,7 @@ import {
   Button,
   Divider,
   Flex,
+  useDisclosure
 } from '@chakra-ui/react';
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
@@ -19,6 +20,10 @@ import { FaFacebook } from 'react-icons/fa';
 import { PasswordInput } from 'shared/PasswordInput';
 import { loginWithEmail } from 'api/api';
 import { useToast } from 'hooks/useToast';
+import { CustomDrawer } from 'shared/CustomDrawer';
+import { Register } from './Register';
+
+
 
 const password_regex =
   /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-])/;
@@ -41,6 +46,7 @@ const validationSchema = Yup.object().shape({
 });
 
 export const Login = () => {
+  // const { isOpen, onToggle } = useDisclosure();
   const { replace } = useHistory();
   const [isLoading, setIsLoading] = useState(false);
   const { toastErrorSuccess } = useToast();
@@ -141,7 +147,7 @@ export const Login = () => {
         </Box>
         <Text mt={10} fontSize="xs" textAlign="center">
           Don't have a bank account with us?
-          <Link to="/account">
+          <Link to='/'>
             <Text as="u" color="lotusBlue.400" fontWeight="bold" ml={2}>
               Open Bank Account
             </Text>
@@ -212,6 +218,9 @@ export const Login = () => {
           </Flex>
         </Flex>
       </Box>
+       {/* <CustomDrawer isOpen={isOpen} onClose={onToggle}>
+         <Register/>
+      </CustomDrawer> */}
     </>
   );
 };

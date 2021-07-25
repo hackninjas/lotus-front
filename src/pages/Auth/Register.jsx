@@ -8,7 +8,6 @@ import {
   Flex,
   Link,
   useDisclosure,
-  CircularProgress
 } from '@chakra-ui/react';
 import React, { useState, useContext } from 'react';
 import { useFormik } from 'formik';
