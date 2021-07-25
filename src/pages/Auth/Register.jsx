@@ -9,7 +9,7 @@ import {
   Link,
   useDisclosure,
 } from '@chakra-ui/react';
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 // import { useHistory } from 'react-router-dom';
@@ -18,7 +18,7 @@ import { FcGoogle } from 'react-icons/fc';
 import { FaFacebook } from 'react-icons/fa';
 import { CustomDrawer } from 'shared/CustomDrawer';
 import { Login } from './Login';
-// import { UserContext } from '../../context/user';
+import { UserContext } from '../../context/user';
 import { registerUser } from 'api/api';
 import { PasswordInput } from 'shared/PasswordInput';
 import { useToast } from 'hooks/useToast';

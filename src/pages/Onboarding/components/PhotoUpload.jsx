@@ -119,7 +119,11 @@ export const PhotoUpload = ({formik}) => {
               <AlertDescription w={200}>{message}</AlertDescription>
             </Alert>
           )}
-          <Button bg="transparent" fontSize="xs" color="lotusBlue.400">
+          <Button 
+          onClick={imageUploading}
+          bg="transparent" 
+          fontSize="xs" 
+          color="lotusBlue.400">
             Upload Photo
           </Button>
         </VStack>

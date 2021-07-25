@@ -57,7 +57,8 @@ export const Layout = ({
             </Flex>
           </Flex>
           <Flex alignItems="center" alignSelf="flex-end">
-            <Link color="lotusBlue.400" fontSize="sm" mr="3.5">
+            <Link to='/dashboard'
+            color="lotusBlue.400" fontSize="sm" mr="3.5">
               Save and continue later
             </Link>
             <Button
