@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useCallback, useEffect, useState } from 'react';
 import { Box, Text } from '@chakra-ui/layout';
 import { useDropzone } from 'react-dropzone';
@@ -25,6 +26,7 @@ export const PhotoUpload = ({formik}) => {
     if(isError && errorMessage){
       toastErrorSuccess("error", errorMessage)
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   },[errorMessage, isError])
 
 

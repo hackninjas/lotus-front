@@ -1,22 +1,22 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { /*useContext*/ useState } from 'react';
 import { Address } from './components/Address';
-import { Otp } from './components/Otp';
+// import { Otp } from './components/Otp';
 import { Layout } from './components/Layout';
 import { Personal } from './components/Personal';
 import { PhotoUpload } from './components/PhotoUpload';
 import * as Yup from 'yup';
-import { useFormik, Formik } from 'formik';
-import { Alert } from '@chakra-ui/alert';
+import {  Formik } from 'formik';
+// import { Alert } from '@chakra-ui/alert';
 import { openAccount } from 'api/api';
 import { useToast } from 'hooks/useToast';
 import { Persist } from 'formik-persist'
-import { UserContext } from 'context';
+// import { UserContext } from 'context';
 
 
 const numberOfForms = 4;
 
 const validationSchema = Yup.object().shape({
-  bvn: Yup.string().required('Required').length(10),
+//   bvn: Yup.string().required('Required').length(10),
   firstName: Yup.string().required('Required'),
   lastName: Yup.string().required('Required'),
   // middleName: Yup.string().required('Required'),
@@ -39,13 +39,13 @@ export const OnboardWithoutBvn = () => {
   const [step, setStep] = useState(1);
   const [errors] = useState([...new Array(numberOfForms).fill(false)]);
   const [isFormSubmitting, setIsFormSubmitting] = useState(false);
-  const { userData } = useContext(UserContext);
+//   const { userData } = useContext(UserContext);
 
-  const handleErrors = () => {
+//   const handleErrors = () => {
     // TODO: use formik error object to update errors state
     // e.g if user inputted the complete BVN digits, update
     // this will update the continue button in the layout object automaticatically for each step
-  };
+//   };
 
   const handleNext = () => {
     setStep(prev => Math.min(numberOfForms - 1, prev + 1));
@@ -73,7 +73,7 @@ export const OnboardWithoutBvn = () => {
   return (
     <Formik
       initialValues={{
-        bvn: '',
+        // bvn: '',
         firstName: '',
         lastName: '',
         // middleName: "",

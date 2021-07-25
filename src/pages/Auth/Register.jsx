@@ -9,7 +9,7 @@ import {
   Link,
   useDisclosure,
 } from '@chakra-ui/react';
-import React, { useState, useContext } from 'react';
+import React, { useState } from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 // import { useHistory } from 'react-router-dom';
