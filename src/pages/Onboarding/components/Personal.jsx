@@ -1,98 +1,166 @@
-import { Box, Text, Flex } from '@chakra-ui/layout';
-import { FormControl, FormLabel, Input, Checkbox, InputLeftAddon, InputGroup, Image, IconButton } from '@chakra-ui/react';
+import { Box, Text, Flex, Spacer, Stack } from '@chakra-ui/layout';
+import {
+  FormControl,
+  FormLabel,
+  Input,
+  Checkbox,
+  InputLeftAddon,
+  InputGroup,
+  Image,
+  IconButton,
+  Radio,
+  RadioGroup,
+  useRadio,
+  useRadioGroup,
+  HStack,
+} from '@chakra-ui/react';
 import React from 'react';
-import male from '../../../assets/images/male.svg';
-import female from '../../../assets/images/woman.svg';
+import { DatePicker } from '../../../shared/DatePicker';
+import { FormErrorText } from 'shared/FormErrorText';
+import male from '../../../assets/svg/male.svg';
+import female from '../../../assets/svg/woman.svg';
+import { CustomRadio } from './CustomRadio';
 
-export const Personal = () => {
+const gender = [
+  {
+    label: 'male',
+    icon: <Image src={male} color="gray.300" />,
+  },
+  { label: 'female', icon: <Image src={female} color="gray.300" /> },
+];
+
+export const Personal = ({ formik }) => {
+  const handleGender = nextValue => {
+    formik.setFieldValue("gender", nextValue)
+  };
+  const { getRootProps, getRadioProps } = useRadioGroup({
+    name: 'gender',
+    defaultValue: formik.values.gender,
+    onChange: handleGender,
+  });
+
+  const group = getRootProps();
   return (
     <Box>
       <Text color="#0C0C0C" fontWeight="bold" fontSize="md">
-          Personal Information
-        </Text>
-        <Text color="#2D2D2D" textAlign="left" fontSize="sm" mt={6}>
-          Please confirm that all your personal information are up to date.
-        </Text>
-        <form>
+        Personal Information
+      </Text>
+      <Text color="#2D2D2D" textAlign="left" fontSize="sm" mt={6}>
+        Please confirm that all your personal information are up to date.
+      </Text>
+      <form>
+        <Stack spacing="10" mt={8}> 
         <Flex>
-        <FormControl mt={8} >
-          <FormLabel color="#2D2D2D" fontSize="sm">
-            First name
-          </FormLabel>
-          <Input type="name" placeholder=""/>
-        </FormControl>
-        <FormControl mt={8} px={4}>
-          <FormLabel color="#2D2D2D" fontSize="sm">
-            Last name
-          </FormLabel>
-          <Input type="name" placeholder=""/>
-        </FormControl>
+          <FormControl>
+            <FormLabel color="#2D2D2D" fontSize="sm">
+              First name
+            </FormLabel>
+            <Input
+              type="name"
+              placeholder=""
+              name="firstName"
+              value={formik.values.firstName}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+            />
+            <FormErrorText
+              errorMessage={formik?.errors?.firstName}
+              isTouched={formik?.touched?.firstName}
+            />
+            <FormErrorText />
+          </FormControl>
+          <Box w="10" />
+          <FormControl >
+            <FormLabel color="#2D2D2D" fontSize="sm">
+              Last name
+            </FormLabel>
+            <Input
+              type="name"
+              placeholder=""
+              name="lastName"
+              value={formik.values.lastName}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+            />
+            <FormErrorText
+              errorMessage={formik?.errors?.lastName}
+              isTouched={formik?.touched?.lastName}
+            />
+          </FormControl>
         </Flex>
-         <FormControl mt={8} >
+        <Flex >  
+        <FormControl>
           <FormLabel color="#2D2D2D" fontSize="sm">
             Phone number
           </FormLabel>
           <InputGroup>
-          <InputLeftAddon children="+234" />
-          <Input type="tel" placeholder="phone number" />
+            <InputLeftAddon children="+234" />
+            <Input
+              type="tel"
+              placeholder="phone number"
+              name="phoneNumber"
+              value={formik.values.phoneNumber}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+            />
           </InputGroup>
-          {/* <Input type="phone" placeholder=""/> */}
+            <FormErrorText
+              errorMessage={formik?.errors?.phoneNumber}
+              isTouched={formik?.touched?.phoneNumber}
+            />
         </FormControl>
-        <Flex>
-        <FormControl mt={8} >
+        {/* <Box w="10" /> */}
+        {/* <FormControl >
           <FormLabel color="#2D2D2D" fontSize="sm">
-            What is your Birthday?
+            Email
           </FormLabel>
-          <Input w={0.9} type="name" placeholder=""/>
-        </FormControl>
-        <Flex>
-        <FormControl mt={8} ml={8}>
-          <FormLabel color="#2D2D2D" fontSize="sm">
-            Male
-          </FormLabel>
-          <IconButton
-            colorScheme="none"
-            aria-label="Call Segun"
-            icon={ <Image src={male} color="gray.300"/>}
-            border="1px solid black"
-            w="20"
-          />
-          {/* <InputGroup>
-               <InputLeftElement
-                  pointerEvents="none"
-                  children={<Image src={male} color="gray.300" pl={4}/>}
-                />
-           </InputGroup> */}
-          {/* <Input w={0.9} type="name" placeholder="Male" fontSize="xs" pl={12} /> */}
-        </FormControl>
-        <FormControl mt={8}ml={8} >
-          <FormLabel color="#2D2D2D" fontSize="sm">
-            Female
-          </FormLabel>
-          <IconButton
-            colorScheme="none"
-            aria-label="Call Segun"
-            icon={ <Image src={female} color="gray.300"/>}
-            border="1px solid black"
-            w="20"
-          />
-          {/* <InputGroup>
-               <InputLeftElement
-                  pointerEvents="none"
-                  children={<Image src={female} color="gray.300" pl={4}/>}
-                />
-           </InputGroup> */}
-          {/* <Input w={0.9} type="name" placeholder="Female" fontSize="xs" pl={12}/> */}
-        </FormControl>
+          <Input placeholder="Email" 
+            name="email" 
+           value={formik.values.email}
+           onChange={formik.handleChange}
+           onBlur={formik.handleBlur}/>
+        </FormControl> */}
         </Flex>
+        <Flex>
+          <FormControl>
+            <FormLabel color="#2D2D2D" fontSize="sm">
+              What is your Birthday?
+            </FormLabel>
+            {/* <Input w={0.9} type="name" placeholder="" /> */}
+            <DatePicker name="dateOfBirth"/> 
+            <FormErrorText
+              errorMessage={formik?.errors?.dateOfBirth}
+              isTouched={formik?.touched?.dateOfBirth}
+            />
+          </FormControl>
+          <Flex>
+            <HStack {...group}>
+              {gender.map(item => {
+                const radio = getRadioProps({ value: item.label });
+                return (
+                  <Box key={item.label}>
+                    <Text textTransform="capitalize" fontSize="sm">
+                      {item.label}
+                    </Text>
+                    <CustomRadio
+                      label={item.label}
+                      {...radio}
+                      icon={item.icon}
+                    />
+                  </Box>
+                );
+              })}
+            </HStack>
+          </Flex>
         </Flex>
-        </form>
-        
-        <Checkbox mt={4}>
-          <Text fontSize="xs" color="#2D2D2D">
-               Select to confirm your details are correct & up to date.
-           </Text>
-         </Checkbox>
+        </Stack>
+      </form>
+
+      <Checkbox mt={4}>
+        <Text fontSize="xs" color="#2D2D2D">
+          Select to confirm your details are correct & up to date.
+        </Text>
+      </Checkbox>
     </Box>
   );
 };

@@ -5,6 +5,7 @@ const initialValues = {
   balance: 0.00,
   image: "",
   accountNumber: '3115588991',
+  email: "test@email.com"
 };
 
 const UserContext = createContext(initialValues);

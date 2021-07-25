@@ -81,7 +81,7 @@ export const Register = () => {
  
   return (
       <>
-    <Box w="100%">
+    <Box w="100%" pb="10">
       <Heading color="lotusBlue.400" textAlign="left">
       Register
       </Heading>

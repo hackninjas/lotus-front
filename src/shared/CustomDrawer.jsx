@@ -27,6 +27,7 @@ export const CustomDrawer = ({ children, isOpen, onClose }) => {
             w="100%"
             justifyContent="space-between"
             overflow="auto"
+           
           >
             <Box w={{md:"30%"}} />
 
