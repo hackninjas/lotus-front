@@ -4,7 +4,7 @@ import { Box, Text } from '@chakra-ui/layout';
 import { Divider, FormControl, FormLabel, Input } from '@chakra-ui/react';
 import { FormErrorText } from 'shared/FormErrorText';
 
-import { bvnVerify } from 'api/api';
+// import { bvnVerify } from 'api/api';
 
 export const Bvn = ({ formik }) => {
 
