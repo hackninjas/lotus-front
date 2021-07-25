@@ -32,7 +32,8 @@ export const loginWithEmail = async loginDetails => {
     await API.post(routes.accountLoginEmail, loginDetails);
     
   } catch (error) {
-    let message = getErrorMsg(error);
+    let message = error.data.message;
+    // let message = getErrorMsg(error);
     throw new Error(message);
   }
 };
@@ -50,7 +51,9 @@ export const openAccount = async data => {
   try {
     await API.post(routes.openAccount, data);
   } catch (error) {
-    let message = getErrorMsg(error);
+    let message = error.response.data.errors.Bvn[0] ? error.response.data.errors.Bvn[0] : getErrorMsg(error);
+        console.log(error.response);
+
     throw new Error(message);
   }
 };

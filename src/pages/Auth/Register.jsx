@@ -229,7 +229,8 @@ export const Register = () => {
             bg="white"
             borderWidth={1}
           >
-            <FcGoogle style={{ width: '100%', height: '80%' }} />
+            <FcGoogle 
+            style={{ width: '100%', height: '80%' }} />
           </Flex>
           <Text color="black" fontSize="sm" ml="3">
             With Google
@@ -243,3 +244,14 @@ export const Register = () => {
     </>
   );
 };
+
+
+//  handle_password_change2 = e => {
+//     this.setState({ password2: e.target.value }, () => {
+//       if (this.state.password1 !== this.state.password2) {
+//         this.setState({ error: "passwords do not match" });
+//       } else if (this.state.password1 === this.state.password2) {
+//         this.setState({ error: "passwords match" });
+//       }
+//     });
+//   };

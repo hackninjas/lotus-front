@@ -13,7 +13,7 @@ import { Persist } from 'formik-persist'
 // import { UserContext } from 'context';
 
 
-const numberOfForms = 4;
+const numberOfForms = 3;
 
 const validationSchema = Yup.object().shape({
 //   bvn: Yup.string().required('Required').length(10),
@@ -24,7 +24,7 @@ const validationSchema = Yup.object().shape({
   phoneNumber: Yup.string().required('Required'),
   dateOfBirth: Yup.string().required('Required'),
   gender: Yup.string().required('Required'),
-  bvn: Yup.string().required('Required').length(12),
+  // bvn: Yup.string().required('Required').length(12),
   // isBvnProvided: Yup.boolean().required('Required'),
   // referalCode: Yup.string().required('Required'),
   passport: Yup.string().required('Required'),
@@ -36,7 +36,7 @@ const validationSchema = Yup.object().shape({
 
 export const OnboardWithoutBvn = () => {
   const { toastErrorSuccess } = useToast()
-  const [step, setStep] = useState(1);
+  const [step, setStep] = useState(0);
   const [errors] = useState([...new Array(numberOfForms).fill(false)]);
   const [isFormSubmitting, setIsFormSubmitting] = useState(false);
 //   const { userData } = useContext(UserContext);
@@ -124,6 +124,9 @@ export const OnboardWithoutBvn = () => {
             changeStep={changeStep}
             onSubmit={props.handleSubmit}
             isLoading={isFormSubmitting}
+            steps={[ 'Personal', 'Address', 'Photo Upload']}
+            stepNumber={3}
+
           >
             {renderForm(step, props)}
             <Persist name="signup-form" />

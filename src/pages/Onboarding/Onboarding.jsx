@@ -94,6 +94,7 @@ export const Onboarding = () => {
       }}
       validationSchema={validationSchema}
       onSubmit={ async (values) => {
+        console.log('here')
         let data = values;
 
         if (data.bvn) {
@@ -104,12 +105,14 @@ export const Onboarding = () => {
         console.log("data", data);
         console.log('====================================');
         try {
+          console.log('hi')
           setIsFormSubmitting(true)
           await openAccount(data);
           window.location = '/'
           toastErrorSuccess('success', 'login successful');
           setIsFormSubmitting(true)
         } catch (error) {
+          console.log('hiiiiiiii')
           toastErrorSuccess('error', error.message);
           console.error(error)
           setIsFormSubmitting(false)
@@ -127,6 +130,8 @@ export const Onboarding = () => {
             changeStep={changeStep}
             onSubmit={props.handleSubmit}
             isLoading={isFormSubmitting}
+            steps={['BVN', 'Personal', 'Address', 'Photo Upload']}
+            stepNumber={4}
           >
             {renderForm(step, props)}
             <Persist name="signup-form" />

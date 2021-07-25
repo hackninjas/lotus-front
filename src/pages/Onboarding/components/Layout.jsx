@@ -7,7 +7,6 @@ import lotusWhiteLogo from 'assets/images/lotusWhite.png';
 import lotusWhiteLeaf from 'assets/images/lotusWhiteLeaf.png';
 import { BreadCrumbItem } from './BreadCrumbItem';
 
-const steps = ['BVN', 'Personal', 'Address', 'Photo Upload'];
 
 export const Layout = ({
   children,
@@ -16,7 +15,9 @@ export const Layout = ({
   goNext,
   changeStep,
   onSubmit,
-  isLoading
+  isLoading,
+  steps,
+  stepNumber
 }) => {
   return (
     <Flex h="100vh">
@@ -39,7 +40,7 @@ export const Layout = ({
               mb="2"
               w="fit-content"
             >
-              {step + 1} of 4
+              {step + 1} of {stepNumber}
             </Text>
             <Flex>
               {steps.map((stepName, index) => (
