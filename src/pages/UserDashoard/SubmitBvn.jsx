@@ -12,7 +12,6 @@ import {
   Text,
   AvatarBadge,
   chakra,
-  InputGroup,
   FormControl,
   Input,
   FormLabel,
@@ -31,7 +30,6 @@ const validationSchema = Yup.object().shape({
 });
 
 export const SubmitBvn = () => {
-  const { push } = useHistory();
   const { userData } = useContext(UserContext);
   const { replace } = useHistory();
   const [isLoading, setIsLoading] = useState(false);

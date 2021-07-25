@@ -8,18 +8,17 @@ import {
   Flex,
   Link,
   useDisclosure,
-  CircularProgress
 } from '@chakra-ui/react';
 import React, { useState, useContext } from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
-import { useHistory } from 'react-router-dom';
+// import { useHistory } from 'react-router-dom';
 
 import { FcGoogle } from 'react-icons/fc';
 import { FaFacebook } from 'react-icons/fa';
 import { CustomDrawer } from 'shared/CustomDrawer';
 import { Login } from './Login';
-import { UserContext } from '../../context/user';
+// import { UserContext } from '../../context/user';
 import { registerUser } from 'api/api';
 import { PasswordInput } from 'shared/PasswordInput';
 import { useToast } from 'hooks/useToast';
@@ -53,7 +52,7 @@ const validationSchema = Yup.object().shape({
 
 export const Register = () => {
   const { isOpen, onToggle } = useDisclosure();
-    const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const { toastErrorSuccess } = useToast();
   const { values, handleChange, errors, touched, handleSubmit, handleBlur } =
     useFormik({
@@ -70,8 +69,8 @@ export const Register = () => {
           await registerUser(values);
 
           /// TODO: handle redirect here
-
           toastErrorSuccess('success', 'Registration Successful');
+          window.location = '/onboarding';
         } catch (error) {
           toastErrorSuccess('error', error.message);
           setIsLoading(false);

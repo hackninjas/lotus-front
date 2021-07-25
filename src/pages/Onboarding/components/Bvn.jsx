@@ -4,7 +4,10 @@ import { Box, Text } from '@chakra-ui/layout';
 import { Divider, FormControl, FormLabel, Input } from '@chakra-ui/react';
 import { FormErrorText } from 'shared/FormErrorText';
 
+import { bvnVerify } from 'api/api';
+
 export const Bvn = ({ formik }) => {
+
   return (
     <Box>
       <Text color="#0C0C0C" fontWeight="bold" fontSize="md">
@@ -35,7 +38,7 @@ export const Bvn = ({ formik }) => {
       </form>
       <Text mt={10} fontSize="xs" fontWeight="bold">
         I Don't have my Bvn now.
-        <Link to="/account">
+        <Link to="/onboard-bvn">
           <Text as="u" color="lotusBlue.400" fontWeight="bold">
             Continue to open account
           </Text>

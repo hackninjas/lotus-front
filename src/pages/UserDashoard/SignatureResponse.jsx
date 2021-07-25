@@ -22,7 +22,6 @@ export const SignatureResponse = () => {
           h="14"
           p="2"
         >
-
           <Image src={correct} />
         </Flex>
         <Text color="#0C0C0C" fontWeight="bold" fontSize="sm">
