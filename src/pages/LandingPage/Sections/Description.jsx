@@ -14,6 +14,8 @@ export const Description = () => {
       px={{ base: '10' }}
       spacing={{ base: '28', lg: '96' }}
       pl={{ lg: '40' }}
+      position="relative"
+      zIndex="1"
     >
       <Flex>
         <Flex

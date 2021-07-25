@@ -4,6 +4,7 @@ const routes = {
   accountLoginEmail: `/api/Onboarding/login`,
   registerAsUser: `/api/Onboarding/register_user`,
   validateBvn: `/api/Onboarding/verify_bvn`,
+  openAccount: '/api/Onboarding/open_account'
 };
 
 const DEFAULT_ERROR_MESSAGE = 'An error occurred, please try again';
@@ -42,6 +43,15 @@ export const loginWithEmail = async loginDetails => {
 export const registerUser = async registerDetails => {
   try {
     await API.post(routes.registerAsUser, registerDetails);
+  } catch (error) {
+    let message = getErrorMsg(error);
+    throw new Error(message);
+  }
+};
+
+export const openAccount = async data => {
+  try {
+    await API.post(routes.openAccount, data);
   } catch (error) {
     let message = getErrorMsg(error);
     throw new Error(message);
