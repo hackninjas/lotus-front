@@ -20,7 +20,6 @@ export const PhotoUpload = ({formik}) => {
   const [message, setMessage] = useState(null);
   const { convertToBase64 , imageUrl, isError, errorMessage, isSuccess, imageUploading} = useImageBase64();
   const { toastErrorSuccess } = useToast();
-  const [passportPreview, setPassportPreview] = useState(formik.values.passport)
 
   useEffect(()=> {
     if(isError && errorMessage){
@@ -29,11 +28,7 @@ export const PhotoUpload = ({formik}) => {
   },[errorMessage, isError])
 
 
-  useEffect(() => {
-    if(!formik.values.passport){
-      setPassportPreview(imageUrl)
-    }
-  }, [imageUrl])
+
 
   useEffect(() => {
     formik.setFieldValue("passport", imageUrl)
@@ -107,7 +102,7 @@ export const PhotoUpload = ({formik}) => {
               <Text>Drop the files here...</Text>
             ) : (
               <Box>
-                <Avatar w={150} h={150} src={passportPreview} />
+                <Avatar w={150} h={150} src={imageUrl} />
               </Box>
             )}
           </Flex>

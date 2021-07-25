@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Address } from './components/Address';
 import { Bvn } from './components/Bvn';
 import { Otp } from './components/Otp';
@@ -11,6 +11,7 @@ import { Alert } from '@chakra-ui/alert';
 import { openAccount } from 'api/api';
 import { useToast } from 'hooks/useToast';
 import { Persist } from 'formik-persist'
+import { UserContext } from 'context';
 
 
 const numberOfForms = 4;
@@ -39,6 +40,7 @@ export const Onboarding = () => {
   const [step, setStep] = useState(0);
   const [errors] = useState([...new Array(numberOfForms).fill(false)]);
   const [isFormSubmitting, setIsFormSubmitting] = useState(false);
+  const { userData } = useContext(UserContext);
 
   const handleErrors = () => {
     // TODO: use formik error object to update errors state
@@ -77,7 +79,7 @@ export const Onboarding = () => {
         firstName: '',
         lastName: '',
         // middleName: "",
-        // email: "",
+        // email: userData.email,
         phoneNumber: '',
         // dateOfBirth: "",
         gender: '',
@@ -95,8 +97,12 @@ export const Onboarding = () => {
         let data = values;
 
         if (data.bvn) {
-          data = { ...values, isBvnProvided: true };
+          data = { ...values, isBvnProvided: true, email: userData.email };
         }
+
+        console.log('====================================');
+        console.log("data", data);
+        console.log('====================================');
         try {
           setIsFormSubmitting(true)
           await openAccount(data);
