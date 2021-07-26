@@ -70,7 +70,7 @@ export const Layout = ({
               onClick={step + 1 === steps.length ? onSubmit : goNext}
               isLoading={isLoading}
             >
-              {step + 1 === steps.length ? 'submit' : 'Continue'}
+              {step + 1 === steps.length ? 'Create Account' : 'Continue'}
             </Button>
           </Flex>
         </Flex>

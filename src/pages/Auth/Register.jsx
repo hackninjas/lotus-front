@@ -4,12 +4,13 @@ import {
   FormControl,
   Input,
   Button,
+  Checkbox,
   Divider,
   Flex,
   Link,
   useDisclosure,
 } from '@chakra-ui/react';
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 
@@ -18,9 +19,10 @@ import { FaFacebook } from 'react-icons/fa';
 import { CustomDrawer } from 'shared/CustomDrawer';
 import { Login } from './Login';
 // import { UserContext } from '../../context/user';
-import { registerUser } from 'api/api';
 import { PasswordInput } from 'shared/PasswordInput';
+import { ConfirmPassword } from 'shared/confirmPassword';
 import { useToast } from 'hooks/useToast';
+import { UserContext } from 'context/user'
 
 const password_regex =
   /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-])/;
@@ -39,7 +41,7 @@ const validationSchema = Yup.object().shape({
     .min(8, 'Password too short should be atleast 8 characters long')
     .matches(
       password_regex,
-      'Minimum eight characters, at least one upper case English letter, one lower case English letter, one number and one special character'
+      'Password Mismatch'
     ),
   email: Yup.string()
     .email()
@@ -53,6 +55,8 @@ export const Register = () => {
   const { isOpen, onToggle } = useDisclosure();
   const [isLoading, setIsLoading] = useState(false);
   const { toastErrorSuccess } = useToast();
+const {register, state} = useContext(UserContext)
+
   const { values, handleChange, errors, touched, handleSubmit, handleBlur } =
     useFormik({
       initialValues: {
@@ -63,15 +67,15 @@ export const Register = () => {
       },
       validationSchema,
       onSubmit: async values => {
+        localStorage.removeItem('user');
         try {
           setIsLoading(true);
-          const user = localStorage.setItem('user', values.email);
-          await registerUser(values);
-          console.log(user)
+          await register(values)
 
           /// TODO: handle redirect here
           toastErrorSuccess('success', 'Registration Successful');
           window.location = '/onboarding';
+          console.log(state)
         } catch (error) {
           toastErrorSuccess('error', error.message);
           setIsLoading(false);
@@ -91,6 +95,7 @@ export const Register = () => {
         consectetior sapien. Etiam duat, viveriaisklkd.
       </Text>
       <form onSubmit={handleSubmit}>
+{/* {console.log(state)} */}
         <FormControl mt={8} isRequired>
           <FormLabel color="#2D2D2D" fontSize="sm">
             FullName
@@ -121,7 +126,11 @@ export const Register = () => {
           onChange ={handleChange}
           onBlur={handleBlur}
           />
-
+            {errors.email && touched.email && (
+              <Text fontSize="xs" color="red" mt="2">
+                {errors.email}
+              </Text>
+            )}
         </FormControl>
         <FormControl mt={8} isRequired>
           <FormLabel color="#2D2D2D" fontSize="sm">
@@ -143,14 +152,17 @@ export const Register = () => {
           <FormLabel color="#2D2D2D" fontSize="sm">
             Confirm Password
           </FormLabel>
-          <Input 
-          name="confirmPassword" 
-          placeholder="Confirm password" 
-          color="lotusBlue.400" 
+
+          <ConfirmPassword
           value={values.confirmPassword}
-           onChange ={handleChange}
+           handleChange ={handleChange}
           onBlur={handleBlur}
           />
+          {errors.confirmPassword && touched.confirmPassword && (
+              <Text fontSize="xs" color="red" mt="2">
+                {errors.confirmPassword}
+              </Text>
+            )}
         </FormControl>
         <Button
           variant="primary"
@@ -165,6 +177,11 @@ export const Register = () => {
           Register
         </Button>
       </form>
+      <Checkbox mt={4}>
+        <Text fontSize="xs" color="#2D2D2D">
+          I have read and agreed to the <Link color="lotusBlue.400" fontWeight='bold'>terms of service</Link> and <Link to='/login/privacy' color="lotusBlue.400" fontWeight='bold'>privacy policy</Link>
+        </Text>
+      </Checkbox>
       
       <Text mt={10} fontSize="xs" textAlign="center" color="#2D2D2D" fontWeight="bold">
       Already have a bank account? 
@@ -246,14 +263,3 @@ export const Register = () => {
     </>
   );
 };
-
-
-//  handle_password_change2 = e => {
-//     this.setState({ password2: e.target.value }, () => {
-//       if (this.state.password1 !== this.state.password2) {
-//         this.setState({ error: "passwords do not match" });
-//       } else if (this.state.password1 === this.state.password2) {
-//         this.setState({ error: "passwords match" });
-//       }
-//     });
-//   };

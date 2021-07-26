@@ -1,4 +1,6 @@
 import { LoginMobile } from 'pages/LoginMobile';
+import { Privacy } from 'pages/Auth/privacy';
+// import { TermsOfService } from 'pages/Auth/termsOfService';
 import { Onboarding } from 'pages/Onboarding/Onboarding';
 import { OnboardWithoutBvn } from 'pages/Onboarding/onboardWithoutBvn';
 import { UserDashboardMain } from 'pages/UserDashoard/UserDashboardMain';
@@ -26,6 +28,7 @@ export const MainRouter = () => {
       <Switch>
         <Route exact path="/" component={LandingPage} />
         <Route exact path="/login" component={LoginMobile} />
+        <Route exact path="/login/privacy" component={Privacy} />
         <Route exact path="/onboarding" component={Onboarding} />
         <Route exact path="/onboard-bvn" component={OnboardWithoutBvn} />
         <Route exact path="/password-recovery" component={ForgotPassword} />

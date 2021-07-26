@@ -14,12 +14,15 @@ import {
   useRadioGroup,
   HStack,
 } from '@chakra-ui/react';
-import React from 'react';
+import React, {useContext} from 'react';
 import { DatePicker } from '../../../shared/DatePicker';
 import { FormErrorText } from 'shared/FormErrorText';
 import male from '../../../assets/svg/male.svg';
 import female from '../../../assets/svg/woman.svg';
 import { CustomRadio } from './CustomRadio';
+// import GeoLocation from 'react-geolocation-autosuggest';
+import { UserContext } from 'context/user'
+
 
 const gender = [
   {
@@ -40,8 +43,12 @@ export const Personal = ({ formik }) => {
   });
 
   const group = getRootProps();
+  
+const {state} = useContext(UserContext)
+
   return (
     <Box>
+      {console.log(state)}
       <Text color="#0C0C0C" fontWeight="bold" fontSize="md">
         Personal Information
       </Text>
@@ -59,7 +66,7 @@ export const Personal = ({ formik }) => {
               type="name"
               placeholder=""
               name="firstName"
-              value={formik.values.firstName}
+              value={localStorage.getItem('firstName')}
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
             />
@@ -78,7 +85,7 @@ export const Personal = ({ formik }) => {
               type="name"
               placeholder=""
               name="lastName"
-              value={formik.values.lastName}
+              value={localStorage.getItem('lastName')}
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
             />
@@ -126,7 +133,6 @@ export const Personal = ({ formik }) => {
             <FormLabel color="#2D2D2D" fontSize="sm">
               What is your Birthday?
             </FormLabel>
-            {/* <Input w={0.9} type="name" placeholder="" /> */}
             <DatePicker name="dateOfBirth"/> 
             <FormErrorText
               errorMessage={formik?.errors?.dateOfBirth}
