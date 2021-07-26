@@ -18,19 +18,19 @@ export const Layout = ({
   isLoading,
   steps,
   stepNumber
-}) => {
+}) => { 
   return (
     <Flex h="100vh">
       <Grid
         templateColumns="1fr"
-        w="60%"
+        w={{base:"100%",md:"60%"}}
         py="14"
-        px="24"
+        px={{base:"10",lg:"24"}}
         boxSizing="border-box"
       >
         <Box>{children}</Box>
-        <Flex justifyContent="space-between" w="100%" justifySelf="self-end">
-          <Flex alignSelf="flex-end" direction="column">
+        <Flex justifyContent="space-between" w="100%"  direction={{base: "column", xl: "row"}}>
+          <Flex alignSelf={{xl:"flex-end"}} direction="column">
             <Text
               fontSize="sm"
               pb="2"
@@ -56,16 +56,16 @@ export const Layout = ({
               ))}
             </Flex>
           </Flex>
-          <Flex alignItems="center" alignSelf="flex-end">
+          <Flex alignItems="center" alignSelf={{xl:"flex-end"}} justifyContent="space-between">
             <Link to='/dashboard'
-            color="lotusBlue.400" fontSize="sm" mr="3.5">
+            color="lotusBlue.400" fontSize={{base:"xs",md:"sm"}} mr="3.5">
               Save and continue later
             </Link>
             <Button
               variant="primary"
-              fontSize="sm"
+              fontSize={{base:"xs",md:"sm"}}
               fontWeight="normal"
-              px="10"
+              px={{base:"4",lg:"10"}}
               isDisabled={canNext}
               onClick={step + 1 === steps.length ? onSubmit : goNext}
               isLoading={isLoading}
@@ -75,7 +75,7 @@ export const Layout = ({
           </Flex>
         </Flex>
       </Grid>
-      <Box w="40%" position="relative">
+      <Box w="40%" position="relative" display={{base:"none",md:"block"}}>
         <Image src={onboardingBg} objectFit="cover" h="100%" w="100%" />
         <Box position="absolute" left="0" top="0" bottom="0" right="0">
           <Flex

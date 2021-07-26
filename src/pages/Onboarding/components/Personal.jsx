@@ -52,21 +52,22 @@ const {state} = useContext(UserContext)
       <Text color="#0C0C0C" fontWeight="bold" fontSize="md">
         Personal Information
       </Text>
-      <Text color="#2D2D2D" textAlign="left" fontSize="sm" mt={6}>
+      <Text color="#2D2D2D" textAlign="left"fontSize={{base:"xs",md:"sm"}}  mt={6}>
         Please confirm that all your personal information are up to date.
       </Text>
       <form>
         <Stack spacing="10" mt={8}> 
         <Flex>
           <FormControl>
-            <FormLabel color="#2D2D2D" fontSize="sm">
+            <FormLabel color="#2D2D2D" fontSize={{base:"xs",md:"sm"}} >
               First name
             </FormLabel>
             <Input
               type="name"
               placeholder=""
               name="firstName"
-              value={localStorage.getItem('firstName')}
+              fontSize={{base:"xs",md:"sm"}} 
+              value={formik.values.firstName}
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
             />
@@ -78,14 +79,15 @@ const {state} = useContext(UserContext)
           </FormControl>
           <Box w="10" />
           <FormControl >
-            <FormLabel color="#2D2D2D" fontSize="sm">
+            <FormLabel color="#2D2D2D" fontSize={{base:"xs",md:"sm"}} >
               Last name
             </FormLabel>
             <Input
               type="name"
               placeholder=""
               name="lastName"
-              value={localStorage.getItem('lastName')}
+              fontSize={{base:"xs",md:"sm"}} 
+              value={formik.values.lastName}
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
             />
@@ -97,14 +99,15 @@ const {state} = useContext(UserContext)
         </Flex>
         <Flex >  
         <FormControl>
-          <FormLabel color="#2D2D2D" fontSize="sm">
+          <FormLabel color="#2D2D2D" fontSize={{base:"xs",md:"sm"}} >
             Phone number
           </FormLabel>
           <InputGroup>
-            <InputLeftAddon children="+234" />
+            <InputLeftAddon children="+234" fontSize={{base:"xs",md:"sm"}}  />
             <Input
               type="tel"
               placeholder="phone number"
+              fontSize={{base:"xs",md:"sm"}} 
               name="phoneNumber"
               value={formik.values.phoneNumber}
               onChange={formik.handleChange}
@@ -116,21 +119,11 @@ const {state} = useContext(UserContext)
               isTouched={formik?.touched?.phoneNumber}
             />
         </FormControl>
-        {/* <Box w="10" /> */}
-        {/* <FormControl >
-          <FormLabel color="#2D2D2D" fontSize="sm">
-            Email
-          </FormLabel>
-          <Input placeholder="Email" 
-            name="email" 
-           value={formik.values.email}
-           onChange={formik.handleChange}
-           onBlur={formik.handleBlur}/>
-        </FormControl> */}
+      
         </Flex>
         <Flex>
           <FormControl>
-            <FormLabel color="#2D2D2D" fontSize="sm">
+            <FormLabel color="#2D2D2D" fontSize={{base:"xs",md:"sm"}} >
               What is your Birthday?
             </FormLabel>
             <DatePicker name="dateOfBirth"/> 
@@ -145,7 +138,7 @@ const {state} = useContext(UserContext)
                 const radio = getRadioProps({ value: item.label });
                 return (
                   <Box key={item.label}>
-                    <Text textTransform="capitalize" fontSize="sm">
+                    <Text textTransform="capitalize" fontSize={{base:"xs",md:"sm"}} >
                       {item.label}
                     </Text>
                     <CustomRadio

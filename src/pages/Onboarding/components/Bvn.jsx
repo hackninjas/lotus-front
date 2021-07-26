@@ -12,13 +12,13 @@ export const Bvn = ({ formik }) => {
       <Text color="#0C0C0C" fontWeight="bold" fontSize="md">
         Bank Verification number (BVN)
       </Text>
-      <Text color="#2D2D2D" textAlign="left" fontSize="sm" mt={6}>
+      <Text color="#2D2D2D" textAlign="left" fontSize={{base:"xs",md:"sm"}}  mt={6}>
         Sed a magna semper, porta purus eu, ullamcorper liguia. Nam sit amet
         consectetior sapien. Etiam duat, viveriaisklkd.
       </Text>
       <form>
         <FormControl mt={8}>
-          <FormLabel color="#2D2D2D" fontSize="sm">
+          <FormLabel color="#2D2D2D" fontSize={{base:"xs",md:"sm"}} >
             Your Bank Verification number (BVN)
           </FormLabel>
           <Input
