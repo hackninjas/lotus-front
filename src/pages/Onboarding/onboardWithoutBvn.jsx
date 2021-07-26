@@ -1,4 +1,4 @@
-import React, { /*useContext*/ useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Address } from './components/Address';
 // import { Otp } from './components/Otp';
 import { Layout } from './components/Layout';
@@ -10,7 +10,7 @@ import {  Formik } from 'formik';
 import { openAccount } from 'api/api';
 import { useToast } from 'hooks/useToast';
 import { Persist } from 'formik-persist'
-// import { UserContext } from 'context';
+import { UserContext } from 'context';
 
 
 const numberOfForms = 3;
@@ -20,7 +20,7 @@ const validationSchema = Yup.object().shape({
   firstName: Yup.string().required('Required'),
   lastName: Yup.string().required('Required'),
   // middleName: Yup.string().required('Required'),
-  // email: Yup.string().required('Required'),
+  email: Yup.string().required('Required'),
   phoneNumber: Yup.string().required('Required'),
   dateOfBirth: Yup.string().required('Required'),
   gender: Yup.string().required('Required'),
@@ -39,7 +39,7 @@ export const OnboardWithoutBvn = () => {
   const [step, setStep] = useState(0);
   const [errors] = useState([...new Array(numberOfForms).fill(false)]);
   const [isFormSubmitting, setIsFormSubmitting] = useState(false);
-//   const { userData } = useContext(UserContext);
+  const { userData } = useContext(UserContext);
 
 //   const handleErrors = () => {
     // TODO: use formik error object to update errors state
@@ -73,15 +73,15 @@ export const OnboardWithoutBvn = () => {
   return (
     <Formik
       initialValues={{
-        // bvn: '',
+        bvn: null,
         firstName: '',
         lastName: '',
         // middleName: "",
-        // email: userData.email,
+        email: userData.email,
         phoneNumber: '',
         // dateOfBirth: "",
         gender: '',
-        bvn: '',
+        // bvn: '',
         isBvnProvided: false,
         // referalCode: "",
         passport: '',
@@ -94,16 +94,18 @@ export const OnboardWithoutBvn = () => {
       onSubmit={ async (values) => {
         let data = values;
 
-        // if (data.bvn) {
-        //   data = { ...values, isBvnProvided: true, email: userData.email };
-        // }
+        if (data.passport) {
+          data = { ...values, email: userData.email, passport:data.passport.split(',')[1] };
+        }
 
+        delete data.bvn
         console.log('====================================');
         console.log("data", data);
         console.log('====================================');
         try {
           setIsFormSubmitting(true)
           await openAccount(data);
+          window.location = '/dashboard'
           toastErrorSuccess('success', 'login successful');
           setIsFormSubmitting(true)
         } catch (error) {

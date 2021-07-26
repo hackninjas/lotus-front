@@ -44,22 +44,6 @@ export const PhotoUpload = ({formik}) => {
     }
     convertToBase64(file)
 
-    // setIsLoading(true);
-    // setError(null);
-    // setMessage(null);
-
-    // try {
-    //     await uploadFromBlobAsync({
-    //       blobUrl: URL.createObjectURL(file),
-    //       name: `${file.name}_${Date.now()}`,
-    //     })
-    // } catch (e) {
-    //   setIsLoading(false);
-    //   setError(e.message);
-    //   return;
-    // }
-
-    // setIsLoading(false);
     setMessage('File was uploaded 👍');
   }, []);
 

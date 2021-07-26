@@ -25,7 +25,7 @@ const validationSchema = Yup.object().shape({
   phoneNumber: Yup.string().required('Required'),
   dateOfBirth: Yup.string().required('Required'),
   gender: Yup.string().required('Required'),
-  bvn: Yup.string().required('Required').length(12),
+  bvn: Yup.string().required('Required').length(11),
   // isBvnProvided: Yup.boolean().required('Required'),
   // referalCode: Yup.string().required('Required'),
   passport: Yup.string().required('Required'),
@@ -79,7 +79,7 @@ export const Onboarding = () => {
         firstName: '',
         lastName: '',
         // middleName: "",
-        // email: userData.email,
+        email: userData.email,
         phoneNumber: '',
         // dateOfBirth: "",
         gender: '',
@@ -97,8 +97,11 @@ export const Onboarding = () => {
         console.log('here')
         let data = values;
 
+        // if (data.passport) {
+        //   data = 
+        // }
         if (data.bvn) {
-          data = { ...values, isBvnProvided: true, email: userData.email };
+          data = { ...values, isBvnProvided: true, email: userData.email, passport:data.passport.split(',')[1] };
         }
 
         console.log('====================================');
@@ -108,7 +111,7 @@ export const Onboarding = () => {
           console.log('hi')
           setIsFormSubmitting(true)
           await openAccount(data);
-          window.location = '/'
+          window.location = '/dashboard'
           toastErrorSuccess('success', 'login successful');
           setIsFormSubmitting(true)
         } catch (error) {

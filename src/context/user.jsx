@@ -1,12 +1,13 @@
 import React, { createContext, useState, useMemo } from 'react';
 
+const getUser = localStorage.getItem('user')
 const initialValues = {
   name: "Chijindu Amadi",
   balance: 0.00,
   image: "",
   accountNumber: '3115588991',
   phone_number: '09018970430',
-  email: "test@email.com"
+  email: getUser
 };
 
 const UserContext = createContext(initialValues);

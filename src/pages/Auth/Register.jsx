@@ -12,7 +12,6 @@ import {
 import React, { useState, useContext } from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
-// import { useHistory } from 'react-router-dom';
 
 import { FcGoogle } from 'react-icons/fc';
 import { FaFacebook } from 'react-icons/fa';
@@ -66,7 +65,9 @@ export const Register = () => {
       onSubmit: async values => {
         try {
           setIsLoading(true);
+          const user = localStorage.setItem('user', values.email);
           await registerUser(values);
+          console.log(user)
 
           /// TODO: handle redirect here
           toastErrorSuccess('success', 'Registration Successful');
@@ -77,6 +78,7 @@ export const Register = () => {
         }
       },
     });
+
  
   return (
       <>
