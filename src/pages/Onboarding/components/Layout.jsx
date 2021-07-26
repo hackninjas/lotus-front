@@ -29,8 +29,8 @@ export const Layout = ({
         boxSizing="border-box"
       >
         <Box>{children}</Box>
-        <Flex justifyContent="space-between" w="100%"  direction={{base: "column", lg: "row"}}>
-          <Flex alignSelf={{lg:"flex-end"}} direction="column">
+        <Flex justifyContent="space-between" w="100%"  direction={{base: "column", xl: "row"}}>
+          <Flex alignSelf={{xl:"flex-end"}} direction="column">
             <Text
               fontSize="sm"
               pb="2"
@@ -56,7 +56,7 @@ export const Layout = ({
               ))}
             </Flex>
           </Flex>
-          <Flex alignItems="center" alignSelf={{lg:"flex-end"}} justifyContent="space-between">
+          <Flex alignItems="center" alignSelf={{xl:"flex-end"}} justifyContent="space-between">
             <Link to='/dashboard'
             color="lotusBlue.400" fontSize={{base:"xs",md:"sm"}} mr="3.5">
               Save and continue later
