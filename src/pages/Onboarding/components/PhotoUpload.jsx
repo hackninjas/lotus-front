@@ -19,7 +19,7 @@ export const PhotoUpload = ({formik}) => {
   // const [isLoading, setIsLoading] = useState(false);
   // const [error, setError] = useState(null);
   const [message, setMessage] = useState(null);
-  const { convertToBase64 , imageUrl, isError, errorMessage, isSuccess, imageUploading} = useImageBase64();
+  const { convertToBase64 , imageUrl, isError, errorMessage, isSuccess, isLoading} = useImageBase64();
   const { toastErrorSuccess } = useToast();
 
   useEffect(()=> {
@@ -54,7 +54,7 @@ export const PhotoUpload = ({formik}) => {
       <Text color="#0C0C0C" fontWeight="bold" fontSize="md">
         Upload Photo
       </Text>
-      <Text color="#2D2D2D" textAlign="left" fontSize="sm" mt={6}>
+      <Text color="#2D2D2D" textAlign="left" fontSize={{base:"xs",md:"sm"}}  mt={6}>
         Please, kindly upload a clear picture of yourself for image
         verification. A passport photo is most recommended for this process. You
         can change your image later.
@@ -82,7 +82,7 @@ export const PhotoUpload = ({formik}) => {
             {...getRootProps()}
           >
             <input {...getInputProps()} />
-            {imageUploading ? (
+            {isLoading ? (
               <Spinner />
             ) : isDragActive ? (
               <Text>Drop the files here...</Text>
@@ -104,7 +104,7 @@ export const PhotoUpload = ({formik}) => {
             </Alert>
           )}
           <Button 
-          onClick={imageUploading}
+          {...getRootProps()}
           bg="transparent" 
           fontSize="xs" 
           color="lotusBlue.400">

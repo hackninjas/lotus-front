@@ -45,20 +45,21 @@ export const Personal = ({ formik }) => {
       <Text color="#0C0C0C" fontWeight="bold" fontSize="md">
         Personal Information
       </Text>
-      <Text color="#2D2D2D" textAlign="left" fontSize="sm" mt={6}>
+      <Text color="#2D2D2D" textAlign="left"fontSize={{base:"xs",md:"sm"}}  mt={6}>
         Please confirm that all your personal information are up to date.
       </Text>
       <form>
         <Stack spacing="10" mt={8}> 
         <Flex>
           <FormControl>
-            <FormLabel color="#2D2D2D" fontSize="sm">
+            <FormLabel color="#2D2D2D" fontSize={{base:"xs",md:"sm"}} >
               First name
             </FormLabel>
             <Input
               type="name"
               placeholder=""
               name="firstName"
+              fontSize={{base:"xs",md:"sm"}} 
               value={formik.values.firstName}
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
@@ -71,13 +72,14 @@ export const Personal = ({ formik }) => {
           </FormControl>
           <Box w="10" />
           <FormControl >
-            <FormLabel color="#2D2D2D" fontSize="sm">
+            <FormLabel color="#2D2D2D" fontSize={{base:"xs",md:"sm"}} >
               Last name
             </FormLabel>
             <Input
               type="name"
               placeholder=""
               name="lastName"
+              fontSize={{base:"xs",md:"sm"}} 
               value={formik.values.lastName}
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
@@ -90,14 +92,15 @@ export const Personal = ({ formik }) => {
         </Flex>
         <Flex >  
         <FormControl>
-          <FormLabel color="#2D2D2D" fontSize="sm">
+          <FormLabel color="#2D2D2D" fontSize={{base:"xs",md:"sm"}} >
             Phone number
           </FormLabel>
           <InputGroup>
-            <InputLeftAddon children="+234" />
+            <InputLeftAddon children="+234" fontSize={{base:"xs",md:"sm"}}  />
             <Input
               type="tel"
               placeholder="phone number"
+              fontSize={{base:"xs",md:"sm"}} 
               name="phoneNumber"
               value={formik.values.phoneNumber}
               onChange={formik.handleChange}
@@ -111,7 +114,7 @@ export const Personal = ({ formik }) => {
         </FormControl>
         {/* <Box w="10" /> */}
         {/* <FormControl >
-          <FormLabel color="#2D2D2D" fontSize="sm">
+          <FormLabel color="#2D2D2D" fontSize={{base:"xs",md:"sm"}} >
             Email
           </FormLabel>
           <Input placeholder="Email" 
@@ -123,7 +126,7 @@ export const Personal = ({ formik }) => {
         </Flex>
         <Flex>
           <FormControl>
-            <FormLabel color="#2D2D2D" fontSize="sm">
+            <FormLabel color="#2D2D2D" fontSize={{base:"xs",md:"sm"}} >
               What is your Birthday?
             </FormLabel>
             {/* <Input w={0.9} type="name" placeholder="" /> */}
@@ -139,7 +142,7 @@ export const Personal = ({ formik }) => {
                 const radio = getRadioProps({ value: item.label });
                 return (
                   <Box key={item.label}>
-                    <Text textTransform="capitalize" fontSize="sm">
+                    <Text textTransform="capitalize" fontSize={{base:"xs",md:"sm"}} >
                       {item.label}
                     </Text>
                     <CustomRadio

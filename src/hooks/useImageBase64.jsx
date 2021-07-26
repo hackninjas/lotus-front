@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 export const useImageBase64 = () => {
-  const [imageUploading, setImageUploading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [imageUrl, setImageUrl] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
   const [successMessage] = useState('');
@@ -18,7 +18,7 @@ export const useImageBase64 = () => {
         setIsError(true);
         setErrorMessage(`File size too large, select an image lesser than ${MAXSIZE}MB`);
       } else {
-        setImageUploading(true);
+        setIsLoading(true);
         let reader = new FileReader();
         reader.readAsDataURL(img);
         reader.onload = async e => {
@@ -29,12 +29,12 @@ export const useImageBase64 = () => {
 
     }
     setIsError(false);
-    setImageUploading(false);
+    setIsLoading(false);
     }
   };
   return {
     convertToBase64,
-    imageUploading,
+    isLoading,
     imageUrl,
     errorMessage,
     successMessage,
