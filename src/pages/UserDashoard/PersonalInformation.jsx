@@ -16,17 +16,14 @@ import {
 } from '@chakra-ui/react';
 import { UserContext } from 'context';
 import BvnContext from 'context/BvnContext/BvnContext';
-import IdContext from 'context/IdContect/IdContext';
 import { UserDashboardLayout } from './components/UserDashboardLayout';
 import { AlertWrapper } from 'shared/Alert';
 import AlertIcon from 'assets/svg/danger.svg';
-import { NavLink } from 'react-router-dom';
-import GreenCheck from '../../assets/images/check_green.png';
 
-export const UpgradeAccount = () => {
+export const PersonalInformation = () => {
   const { userData } = useContext(UserContext);
   const { bvn_verified } = useContext(BvnContext);
-  const { id_verified } = useContext(IdContext);
+  console.log(bvn_verified);
 
   return (
     <UserDashboardLayout>
@@ -101,7 +98,7 @@ export const UpgradeAccount = () => {
               transform: 'translateX(-50%)',
             }}
           >
-            Upgrade account
+            Personal Information
           </Heading>
           <Text fontWeight="normal" fontSize="sm">
             By upgrading your account, you can enjoy maximum capacity of your
@@ -109,29 +106,31 @@ export const UpgradeAccount = () => {
           </Text>
           <Flex justifyContent="space-between">
             <AlertWrapper variant="default">
-              <Flex justifyContent="space-between">
-                <Box flex={1}>
-                  <Text color="#0C0C0C" fontSize="xs">
-                    Bank Verification Number (BVN)
-                  </Text>
-                  <Text color="#0C0C0C" fontSize="xs">
-                    Please kindly Provide your bvn for verification
-                  </Text>
-                </Box>
-                <Flex
-                  alignItems="center"
-                  justifyContent="center"
-                  borderWidth={1}
-                  borderColor="lotusOrange"
-                  borderRadius="50%"
-                  height="50px"
-                  width="50px"
-                  p="2"
-                  ml="4"
-                >
-                  <Image src={AlertIcon} objectFit="100%" w="100%" />
+              <Link href="/verify" textDecoration="none">
+                <Flex justifyContent="space-between">
+                  <Box flex={1}>
+                    <Text color="#0C0C0C" fontSize="xs">
+                      Bank Verification Number (BVN)
+                    </Text>
+                    <Text color="#0C0C0C" fontSize="xs">
+                      Please kindly Provide your bvn for verification
+                    </Text>
+                  </Box>
+                  <Flex
+                    alignItems="center"
+                    justifyContent="center"
+                    borderWidth={1}
+                    borderColor="lotusOrange"
+                    borderRadius="50%"
+                    height="50px"
+                    width="50px"
+                    p="2"
+                    ml="4"
+                  >
+                    <Image src={AlertIcon} objectFit="100%" w="100%" />
+                  </Flex>
                 </Flex>
-              </Flex>
+              </Link>
             </AlertWrapper>
             <AlertWrapper variant="default">
               <Flex justifyContent="space-between">
@@ -157,122 +156,10 @@ export const UpgradeAccount = () => {
                   <Image src={AlertIcon} objectFit="100%" w="100%" />
                 </Flex>
               </Flex>
-              <Link href="/verify" textDecoration="none">
-                <Flex justifyContent="space-between">
-                  <Box flex={1}>
-                    <Text color="#0C0C0C" fontSize="xs">
-                      Bank Verification Number (BVN)
-                    </Text>
-                    <Text color="#0C0C0C" fontSize="xs">
-                      Please kindly Provide your bvn for verification
-                    </Text>
-                  </Box>
-                  <Flex
-                    alignItems="center"
-                    justifyContent="center"
-                    borderWidth={1}
-                    borderColor={bvn_verified ? 'green' : 'lotusOrange'}
-                    borderRadius="50%"
-                    height="50px"
-                    width="50px"
-                    p="2"
-                    ml="4"
-                  >
-                    <Image
-                      src={bvn_verified ? GreenCheck : AlertIcon}
-                      objectFit="100%"
-                      w="100%"
-                    />
-                  </Flex>
-                </Flex>
-              </Link>
-            </AlertWrapper>
-            <AlertWrapper variant="default">
-              <Link href="/upload">
-                <Flex justifyContent="space-between">
-                  <Box flex={1}>
-                    <Text color="#0C0C0C" fontSize="xs">
-                      Means of Identification
-                    </Text>
-                    <Text color="#0C0C0C" fontSize="xs">
-                      Please provide a valid means of identification
-                    </Text>
-                  </Box>
-                  <Flex
-                    alignItems="center"
-                    justifyContent="center"
-                    borderWidth={1}
-                    borderColor={id_verified ? 'green' : 'lotusOrange'}
-                    borderRadius="50%"
-                    height="50px"
-                    width="50px"
-                    p="2"
-                    ml="4"
-                  >
-                    <Image
-                      src={id_verified ? GreenCheck : AlertIcon}
-                      objectFit="100%"
-                      w="100%"
-                    />
-                  </Flex>
-                </Flex>
-              </Link>
             </AlertWrapper>
           </Flex>
           <Flex justifyContent="space-evenly">
             <AlertWrapper variant="default">
-              <NavLink to="/address">
-                <Flex justifyContent="space-between">
-                  <Box flex={1}>
-                    <Text color="#0C0C0C" fontSize="xs">
-                      Proof of Address
-                    </Text>
-                    <Text color="#0C0C0C" fontSize="xs">
-                      Please Provide a valid proof of address document
-                    </Text>
-                  </Box>
-                  <Flex
-                    alignItems="center"
-                    justifyContent="center"
-                    borderWidth={1}
-                    borderColor="lotusOrange"
-                    borderRadius="50%"
-                    height="50px"
-                    width="50px"
-                    p="2"
-                    ml="4"
-                  >
-                    <Image src={AlertIcon} objectFit="100%" w="100%" />
-                  </Flex>
-                </Flex>
-              </NavLink>
-            </AlertWrapper>
-            <AlertWrapper variant="default">
-              <NavLink to="/signature">
-                <Flex justifyContent="space-between">
-                  <Box flex={1}>
-                    <Text color="#0C0C0C" fontSize="xs">
-                      Signature
-                    </Text>
-                    <Text color="#0C0C0C" fontSize="xs">
-                      Please kindly Provide your valid signature
-                    </Text>
-                  </Box>
-                  <Flex
-                    alignItems="center"
-                    justifyContent="center"
-                    borderWidth={1}
-                    borderColor="lotusOrange"
-                    borderRadius="50%"
-                    height="50px"
-                    width="50px"
-                    p="2"
-                    ml="4"
-                  >
-                    <Image src={AlertIcon} objectFit="100%" w="100%" />
-                  </Flex>
-                </Flex>
-              </NavLink>
               <Flex justifyContent="space-between">
                 <Box flex={1}>
                   <Text color="#0C0C0C" fontSize="xs">

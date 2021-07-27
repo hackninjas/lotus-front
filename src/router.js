@@ -15,12 +15,12 @@ import { AddressProof } from 'pages/UserDashoard/AddressProof';
 import { SignatureResponse } from 'pages/UserDashoard/SignatureResponse';
 import { Signature } from 'pages/UserDashoard/Signature';
 import { Otp } from 'pages/Onboarding/components/Otp';
-import {Welcome} from "pages/Onboarding/components/Welcome"
-import {ForgotPassword} from "pages/Auth/ForgotPassword";
+import { Welcome } from 'pages/Onboarding/components/Welcome';
+import { PersonalInformation } from 'pages/UserDashoard/PersonalInformation';
+import { ForgotPassword } from 'pages/Auth/ForgotPassword';
 import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { LandingPage } from './pages';
-
 
 export const MainRouter = () => {
   return (
@@ -45,6 +45,7 @@ export const MainRouter = () => {
         <Route exact path="/signature" component={Signature} />
         <Route exact path="/response" component={SignatureResponse} />
         <Route exact path="/welcome" component={Welcome} />
+        <Route exact path="/personal" component={PersonalInformation} />
       </Switch>
     </BrowserRouter>
   );
