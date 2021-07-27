@@ -8,6 +8,7 @@ import { Global, css } from '@emotion/react';
 import { UserProvider } from 'context';
 
 import BvnState from 'context/BvnContext/BvnState';
+import IdState from 'context/IdContect/IdState';
 
 const GlobalStyles = css`
   .react-datepicker__input-container {
@@ -26,10 +27,12 @@ function App() {
     <>
       <ChakraProvider theme={theme}>
         <BvnState>
-          <Global styles={GlobalStyles} />
-          <UserProvider>
-            <MainRouter />
-          </UserProvider>
+          <IdState>
+            <Global styles={GlobalStyles} />
+            <UserProvider>
+              <MainRouter />
+            </UserProvider>
+          </IdState>
         </BvnState>
       </ChakraProvider>
       {/* <FontFace /> */}

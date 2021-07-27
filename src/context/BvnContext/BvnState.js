@@ -1,7 +1,7 @@
 import { useReducer } from 'react';
 import BvnReducer from './BvnReducer';
 import BvnContext from './BvnContext';
-import { BVN_VERIFIED } from './types';
+import { BVN_VERIFIED } from '../types';
 
 const BvnState = ({ children }) => {
   const initialState = {

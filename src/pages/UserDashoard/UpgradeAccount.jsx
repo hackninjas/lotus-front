@@ -16,6 +16,7 @@ import {
 } from '@chakra-ui/react';
 import { UserContext } from 'context';
 import BvnContext from 'context/BvnContext/BvnContext';
+import IdContext from 'context/IdContect/IdContext';
 import { UserDashboardLayout } from './components/UserDashboardLayout';
 import { AlertWrapper } from 'shared/Alert';
 import AlertIcon from 'assets/svg/danger.svg';
@@ -24,7 +25,7 @@ import GreenCheck from '../../assets/images/check_green.png';
 export const UpgradeAccount = () => {
   const { userData } = useContext(UserContext);
   const { bvn_verified } = useContext(BvnContext);
-  console.log(bvn_verified);
+  const { id_verified } = useContext(IdContext);
 
   return (
     <UserDashboardLayout>
@@ -121,7 +122,7 @@ export const UpgradeAccount = () => {
                     alignItems="center"
                     justifyContent="center"
                     borderWidth={1}
-                    borderColor="green"
+                    borderColor={bvn_verified ? 'green' : 'lotusOrange'}
                     borderRadius="50%"
                     height="50px"
                     width="50px"
@@ -138,7 +139,7 @@ export const UpgradeAccount = () => {
               </Link>
             </AlertWrapper>
             <AlertWrapper variant="default">
-              <Link>
+              <Link href="/upload">
                 <Flex justifyContent="space-between">
                   <Box flex={1}>
                     <Text color="#0C0C0C" fontSize="xs">
@@ -152,14 +153,18 @@ export const UpgradeAccount = () => {
                     alignItems="center"
                     justifyContent="center"
                     borderWidth={1}
-                    borderColor="lotusOrange"
+                    borderColor={id_verified ? 'green' : 'lotusOrange'}
                     borderRadius="50%"
                     height="50px"
                     width="50px"
                     p="2"
                     ml="4"
                   >
-                    <Image src={AlertIcon} objectFit="100%" w="100%" />
+                    <Image
+                      src={id_verified ? GreenCheck : AlertIcon}
+                      objectFit="100%"
+                      w="100%"
+                    />
                   </Flex>
                 </Flex>
               </Link>
