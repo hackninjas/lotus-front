@@ -18,7 +18,7 @@ import { UserDashboardLayout } from './components/UserDashboardLayout';
 
 export const UserDashboardMain = () => {
   const { userData } = useContext(UserContext);
-  
+
   return (
     <UserDashboardLayout>
       <Flex justifyContent="space-between" alignItems="center">
@@ -126,12 +126,11 @@ export const UserDashboardMain = () => {
             <Link fontSize="sm" mr="5">
               Skip for now
             </Link>
-            <Button 
-            variant="primary"
-             fontSize="sm"
-             >
-              Upgrade my account
-            </Button>
+            <Link href="/upgrade">
+              <Button variant="primary" fontSize="sm">
+                Upgrade my account
+              </Button>
+            </Link>
           </Flex>
         </VStack>
       </Flex>
