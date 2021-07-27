@@ -109,6 +109,7 @@ export const UpgradeAccount = () => {
           </Text>
           <Flex justifyContent="space-between">
             <AlertWrapper variant="default">
+            <Link href="/verify" textDecoration="none">
               <Flex justifyContent="space-between">
                 <Box flex={1}>
                   <Text color="#0C0C0C" fontSize="xs">
@@ -132,8 +133,9 @@ export const UpgradeAccount = () => {
                   <Image src={AlertIcon} objectFit="100%" w="100%" />
                 </Flex>
               </Flex>
+              </Link>
             </AlertWrapper>
-            <AlertWrapper variant="default">
+            {/* <AlertWrapper variant="default">
               <Flex justifyContent="space-between">
                 <Box flex={1}>
                   <Text color="#0C0C0C" fontSize="xs">
@@ -186,7 +188,7 @@ export const UpgradeAccount = () => {
                   </Flex>
                 </Flex>
               </Link>
-            </AlertWrapper>
+            </AlertWrapper> */}
             <AlertWrapper variant="default">
               <Link href="/upload">
                 <Flex justifyContent="space-between">
@@ -247,7 +249,7 @@ export const UpgradeAccount = () => {
                 </Flex>
               </NavLink>
             </AlertWrapper>
-            <AlertWrapper variant="default">
+            {/* <AlertWrapper variant="default">
               <NavLink to="/signature">
                 <Flex justifyContent="space-between">
                   <Box flex={1}>
@@ -296,8 +298,9 @@ export const UpgradeAccount = () => {
                   <Image src={AlertIcon} objectFit="100%" w="100%" />
                 </Flex>
               </Flex>
-            </AlertWrapper>
+            </AlertWrapper> */}
             <AlertWrapper variant="default">
+            <NavLink to="/signature">
               <Flex justifyContent="space-between">
                 <Box flex={1}>
                   <Text color="#0C0C0C" fontSize="xs">
@@ -321,6 +324,7 @@ export const UpgradeAccount = () => {
                   <Image src={AlertIcon} objectFit="100%" w="100%" />
                 </Flex>
               </Flex>
+              </NavLink>
             </AlertWrapper>
           </Flex>
         </VStack>
