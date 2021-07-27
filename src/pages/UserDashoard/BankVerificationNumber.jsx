@@ -1,7 +1,14 @@
 import React, { useContext } from 'react';
+import { useHistory } from 'react-router-dom';
 import { Avatar } from '@chakra-ui/avatar';
 import { Flex, Heading, VStack } from '@chakra-ui/layout';
-import { ChevronDownIcon, ArrowBackIcon, ViewIcon, ViewOffIcon, CheckCircleIcon } from '@chakra-ui/icons';
+import {
+  ChevronDownIcon,
+  ArrowBackIcon,
+  ViewIcon,
+  ViewOffIcon,
+  CheckCircleIcon,
+} from '@chakra-ui/icons';
 import {
   Button,
   Menu,
@@ -17,21 +24,28 @@ import {
   FormLabel,
 } from '@chakra-ui/react';
 import { UserContext } from 'context';
+import BvnContext from 'context/BvnContext/BvnContext';
 import { UserDashboardLayout } from './components/UserDashboardLayout';
 
 export const BankVerificationNumber = () => {
+  const { verifyBvn } = useContext(BvnContext);
+  const history = useHistory();
   const { userData } = useContext(UserContext);
-  const [show, setShow] = React.useState(false)
-  const handleClick = () => setShow(!show)
+  const [show, setShow] = React.useState(false);
+  const handleClick = () => setShow(!show);
+  const handleSubmit = () => {
+    history.push('/idverify');
+    verifyBvn();
+    setTimeout(() => history.push('/upgrade'), 2000);
+  };
   return (
     <UserDashboardLayout>
       <Flex justifyContent="space-between" alignItems="center">
         <Flex alignItems="center" fontSize="sm">
           <Flex alignItems="center" cursor="pointer" mr="4">
-              <Button
-              borderRadius="150px">
-                  <ArrowBackIcon size="35px" />
-              </Button>
+            <Button borderRadius="150px">
+              <ArrowBackIcon size="35px" />
+            </Button>
             <Text
               ml="2"
               color="lotusGrey"
@@ -100,32 +114,49 @@ export const BankVerificationNumber = () => {
             Bank Verification Number (BVN)
           </Heading>
           <Text fontWeight="normal" fontSize="xs">
-            By upgrading your account, you can enjoy maximum capacity of your Lotus bank account.
+            By upgrading your account, you can enjoy maximum capacity of your
+            Lotus bank account.
           </Text>
 
           <Flex alignItems="left">
-            <form>
-                <FormLabel fontSize="xs" fontWeight="bold" mt={10} color="#2D2D2D">
-                    Your bank verification number
-                </FormLabel>
-            <InputGroup size="md">
+            <form onSubmit={handleSubmit}>
+              <FormLabel
+                fontSize="xs"
+                fontWeight="bold"
+                mt={10}
+                color="#2D2D2D"
+              >
+                Your bank verification number
+              </FormLabel>
+              <InputGroup size="md">
                 <Input
-                    pr="4.5rem"
-                    type={show ? "text" : "password"}
-                    placeholder="bvn"
+                  pr="4.5rem"
+                  type={show ? 'text' : 'password'}
+                  placeholder="bvn"
                 />
                 <InputRightElement width="4.5rem">
-                    <Button h="1.75rem" size="sm" onClick={handleClick}>
-                    {show ? <ViewIcon name="view-off "/>  : <ViewOffIcon name="view" />}
-                    </Button>
+                  <Button h="1.75rem" size="sm" onClick={handleClick}>
+                    {show ? (
+                      <ViewIcon name="view-off " />
+                    ) : (
+                      <ViewOffIcon name="view" />
+                    )}
+                  </Button>
                 </InputRightElement>
-            </InputGroup>
+              </InputGroup>
             </form>
           </Flex>
           <Flex w="70%" justifyContent="left" ml="12">
             <CheckCircleIcon />
-            <Text fontSize="xs" ml="2">Verified</Text>
-        </Flex>
+            <Text fontSize="xs" ml="2">
+              Verified
+            </Text>
+          </Flex>
+          {/* <Flex w="15%" h="15%" justifyContent="right" mt="20">
+            <Button px="20" fontSize="small" color="white" bg="#1E0B89">
+              Continue
+            </Button>
+          </Flex> */}
         </VStack>
       </Flex>
     </UserDashboardLayout>

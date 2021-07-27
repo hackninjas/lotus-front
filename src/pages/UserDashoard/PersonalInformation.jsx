@@ -19,9 +19,8 @@ import BvnContext from 'context/BvnContext/BvnContext';
 import { UserDashboardLayout } from './components/UserDashboardLayout';
 import { AlertWrapper } from 'shared/Alert';
 import AlertIcon from 'assets/svg/danger.svg';
-import GreenCheck from '../../assets/images/check_green.png';
 
-export const UpgradeAccount = () => {
+export const PersonalInformation = () => {
   const { userData } = useContext(UserContext);
   const { bvn_verified } = useContext(BvnContext);
   console.log(bvn_verified);
@@ -99,7 +98,7 @@ export const UpgradeAccount = () => {
               transform: 'translateX(-50%)',
             }}
           >
-            Upgrade account
+            Personal Information
           </Heading>
           <Text fontWeight="normal" fontSize="sm">
             By upgrading your account, you can enjoy maximum capacity of your
@@ -121,37 +120,6 @@ export const UpgradeAccount = () => {
                     alignItems="center"
                     justifyContent="center"
                     borderWidth={1}
-                    borderColor="green"
-                    borderRadius="50%"
-                    height="50px"
-                    width="50px"
-                    p="2"
-                    ml="4"
-                  >
-                    <Image
-                      src={bvn_verified ? GreenCheck : AlertIcon}
-                      objectFit="100%"
-                      w="100%"
-                    />
-                  </Flex>
-                </Flex>
-              </Link>
-            </AlertWrapper>
-            <AlertWrapper variant="default">
-              <Link>
-                <Flex justifyContent="space-between">
-                  <Box flex={1}>
-                    <Text color="#0C0C0C" fontSize="xs">
-                      Means of Identification
-                    </Text>
-                    <Text color="#0C0C0C" fontSize="xs">
-                      Please provide a valid means of identification
-                    </Text>
-                  </Box>
-                  <Flex
-                    alignItems="center"
-                    justifyContent="center"
-                    borderWidth={1}
                     borderColor="lotusOrange"
                     borderRadius="50%"
                     height="50px"
@@ -163,6 +131,31 @@ export const UpgradeAccount = () => {
                   </Flex>
                 </Flex>
               </Link>
+            </AlertWrapper>
+            <AlertWrapper variant="default">
+              <Flex justifyContent="space-between">
+                <Box flex={1}>
+                  <Text color="#0C0C0C" fontSize="xs">
+                    Means of Identification
+                  </Text>
+                  <Text color="#0C0C0C" fontSize="xs">
+                    Please provide a valid means of identification
+                  </Text>
+                </Box>
+                <Flex
+                  alignItems="center"
+                  justifyContent="center"
+                  borderWidth={1}
+                  borderColor="lotusOrange"
+                  borderRadius="50%"
+                  height="50px"
+                  width="50px"
+                  p="2"
+                  ml="4"
+                >
+                  <Image src={AlertIcon} objectFit="100%" w="100%" />
+                </Flex>
+              </Flex>
             </AlertWrapper>
           </Flex>
           <Flex justifyContent="space-evenly">
