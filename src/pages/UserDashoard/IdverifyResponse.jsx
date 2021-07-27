@@ -25,8 +25,7 @@ export const IdVerifyResponse = () => {
 
           <Image src={correct} />
         </Flex>
-        <Text color="#0C0C0C" fontWeight="bold" fontSize="sm">
-            Your ID card has been submitted for verification.
+        <Text color="#0C0C0C" fontWeight="bold" fontSize="sm">I
         </Text>
         <Divider variant="dashed" fontWeight="bold"></Divider>
         <Text color=" #2D2D2D" fontSize="sm" >
