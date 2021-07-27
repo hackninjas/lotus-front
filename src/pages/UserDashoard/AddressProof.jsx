@@ -59,11 +59,14 @@ export const AddressProof = () => {
   const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop });
 
   const verifyMessage = 'Your Address have been upgraded';
+
+  const checker = true; 
+
   return (
     <Box>
       {verify === true ? (
         <Box>
-          <VerifyPage message={verifyMessage} />
+          <VerifyPage message={verifyMessage} setVerify={setVerify} checker={checker} />
         </Box>
       ) : (
         <UserDashboardLayout>

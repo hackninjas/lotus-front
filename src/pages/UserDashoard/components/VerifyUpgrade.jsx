@@ -1,20 +1,26 @@
 import { Box, Text, Center, Divider, Flex, Stack } from '@chakra-ui/layout';
 import { Image } from '@chakra-ui/react';
-import React, { useState } from 'react';
+import React from 'react';
 import logo from '../../../assets/images/logo.png';
 import correct from '../../../assets/svg/correct.svg';
 import { useHistory } from 'react-router-dom';
 
-const VerifyPage = ({ message }) => {
+const VerifyPage = ({ message, setVerify, checker, redirectToHome }) => {
+  let history = useHistory();
 
-    let history = useHistory();
+  if (redirectToHome) {
+    setTimeout(() => {
+      history.push('/upgrade');
+    }, 3000);
+  }
 
-//   useEffect(() => {
-    // setTimeout(() => {
-    //     console.log("running ")
-    //   history.push('/address');
-    // }, 3000);
-//   });
+  if (checker) {
+    setTimeout(() => {
+      setVerify(false);
+    }, 3000);
+  }
+
+  //   });
   return (
     <Box textAlign="left" mt={10}>
       <Center>
