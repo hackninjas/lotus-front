@@ -23,7 +23,7 @@ export const UserDashboardMain = () => {
     <UserDashboardLayout>
       <Flex justifyContent="space-between" alignItems="center" maxH="100vh">
         <Flex alignItems="center" fontSize="sm">
-          <Flex alignItems="center" cursor="pointer" mr="4">
+          <Flex alignItems="center" cursor="pointer" mx={{base:"10",sm:"4"}}>
             <SendIcon size="25px" />
             <Text
               ml="2"
@@ -32,11 +32,12 @@ export const UserDashboardMain = () => {
                 color: 'black',
               }}
               fontFamily="fonts.cocogoose"
+              display={{base: "none", sm: "block"}}
             >
               Transactions
             </Text>
           </Flex>
-          <Flex alignItems="center" cursor="pointer" mr="4">
+          <Flex alignItems="center" cursor="pointer" mr={{base:"10",sm:"4"}}>
             <DonutChartIcon />
             <Text
               _hover={{
@@ -45,11 +46,12 @@ export const UserDashboardMain = () => {
               as="p"
               ml="2"
               color="lotusGrey"
+              display={{base: "none", sm: "block"}}
             >
               Budget
             </Text>
           </Flex>
-          <Flex alignItems="center" cursor="pointer" mr="4">
+          <Flex alignItems="center" cursor="pointer" mr={{base:"10",sm:"4"}}>
             <CreditCardIcon />
             <Text
               _hover={{
@@ -57,6 +59,7 @@ export const UserDashboardMain = () => {
               }}
               ml="2"
               color="lotusGrey"
+              display={{base:"none",sm: "block"}}
             >
               Card
             </Text>
@@ -95,6 +98,7 @@ export const UserDashboardMain = () => {
       <Flex
         direction="column"
         justifyContent="center"
+        alignItems="center"
         position="relative"
         zIndex="100"
         h="100%"
@@ -122,7 +126,7 @@ export const UserDashboardMain = () => {
             Account.
           </Text>
 
-          <Flex alignItems="center">
+          <Flex flexDirection={{base: "column", md: "row"}} mt={{base: "40", md: "auto"}} alignItems="center">
             <Link fontSize="sm" mr="5">
               Skip for now
             </Link>

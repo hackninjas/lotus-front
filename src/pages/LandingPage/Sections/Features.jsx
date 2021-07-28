@@ -33,7 +33,7 @@ export const Features = () => {
       direction="column"
       alignItems="center"
     >
-      <Box  fontWeight="bold" fontSize={{base:"1.2rem",lg:"2rem"}} color="lotusBlue.400" textAlign="center">
+      <Box  fontWeight="bold" fontSize={{base:"1.2rem",lg:"2rem"}} color="lotusBlue.400" textAlign="center" zIndex="1">
         The Bank that covers <br /> all your needs
       </Box>
 

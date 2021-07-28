@@ -17,16 +17,16 @@ import {
   MenuList,
   MenuItem,
 } from '@chakra-ui/react';
-import { NavLink } from 'react-router-dom';
+// import { NavLink } from 'react-router-dom';
 import { useHistory } from 'react-router';
 import { UserContext } from 'context';
 import BvnContext from 'context/BvnContext/BvnContext';
 import { UserDashboardLayout } from 'pages/UserDashoard/components/UserDashboardLayout';
 
 export const Otp = () => {
+  const history = useHistory();
   const { userData } = useContext(UserContext);
   const { verifyBvn } = useContext(BvnContext);
-  const history = useHistory();
 
   const handleClick = () => {
     history.push('/idverify');
@@ -132,11 +132,10 @@ export const Otp = () => {
       </Box>
       <Box display="flex" justifyContent="flex-end" mx="25%">
         <Button
-          type="button"
           px="50px"
           variant="primary"
           fontSize="xs"
-          cursor="pointer"
+          style={{cursor: "pointer"}}
           onClick={handleClick}
         >
           Verify
