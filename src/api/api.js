@@ -41,6 +41,7 @@ export const loginWithEmail = async loginDetails => {
 export const registerUser = async registerDetails => {
   try {
    const response = await API.post(routes.registerAsUser, registerDetails);
+   await console.log(response)
    return response
   } catch (error) {
     let message = getErrorMsg(error);

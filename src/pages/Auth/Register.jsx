@@ -70,7 +70,7 @@ const {register, state} = useContext(UserContext)
         localStorage.removeItem('user');
         try {
           setIsLoading(true);
-          await register(values)
+          await register(JSON.stringify(values))
 
           /// TODO: handle redirect here
           toastErrorSuccess('success', 'Registration Successful');

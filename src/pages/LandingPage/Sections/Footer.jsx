@@ -22,7 +22,7 @@ export const Links = [
 export const Footer = () => {
   return (
     <Box
-      mt={{base:"40",lg:"96"}}
+      mt={{base:"40",lg:"60"}}
       px={{base:"10",lg:"28"}}
       pb="40"
       bgGradient="linear(to-b, white, lotusGreen.100, lotusFadedPink)"

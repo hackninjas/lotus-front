@@ -23,8 +23,6 @@ import { useToast } from 'hooks/useToast';
 // import { CustomDrawer } from 'shared/CustomDrawer';
 // import { Register } from './Register';
 
-
-
 const password_regex =
   /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-])/;
 const email_regex = /[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/;
@@ -59,11 +57,10 @@ export const Login = () => {
         try {
           setIsLoading(true);
           await loginWithEmail(values);
-          
+
           /// TODO: handle redirect here
           window.location = '/dashboard';
           toastErrorSuccess('success', 'login successful');
-
         } catch (error) {
           toastErrorSuccess('error', error.message);
           setIsLoading(false);
@@ -131,22 +128,20 @@ export const Login = () => {
             Login
           </Button>
         </form>
-        <Box 
-        textAlign="right" 
-        mt="4"  
-        color="lotusBlue.400" 
-        fontWeight="bold" 
-        fontSize="xs">
-          <Link
-            as={RLink}
-            to="/password-recovery"
-          >
+        <Box
+          textAlign="right"
+          mt="4"
+          color="lotusBlue.400"
+          fontWeight="bold"
+          fontSize="xs"
+        >
+          <Link as={RLink} to="/password-recovery">
             Forgot Password?
           </Link>
         </Box>
         <Text mt={10} fontSize="xs" textAlign="center">
           Don't have a bank account with us?
-          <Link to='/'>
+          <Link to="/">
             <Text as="u" color="lotusBlue.400" fontWeight="bold" ml={2}>
               Open Bank Account
             </Text>
@@ -216,8 +211,9 @@ export const Login = () => {
             </Text>
           </Flex>
         </Flex>
+        <br />
       </Box>
-       {/* <CustomDrawer isOpen={isOpen} onClose={onToggle}>
+      {/* <CustomDrawer isOpen={isOpen} onClose={onToggle}>
          <Register/>
       </CustomDrawer> */}
     </>

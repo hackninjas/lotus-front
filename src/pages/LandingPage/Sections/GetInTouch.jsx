@@ -6,7 +6,7 @@ import CreditCardPic from 'assets/svg/creditCardTransparent.svg';
 
 export const GetInTouch = () => {
   return (
-    <Box px={{ base: '10', lg: '28' }} mt={{ base: '20', lg: '96' }}>
+    <Box px={{ base: '10', lg: '28' }} mt={{ base: '20', lg: '60' }}>
       <Flex
         px={{base:"10", lg: '14' }}
         py={{base:"10",lg:"20"}}

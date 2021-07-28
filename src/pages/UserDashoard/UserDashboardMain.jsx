@@ -21,7 +21,7 @@ export const UserDashboardMain = () => {
 
   return (
     <UserDashboardLayout>
-      <Flex justifyContent="space-between" alignItems="center">
+      <Flex justifyContent="space-between" alignItems="center" maxH="100vh">
         <Flex alignItems="center" fontSize="sm">
           <Flex alignItems="center" cursor="pointer" mr="4">
             <SendIcon size="25px" />

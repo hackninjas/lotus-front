@@ -12,11 +12,16 @@ import { FormErrorText } from 'shared/FormErrorText';
 
 export const Address = ({ formik }) => {
   return (
-    <Box>
+    <Box marginRight="25%">
       <Text color="#0C0C0C" fontWeight="bold" fontSize="md">
         Residential Information
       </Text>
-      <Text color="#2D2D2D" textAlign="left" fontSize={{base:"xs",md:"sm"}}  mt={6}>
+      <Text
+        color="#2D2D2D"
+        textAlign="left"
+        fontSize={{ base: 'xs', md: 'sm' }}
+        mt={6}
+      >
         Sed a magna semper, porta purus eu, ullamcorper liguia. Nam sit amet
         consectetior sapien. Etiam duat, viveriaisklkd.
       </Text>
@@ -28,7 +33,7 @@ export const Address = ({ formik }) => {
             <Input
               type="text"
               placeholder="Your country"
-              fontSize={{base:"xs",md:"sm"}} 
+              fontSize={{ base: 'xs', md: 'sm' }}
               name="country"
               value={formik.values.country}
               onChange={formik.handleChange}
@@ -45,7 +50,7 @@ export const Address = ({ formik }) => {
               type="text"
               placeholder="State"
               name="state"
-              fontSize={{base:"xs",md:"sm"}} 
+              fontSize={{ base: 'xs', md: 'sm' }}
               value={formik.values.state}
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
@@ -61,7 +66,7 @@ export const Address = ({ formik }) => {
               type="text"
               placeholder="City"
               name="city"
-              fontSize={{base:"xs",md:"sm"}} 
+              fontSize={{ base: 'xs', md: 'sm' }}
               value={formik.values.city}
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
@@ -78,7 +83,7 @@ export const Address = ({ formik }) => {
         placeholder="Address"
         size="sm"
         name="address"
-        fontSize={{base:"xs",md:"sm"}} 
+        fontSize={{ base: 'xs', md: 'sm' }}
         value={formik.values.address}
         onChange={formik.handleChange}
         onBlur={formik.handleBlur}

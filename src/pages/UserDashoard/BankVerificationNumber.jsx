@@ -24,19 +24,15 @@ import {
   FormLabel,
 } from '@chakra-ui/react';
 import { UserContext } from 'context';
-import BvnContext from 'context/BvnContext/BvnContext';
 import { UserDashboardLayout } from './components/UserDashboardLayout';
 
 export const BankVerificationNumber = () => {
-  const { verifyBvn } = useContext(BvnContext);
   const history = useHistory();
   const { userData } = useContext(UserContext);
   const [show, setShow] = React.useState(false);
   const handleClick = () => setShow(!show);
   const handleSubmit = () => {
-    history.push('/idverify');
-    verifyBvn();
-    setTimeout(() => history.push('/upgrade'), 2000);
+    history.push('/otp');
   };
   return (
     <UserDashboardLayout>
