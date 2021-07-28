@@ -21,31 +21,31 @@ import AlertIcon from 'assets/svg/danger.svg';
 export const UserDashboardLayout = ({ children }) => {
   const { userData } = useContext(UserContext);
   return (
-    <Flex h="100vh">
-      <Box w="35%" position="relative">
-        <Image src={dashboardBg} objectFit="cover" h="100%" w="100%" />
+    <Flex  flexDirection={{base: "column", md: "row"}} minH="100vh" overflowY="hidden">
+      <Box w={{base: "100%",md:"35%"}} maxH={{base: "80vh",md:"100vh"}} position="relative">
+        <Image src={dashboardBg} objectFit="cover" h={{base: "80vh", md:"100vh"}} w="100%" />
         <Box position="absolute" left="0" top="0" bottom="0" right="0">
           <Flex direction="column" h="100%" px="10">
             <Image src={lotusWhiteLogo} w="14" mt="10" mr="14" />
             <Flex
               direction="column"
-              justifyContent="space-between"
+              // justifyContent="space-between"
               flex={1}
               pb="14"
             >
-              <Stack spacing="8" mt="20">
+              <Stack spacing="5" mt="20px" marginBottom="50px">
+                <Text color="white" fontSize="sm">
+                  Account Balance
+                </Text>
                 <Flex justifyContent="space-between" alignItems="center">
                   <Box>
-                    <Text color="white" fontSize="sm" mb="1.5">
-                      Account Balance
-                    </Text>
                     <Heading fontFamily="fonts.body" color="white">
                       {formatNumberToCurrency(userData?.balance, 'NGN')}
                     </Heading>
                   </Box>
                   <Button
                     colorScheme="whiteAlpha"
-                    fontSize="sm"
+                    fontSize="x-small"
                     fontWeight="normal"
                   >
                     Fund my Account
@@ -54,10 +54,15 @@ export const UserDashboardLayout = ({ children }) => {
                 <Divider />
 
                 <Heading color="white" fontSize="sm">
-                  Your account ha been created.
+                  Your account has been created.
                 </Heading>
 
-                <Text as="p" color="white" fontWeight="light">
+                <Text
+                  as="p"
+                  color="white"
+                  fontWeight="light"
+                  fontSize="x-small"
+                >
                   Your Lotus account number is{' '}
                   <chakra.strong color="white">
                     {userData.accountNumber}
@@ -68,7 +73,7 @@ export const UserDashboardLayout = ({ children }) => {
                 </Text>
               </Stack>
               <AlertWrapper variant="glass">
-                <Flex justifyContent="space-between">
+                <Flex justifyContent="space-between" >
                   <Flex
                     alignItems="center"
                     justifyContent="center"
@@ -100,9 +105,10 @@ export const UserDashboardLayout = ({ children }) => {
 
       <Grid
         templateColumns="1fr"
-        w="65%"
-        py="14"
-        px="24"
+        w={{base: "100%",md:"65%"}}
+        py="10"
+        px={{base: "0",md:"24"}}
+        pl={{base: "-15px", md:"auto"}}
         boxSizing="border-box"
         position="relative"
       >

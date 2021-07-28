@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { Avatar } from '@chakra-ui/avatar';
-import { Flex, Heading, Link, VStack } from '@chakra-ui/layout';
+import { Flex, Heading, VStack } from '@chakra-ui/layout';
 import { ChevronDownIcon, ArrowBackIcon } from '@chakra-ui/icons';
 import {
   Button,
@@ -109,31 +109,35 @@ export const UpgradeAccount = () => {
           </Text>
           <Flex justifyContent="space-between">
             <AlertWrapper variant="default">
-            <Link href="/verify" textDecoration="none">
-              <Flex justifyContent="space-between">
-                <Box flex={1}>
-                  <Text color="#0C0C0C" fontSize="xs">
-                    Bank Verification Number (BVN)
-                  </Text>
-                  <Text color="#0C0C0C" fontSize="xs">
-                    Please kindly Provide your bvn for verification
-                  </Text>
-                </Box>
-                <Flex
-                  alignItems="center"
-                  justifyContent="center"
-                  borderWidth={1}
-                  borderColor="lotusOrange"
-                  borderRadius="50%"
-                  height="50px"
-                  width="50px"
-                  p="2"
-                  ml="4"
-                >
-                  <Image src={AlertIcon} objectFit="100%" w="100%" />
+              <NavLink to="/verify" textDecoration="none">
+                <Flex flexDirection={{base: "column-reverse", md: "row"}} alignItems={{base:"center", md: "flex-end"}} justifyContent="space-between">
+                  <Box flex={1}>
+                    <Text color="#0C0C0C" fontSize="xs" fontWeight="bold">
+                      Bank Verification Number (BVN)
+                    </Text>
+                    <Text color="#0C0C0C" fontSize="xs">
+                      Please kindly Provide your bvn for verification
+                    </Text>
+                  </Box>
+                  <Flex
+                    alignItems="center"
+                    justifyContent="center"
+                    borderWidth={1}
+                    borderColor={bvn_verified ? 'greeb' : 'lotusOrange'}
+                    borderRadius="50%"
+                    height="50px"
+                    width="50px"
+                    p="2"
+                    ml={{md:"4"}}
+                  >
+                    <Image
+                      src={bvn_verified ? GreenCheck : AlertIcon}
+                      objectFit="100%"
+                      w="100%"
+                    />
+                  </Flex>
                 </Flex>
-              </Flex>
-              </Link>
+              </NavLink>
             </AlertWrapper>
             {/* <AlertWrapper variant="default">
               <Flex justifyContent="space-between">
@@ -190,10 +194,10 @@ export const UpgradeAccount = () => {
               </Link>
             </AlertWrapper> */}
             <AlertWrapper variant="default">
-              <Link href="/upload">
-                <Flex justifyContent="space-between">
+              <NavLink to="/upload">
+                <Flex flexDirection={{base: "column-reverse", md: "row"}} alignItems={{base:"center", md: "flex-end"}} justifyContent="space-between">
                   <Box flex={1}>
-                    <Text color="#0C0C0C" fontSize="xs">
+                    <Text color="#0C0C0C" fontSize="xs" fontWeight="bold">
                       Means of Identification
                     </Text>
                     <Text color="#0C0C0C" fontSize="xs">
@@ -209,7 +213,7 @@ export const UpgradeAccount = () => {
                     height="50px"
                     width="50px"
                     p="2"
-                    ml="4"
+                    ml={{md: "4"}}
                   >
                     <Image
                       src={id_verified ? GreenCheck : AlertIcon}
@@ -218,15 +222,15 @@ export const UpgradeAccount = () => {
                     />
                   </Flex>
                 </Flex>
-              </Link>
+              </NavLink>
             </AlertWrapper>
           </Flex>
           <Flex justifyContent="space-evenly">
             <AlertWrapper variant="default">
               <NavLink to="/address">
-                <Flex justifyContent="space-between">
+                <Flex flexDirection={{base: "column-reverse", md: "row"}} alignItems={{base:"center", md: "flex-end"}} justifyContent="space-between">
                   <Box flex={1}>
-                    <Text color="#0C0C0C" fontSize="xs">
+                    <Text color="#0C0C0C" fontSize="xs" fontWeight="bold">
                       Proof of Address
                     </Text>
                     <Text color="#0C0C0C" fontSize="xs">
@@ -242,7 +246,7 @@ export const UpgradeAccount = () => {
                     height="50px"
                     width="50px"
                     p="2"
-                    ml="4"
+                    ml={{md:"4"}}
                   >
                     <Image src={AlertIcon} objectFit="100%" w="100%" />
                   </Flex>
@@ -300,30 +304,30 @@ export const UpgradeAccount = () => {
               </Flex>
             </AlertWrapper> */}
             <AlertWrapper variant="default">
-            <NavLink to="/signature">
-              <Flex justifyContent="space-between">
-                <Box flex={1}>
-                  <Text color="#0C0C0C" fontSize="xs">
-                    Signature
-                  </Text>
-                  <Text color="#0C0C0C" fontSize="xs">
-                    Please kindly Provide your valid signature
-                  </Text>
-                </Box>
-                <Flex
-                  alignItems="center"
-                  justifyContent="center"
-                  borderWidth={1}
-                  borderColor="lotusOrange"
-                  borderRadius="50%"
-                  height="50px"
-                  width="50px"
-                  p="2"
-                  ml="4"
-                >
-                  <Image src={AlertIcon} objectFit="100%" w="100%" />
+              <NavLink to="/signature">
+                <Flex flexDirection={{base: "column-reverse", md: "row"}} alignItems={{base:"center", md: "flex-end"}} justifyContent="space-between">
+                  <Box flex={1}>
+                    <Text color="#0C0C0C" fontSize="xs" fontWeight="bold">
+                      Signature
+                    </Text>
+                    <Text color="#0C0C0C" fontSize="xs">
+                      Please kindly Provide your valid signature
+                    </Text>
+                  </Box>
+                  <Flex
+                    alignItems="center"
+                    justifyContent="center"
+                    borderWidth={1}
+                    borderColor="lotusOrange"
+                    borderRadius="50%"
+                    height="50px"
+                    width="50px"
+                    p="2"
+                    ml={{md:"4"}}
+                  >
+                    <Image src={AlertIcon} objectFit="100%" w="100%" />
+                  </Flex>
                 </Flex>
-              </Flex>
               </NavLink>
             </AlertWrapper>
           </Flex>
