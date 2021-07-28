@@ -1,5 +1,5 @@
-import React, { createContext, useState, useMemo } from 'react';
 import axios from 'axios';
+import React, { createContext, useState, useMemo } from 'react';
 
 const getUser = localStorage.getItem('user');
 const initialValues = {
@@ -13,21 +13,14 @@ const initialValues = {
 
 const UserContext = createContext(initialValues);
 
-const register = async user => {
-  // const config = {
-  //   headers: {
-  //     'Content-Type': 'application/json',
-  //   },
-  // };
-  const res = await axios.post(
-    'https://lotus-onboarding-service.azurewebsites.net/api/Onboarding/register_user',
-    user
-  );
-  await console.log(res.data);
-  // const data = await res.data;
-};
-
 const { Provider } = UserContext;
+
+const register = async (data) => {
+  const res = await axios.post(`${process.env.REACT_APP_ENDPOINT_BASE_URL}​/api​/Onboarding​/register_user`,data)
+  const resData = await res.data
+
+  console.log(resData)
+}
 
 const UserProvider = ({ children }) => {
   const [userData, setUserData] = useState(initialValues);

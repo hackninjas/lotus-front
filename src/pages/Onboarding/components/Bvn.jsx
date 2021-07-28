@@ -4,21 +4,24 @@ import { Box, Text } from '@chakra-ui/layout';
 import { Divider, FormControl, FormLabel, Input } from '@chakra-ui/react';
 import { FormErrorText } from 'shared/FormErrorText';
 
-
 export const Bvn = ({ formik }) => {
-
   return (
-    <Box>
+    <Box marginRight="25%">
       <Text color="#0C0C0C" fontWeight="bold" fontSize="md">
         Bank Verification number (BVN)
       </Text>
-      <Text color="#2D2D2D" textAlign="left" fontSize={{base:"xs",md:"sm"}}  mt={6}>
+      <Text
+        color="#2D2D2D"
+        textAlign="left"
+        fontSize={{ base: 'xs', md: 'sm' }}
+        mt={6}
+      >
         Sed a magna semper, porta purus eu, ullamcorper liguia. Nam sit amet
         consectetior sapien. Etiam duat, viveriaisklkd.
       </Text>
       <form>
         <FormControl mt={8}>
-          <FormLabel color="#2D2D2D" fontSize={{base:"xs",md:"sm"}} >
+          <FormLabel color="#2D2D2D" fontSize={{ base: 'xs', md: 'sm' }}>
             Your Bank Verification number (BVN)
           </FormLabel>
           <Input
@@ -43,7 +46,12 @@ export const Bvn = ({ formik }) => {
           </Text>
         </Link>
       </Text>
-      <Divider variant="dashed" fontWeight="bold" mt={6}></Divider>
+      <Divider
+        variant="dashed"
+        fontWeight="bold"
+        borderWidth="2px"
+        mt={6}
+      ></Divider>
     </Box>
   );
 };
