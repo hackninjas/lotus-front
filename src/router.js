@@ -1,3 +1,4 @@
+import React from 'react';
 import { LoginMobile } from 'pages/LoginMobile';
 import { Privacy } from 'pages/Auth/privacy';
 // import { TermsOfService } from 'pages/Auth/termsOfService';
@@ -18,9 +19,13 @@ import { Otp } from 'pages/Onboarding/components/Otp';
 import { Welcome } from 'pages/Onboarding/components/Welcome';
 import { PersonalInformation } from 'pages/UserDashoard/PersonalInformation';
 import { ForgotPassword } from 'pages/Auth/ForgotPassword';
-import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { LandingPage } from './pages';
+import { AdminLandingPage } from 'pages/Admin/AdminLandingPage';
+import { AdminDashboard } from 'pages/Admin/AdminDashboard';
+import { AdminAccountPage } from 'pages/Admin/AdminAccountPage';
+import { AdminCardRequest } from 'pages/Admin/AdminCardRequest';
+import AccountID from 'pages/Admin/AccountID';
 
 export const MainRouter = () => {
   return (
@@ -46,6 +51,11 @@ export const MainRouter = () => {
         <Route exact path="/response" component={SignatureResponse} />
         <Route exact path="/welcome" component={Welcome} />
         <Route exact path="/personal" component={PersonalInformation} />
+        <Route exact path="/admin" component={AdminLandingPage} />
+        <Route exact path="/admin-dashboard" component={AdminDashboard} />
+        <Route exact path="/admin-accounts" component={AdminAccountPage} />
+        <Route exact path="/admin-card-request" component={AdminCardRequest} />
+        <Route exact path="/accounts/kelvin" component={AccountID} />
       </Switch>
     </BrowserRouter>
   );
