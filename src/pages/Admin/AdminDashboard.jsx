@@ -45,7 +45,7 @@ export const AdminDashboard = () => {
             templateRows="repeat(2,1fr)"
             templateColumns="repeat(4,1fr)"
             color="white"
-            gap={2}
+            gap={4}
           >
             <GridItem
               colSpan={1}
