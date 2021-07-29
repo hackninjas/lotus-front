@@ -49,4 +49,13 @@ export const registerUser = async registerDetails => {
   }
 };
 
+export const verifyBVN = async bvnNumber => {
+  try {
+    await API.get(`/api/Onboarding/verify_bvn?bvn=${bvnNumber}`);
+  } catch (error) {
+    let message = getErrorMsg(error);
+    throw new Error(message)
+  }
+};
+
 

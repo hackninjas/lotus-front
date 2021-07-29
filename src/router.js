@@ -35,7 +35,7 @@ export const MainRouter = () => {
         <Route exact path="/address" component={AddressProof} />
         <Route exact path="/signature" component={Signature} />
         <Route exact path="/response" component={SignatureResponse} />
-        {/* {/* <Route exact path="/onboarding" component={Onboarding}/> */}
+         {/* <Route exact path="/onboarding" component={Onboarding}/> */}
         <Route exact path="/welcome" component={Welcome}/> 
       </Switch>
     </BrowserRouter>
