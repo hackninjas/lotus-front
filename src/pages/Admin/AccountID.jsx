@@ -322,7 +322,7 @@ const AccountID = () => {
           >
             <Box
               borderBottom="1px solid #E8E7E7"
-              paddingX="8"
+              paddingX="5"
               paddingY="3"
               bg="#F9F7FF"
             >
@@ -343,7 +343,7 @@ const AccountID = () => {
                 </Badge>
               </Flex>
             </Box>
-            <Box paddingX="8">
+            <Box paddingX="5" paddingTop="5" paddingBottom="10">
               <Flex justifyContent="space-between">
                 <Box fontSize="12px">
                   <Text my="2">
