@@ -109,37 +109,35 @@ const AccountID = () => {
               my="5"
               templateRows="repeat(2, 1fr)"
               templateColumns="repeat(5, 1fr)"
-              fontSize="small"
+              fontSize="x-small"
               fontWeight="bolder"
             >
-              <GridItem mt="5" fontSize="x-small" colSpan={2}>
+              <GridItem mt="5" colSpan={2}>
                 <Text opacity="0.5">Investor Name</Text>
-                <Text fontSize="x-small" color="#1E0B89">
-                  (First name, Last name, Other name)
-                </Text>
+                <Text color="#1E0B89">(First name, Last name, Other name)</Text>
                 <Text mt="2">Kelvin Nwoke</Text>
               </GridItem>
-              <GridItem mt="5" fontSize="x-small" colSpan={1}>
+              <GridItem mt="5" colSpan={1}>
                 <Text opacity="0.5">Date of Birth</Text>
                 <Text mt="6">17th August,1990</Text>
               </GridItem>
-              <GridItem mt="5" fontSize="x-small" colSpan={1}>
+              <GridItem mt="5" colSpan={1}>
                 <Text opacity="0.5">Gender</Text>
                 <Text mt="6">Male</Text>
               </GridItem>
-              <GridItem mt="5" fontSize="x-small" colSpan={1}>
+              <GridItem mt="5" colSpan={1}>
                 <Text opacity="0.5">Email Address</Text>
                 <Text mt="6">kelvin_nwoke@gmail.com</Text>
               </GridItem>
-              <GridItem mt="5" fontSize="x-small" colSpan={2}>
+              <GridItem mt="5" colSpan={2}>
                 <Text opacity="0.5">Phone number 1</Text>
                 <Text mt="4">(496)583672</Text>
               </GridItem>
-              <GridItem mt="5" fontSize="x-small" colSpan={1}>
+              <GridItem mt="5" colSpan={1}>
                 <Text opacity="0.5">Phone number 2</Text>
                 <Text mt="4">--</Text>
               </GridItem>
-              <GridItem mt="5" fontSize="x-small" colSpan={1}>
+              <GridItem mt="5" colSpan={1}>
                 <Text opacity="0.5">Account type</Text>
                 <Text mt="4">
                   Individual account{' '}
@@ -152,22 +150,22 @@ const AccountID = () => {
             <Grid
               templateRows="repeat(2, 1fr)"
               templateColumns="repeat(5, 1fr)"
-              fontSize="small"
+              fontSize="x-small"
               fontWeight="bolder"
             >
-              <GridItem fontSize="x-small" colSpan={2}>
+              <GridItem colSpan={2}>
                 <Text opacity="0.5">Address</Text>
                 <Text mt="4">23 Abiola Cooker Way, Surulere, Lagos</Text>
               </GridItem>
-              <GridItem fontSize="x-small" colSpan={1}>
+              <GridItem colSpan={1}>
                 <Text opacity="0.5">City</Text>
                 <Text mt="4">Surulere</Text>
               </GridItem>
-              <GridItem fontSize="x-small" colSpan={1}>
+              <GridItem colSpan={1}>
                 <Text opacity="0.5">State</Text>
                 <Text mt="4">Lagos</Text>
               </GridItem>
-              <GridItem fontSize="x-small" colSpan={1}>
+              <GridItem colSpan={1}>
                 <Text opacity="0.5">Country</Text>
                 <Text mt="4">Nigeria</Text>
               </GridItem>
@@ -177,14 +175,14 @@ const AccountID = () => {
             <Grid
               templateRows="repeat(2, 1fr)"
               templateColumns="repeat(5, 1fr)"
-              fontSize="small"
+              fontSize="x-small"
               fontWeight="bold"
             >
-              <GridItem fontSize="x-small" colSpan={2}>
+              <GridItem colSpan={2}>
                 <Text opacity="0.5">State of Origin</Text>
                 <Text mt="4">Delta state</Text>
               </GridItem>
-              <GridItem fontSize="x-small" colSpan={1}>
+              <GridItem colSpan={1}>
                 <Text opacity="0.5">LGA of Origin</Text>
                 <Text mt="4">Asaba North</Text>
               </GridItem>
@@ -194,21 +192,19 @@ const AccountID = () => {
             <Grid
               templateRows="repeat(2, 1fr)"
               templateColumns="repeat(5, 1fr)"
-              fontSize="small"
+              fontSize="x-small"
               fontWeight="bold"
             >
-              <GridItem fontSize="x-small" colSpan={2}>
+              <GridItem colSpan={2}>
                 <Text opacity="0.5">Investor name</Text>
-                <Text fontSize="x-small" color="#1E0B89">
-                  (First name, Last name, Other name)
-                </Text>
+                <Text color="#1E0B89">(First name, Last name, Other name)</Text>
                 <Text mt="2">Ester Nwoke</Text>
               </GridItem>
-              <GridItem fontSize="x-small" colSpan={1}>
+              <GridItem colSpan={1}>
                 <Text opacity="0.5">Email Address</Text>
                 <Text mt="6">Ester_nwoke@gmail.com</Text>
               </GridItem>
-              <GridItem fontSize="x-small" colSpan={1}>
+              <GridItem colSpan={1}>
                 <Text opacity="0.5">Relationship</Text>
                 <Text mt="6" mx="2">
                   Wife
@@ -218,22 +214,22 @@ const AccountID = () => {
             <Grid
               templateRows="repeat(2, 1fr)"
               templateColumns="repeat(5, 1fr)"
-              fontSize="small"
+              fontSize="x-small"
               fontWeight="bold"
             >
-              <GridItem fontSize="x-small" colSpan={2}>
+              <GridItem colSpan={2}>
                 <Text opacity="0.5">Address</Text>
                 <Text mt="4">23 Abiola Cooker Way, Surulere, Lagos</Text>
               </GridItem>
-              <GridItem fontSize="x-small" colSpan={1}>
+              <GridItem colSpan={1}>
                 <Text opacity="0.5">City</Text>
                 <Text mt="4">Surulere</Text>
               </GridItem>
-              <GridItem fontSize="x-small" colSpan={1}>
+              <GridItem colSpan={1}>
                 <Text opacity="0.5">State</Text>
                 <Text mt="4">Lagos</Text>
               </GridItem>
-              <GridItem fontSize="x-small" colSpan={1}>
+              <GridItem colSpan={1}>
                 <Text opacity="0.5">Country</Text>
                 <Text mt="4">Nigeria</Text>
               </GridItem>
@@ -255,22 +251,22 @@ const AccountID = () => {
             <Grid
               templateRows="repeat(2, 1fr)"
               templateColumns="repeat(4, 1fr)"
-              fontSize="small"
+              fontSize="x-small"
               fontWeight="bold"
             >
-              <GridItem fontSize="x-small" colSpan={1}>
+              <GridItem colSpan={1}>
                 <Text opacity="0.5">Account name</Text>
                 <Text mt="4">Kelvin Nwoke</Text>
               </GridItem>
-              <GridItem fontSize="x-small" colSpan={1}>
+              <GridItem colSpan={1}>
                 <Text opacity="0.5">Account number</Text>
                 <Text mt="4">2199281973</Text>
               </GridItem>
-              <GridItem fontSize="x-small" colSpan={1}>
+              <GridItem colSpan={1}>
                 <Text opacity="0.5">BVN</Text>
                 <Text mt="4">22992837291</Text>
               </GridItem>
-              <GridItem fontSize="x-small" colSpan={1}>
+              <GridItem colSpan={1}>
                 <Text opacity="0.5">Account type</Text>
                 <Text mt="4">Tier 3</Text>
               </GridItem>
@@ -292,18 +288,18 @@ const AccountID = () => {
             <Grid
               templateRows="repeat(2, 1fr)"
               templateColumns="repeat(4, 1fr)"
-              fontSize="small"
+              fontSize="x-small"
               fontWeight="bold"
             >
-              <GridItem fontSize="x-small" colSpan={1}>
+              <GridItem colSpan={1}>
                 <Text opacity="0.5">Account name</Text>
                 <Text mt="4">Kelvin Nwoke</Text>
               </GridItem>
-              <GridItem fontSize="x-small" colSpan={1}>
+              <GridItem colSpan={1}>
                 <Text opacity="0.5">Account number</Text>
                 <Text mt="4">2199281973</Text>
               </GridItem>
-              <GridItem fontSize="x-small" colSpan={1}>
+              <GridItem colSpan={1}>
                 <Text opacity="0.5">BVN</Text>
                 <Text mt="4">22992837291</Text>
               </GridItem>
