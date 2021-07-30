@@ -45,8 +45,10 @@ const AccountID = () => {
             <Box>
               <Flex justifyContent="space-between" alignItems="center">
                 <Box
-                  mr="10"
+                  mr="7"
                   cursor="pointer"
+                  color="#2D2D2D"
+                  opacity="0.5"
                   onClick={() => history.push('/admin-accounts')}
                 >
                   <Icon as={RiArrowLeftCircleLine} /> Back
@@ -56,7 +58,7 @@ const AccountID = () => {
                   h="50px"
                   border="1px #9B9B9B solid"
                   bg="#9B9B9B"
-                  mr="10"
+                  mr="7"
                 />
                 <Box>
                   <Text fontWeight="bold">Customer details</Text>
@@ -98,48 +100,47 @@ const AccountID = () => {
               bg="#1E0B89"
               w="130px"
             />
-            <Text fontSize="smaller" mb="5">
+            <Text fontSize="12px" mb="5">
               Investor’s personal information
             </Text>
-            <img src={Pexel} alt="Pexel" />
+            <img src={Pexel} alt="Pexel" width={60} />
 
             <Grid
               my="5"
               templateRows="repeat(2, 1fr)"
-              templateColumns="repeat(4, 1fr)"
+              templateColumns="repeat(5, 1fr)"
               fontSize="small"
-              textAlign="center"
-              justifyContent="space-between"
+              fontWeight="bolder"
             >
-              <GridItem mt="5" fontSize="x-small" colSpan={1}>
-                <Text>Investor name</Text>
+              <GridItem mt="5" fontSize="x-small" colSpan={2}>
+                <Text opacity="0.5">Investor Name</Text>
                 <Text fontSize="x-small" color="#1E0B89">
                   (First name, Last name, Other name)
                 </Text>
-                <Text mt="1">Kelvin Nwoke</Text>
+                <Text mt="2">Kelvin Nwoke</Text>
               </GridItem>
               <GridItem mt="5" fontSize="x-small" colSpan={1}>
-                <Text>Date of birth</Text>
-                <Text mt="8">17th August,1990</Text>
+                <Text opacity="0.5">Date of Birth</Text>
+                <Text mt="6">17th August,1990</Text>
               </GridItem>
               <GridItem mt="5" fontSize="x-small" colSpan={1}>
-                <Text>Gender</Text>
-                <Text mt="8">Male</Text>
+                <Text opacity="0.5">Gender</Text>
+                <Text mt="6">Male</Text>
               </GridItem>
               <GridItem mt="5" fontSize="x-small" colSpan={1}>
-                <Text>Email Address</Text>
-                <Text mt="8">kelvin_nwoke@gmail.com</Text>
+                <Text opacity="0.5">Email Address</Text>
+                <Text mt="6">kelvin_nwoke@gmail.com</Text>
               </GridItem>
-              <GridItem mt="5" fontSize="x-small" colSpan={1}>
-                <Text>Phone number 1</Text>
+              <GridItem mt="5" fontSize="x-small" colSpan={2}>
+                <Text opacity="0.5">Phone number 1</Text>
                 <Text mt="4">(496)583672</Text>
               </GridItem>
               <GridItem mt="5" fontSize="x-small" colSpan={1}>
-                <Text>Phone number 2</Text>
+                <Text opacity="0.5">Phone number 2</Text>
                 <Text mt="4">--</Text>
               </GridItem>
               <GridItem mt="5" fontSize="x-small" colSpan={1}>
-                <Text>Account type</Text>
+                <Text opacity="0.5">Account type</Text>
                 <Text mt="4">
                   Individual account{' '}
                   <Icon color="#3EA200" as={AiFillCheckCircle} />
@@ -150,25 +151,24 @@ const AccountID = () => {
             <Text my="10">Residential Address</Text>
             <Grid
               templateRows="repeat(2, 1fr)"
-              templateColumns="repeat(4, 1fr)"
+              templateColumns="repeat(5, 1fr)"
               fontSize="small"
-              textAlign="center"
-              justifyContent="space-between"
+              fontWeight="bolder"
             >
-              <GridItem fontSize="x-small" colSpan={1}>
-                <Text>Address</Text>
+              <GridItem fontSize="x-small" colSpan={2}>
+                <Text opacity="0.5">Address</Text>
                 <Text mt="4">23 Abiola Cooker Way, Surulere, Lagos</Text>
               </GridItem>
               <GridItem fontSize="x-small" colSpan={1}>
-                <Text>City</Text>
+                <Text opacity="0.5">City</Text>
                 <Text mt="4">Surulere</Text>
               </GridItem>
               <GridItem fontSize="x-small" colSpan={1}>
-                <Text>State</Text>
+                <Text opacity="0.5">State</Text>
                 <Text mt="4">Lagos</Text>
               </GridItem>
               <GridItem fontSize="x-small" colSpan={1}>
-                <Text>Country</Text>
+                <Text opacity="0.5">Country</Text>
                 <Text mt="4">Nigeria</Text>
               </GridItem>
             </Grid>
@@ -176,17 +176,16 @@ const AccountID = () => {
             <Text my="10">Place of Origin</Text>
             <Grid
               templateRows="repeat(2, 1fr)"
-              templateColumns="repeat(4, 1fr)"
+              templateColumns="repeat(5, 1fr)"
               fontSize="small"
-              textAlign="center"
-              justifyContent="space-between"
+              fontWeight="bold"
             >
-              <GridItem fontSize="x-small" colSpan={1}>
-                <Text>State of Origin</Text>
+              <GridItem fontSize="x-small" colSpan={2}>
+                <Text opacity="0.5">State of Origin</Text>
                 <Text mt="4">Delta state</Text>
               </GridItem>
               <GridItem fontSize="x-small" colSpan={1}>
-                <Text>LGA of Origin</Text>
+                <Text opacity="0.5">LGA of Origin</Text>
                 <Text mt="4">Asaba North</Text>
               </GridItem>
             </Grid>
@@ -194,88 +193,91 @@ const AccountID = () => {
             <Text my="10">Next of Kin</Text>
             <Grid
               templateRows="repeat(2, 1fr)"
-              templateColumns="repeat(4, 1fr)"
+              templateColumns="repeat(5, 1fr)"
               fontSize="small"
-              textAlign="center"
-              justifyContent="space-between"
+              fontWeight="bold"
             >
-              <GridItem fontSize="x-small" colSpan={1}>
-                <Text>Investor name</Text>
+              <GridItem fontSize="x-small" colSpan={2}>
+                <Text opacity="0.5">Investor name</Text>
                 <Text fontSize="x-small" color="#1E0B89">
                   (First name, Last name, Other name)
                 </Text>
-                <Text mt="1">Ester Nwoke</Text>
+                <Text mt="2">Ester Nwoke</Text>
               </GridItem>
               <GridItem fontSize="x-small" colSpan={1}>
-                <Text>Email Address</Text>
-                <Text mt="1">Ester_nwoke@gmail.com</Text>
+                <Text opacity="0.5">Email Address</Text>
+                <Text mt="6">Ester_nwoke@gmail.com</Text>
               </GridItem>
               <GridItem fontSize="x-small" colSpan={1}>
-                <Text>Relationship</Text>
-                <Text mt="1">Wife</Text>
+                <Text opacity="0.5">Relationship</Text>
+                <Text mt="6" mx="2">
+                  Wife
+                </Text>
               </GridItem>
             </Grid>
             <Grid
               templateRows="repeat(2, 1fr)"
-              templateColumns="repeat(4, 1fr)"
+              templateColumns="repeat(5, 1fr)"
               fontSize="small"
-              textAlign="center"
-              justifyContent="space-between"
+              fontWeight="bold"
             >
-              <GridItem fontSize="x-small" colSpan={1}>
-                <Text>Address</Text>
+              <GridItem fontSize="x-small" colSpan={2}>
+                <Text opacity="0.5">Address</Text>
                 <Text mt="4">23 Abiola Cooker Way, Surulere, Lagos</Text>
               </GridItem>
               <GridItem fontSize="x-small" colSpan={1}>
-                <Text>City</Text>
+                <Text opacity="0.5">City</Text>
                 <Text mt="4">Surulere</Text>
               </GridItem>
               <GridItem fontSize="x-small" colSpan={1}>
-                <Text>State</Text>
+                <Text opacity="0.5">State</Text>
                 <Text mt="4">Lagos</Text>
               </GridItem>
               <GridItem fontSize="x-small" colSpan={1}>
-                <Text>Country</Text>
+                <Text opacity="0.5">Country</Text>
                 <Text mt="4">Nigeria</Text>
               </GridItem>
             </Grid>
           </Box>
           <Box p="5" border="1px solid #E8E7E7" w="65%" marginTop="50">
-            <Text mt="10">Bank Account Details</Text>
+            <Text fontWeight="bold" mt="10">
+              Bank Account Details
+            </Text>
             <Divider
               orientation="horizontal"
               border="1px #1E0B89 solid"
               bg="#1E0B89"
               w="130px"
             />
-            <Text fontSize="smaller">Customer's account details</Text>
+            <Text fontSize="12px" mb="5">
+              Customer's account details
+            </Text>
             <Grid
               templateRows="repeat(2, 1fr)"
               templateColumns="repeat(4, 1fr)"
               fontSize="small"
-              textAlign="center"
-              justifyContent="space-between"
+              fontWeight="bold"
             >
               <GridItem fontSize="x-small" colSpan={1}>
-                <Text>Account name</Text>
+                <Text opacity="0.5">Account name</Text>
                 <Text mt="4">Kelvin Nwoke</Text>
               </GridItem>
               <GridItem fontSize="x-small" colSpan={1}>
-                <Text>Account number</Text>
+                <Text opacity="0.5">Account number</Text>
                 <Text mt="4">2199281973</Text>
               </GridItem>
               <GridItem fontSize="x-small" colSpan={1}>
-                <Text>BVN</Text>
+                <Text opacity="0.5">BVN</Text>
                 <Text mt="4">22992837291</Text>
               </GridItem>
               <GridItem fontSize="x-small" colSpan={1}>
-                <Text>Account type</Text>
+                <Text opacity="0.5">Account type</Text>
                 <Text mt="4">Tier 3</Text>
               </GridItem>
             </Grid>
           </Box>
           <Box p="5" border="1px solid #E8E7E7" w="65%" marginTop="50">
-            <Text fontSize="smaller" mt="10">
+            <Text fontWeight="bold" mt="10">
               Account Verification & Documentation
             </Text>
             <Divider
@@ -284,28 +286,29 @@ const AccountID = () => {
               bg="#1E0B89"
               w="130px"
             />
-            <Text fontSize="smaller">Customer's account details</Text>
+            <Text fontSize="12px" mb="5">
+              Customer's account details
+            </Text>
             <Grid
               templateRows="repeat(2, 1fr)"
               templateColumns="repeat(4, 1fr)"
               fontSize="small"
-              textAlign="center"
-              justifyContent="space-between"
+              fontWeight="bold"
             >
               <GridItem fontSize="x-small" colSpan={1}>
-                <Text>Account name</Text>
+                <Text opacity="0.5">Account name</Text>
                 <Text mt="4">Kelvin Nwoke</Text>
               </GridItem>
               <GridItem fontSize="x-small" colSpan={1}>
-                <Text>Account number</Text>
+                <Text opacity="0.5">Account number</Text>
                 <Text mt="4">2199281973</Text>
               </GridItem>
               <GridItem fontSize="x-small" colSpan={1}>
-                <Text>BVN</Text>
+                <Text opacity="0.5">BVN</Text>
                 <Text mt="4">22992837291</Text>
               </GridItem>
-              <GridItem fontSize="x-small" colSpan={1}>
-                <Text>Account type</Text>
+              <GridItem colSpan={1}>
+                <Text opacity="0.5">Account type</Text>
                 <Text mt="4">Tier 3</Text>
               </GridItem>
             </Grid>
@@ -313,7 +316,7 @@ const AccountID = () => {
           <Box
             border="1px solid #E8E7E7"
             w="25%"
-            top="35%"
+            top="38%"
             position="fixed"
             right="10"
           >
@@ -342,48 +345,48 @@ const AccountID = () => {
             </Box>
             <Box paddingX="8">
               <Flex justifyContent="space-between">
-                <Box>
-                  <Text my="2" fontSize="small">
-                    <Icon color="#3EA200" as={AiFillCheckCircle} />
+                <Box fontSize="12px">
+                  <Text my="2">
+                    <Icon color="#3EA200" as={AiFillCheckCircle} mr="1" />
                     Full Name
                   </Text>
-                  <Text my="2" fontSize="small">
-                    <Icon color="#3EA200" as={AiFillCheckCircle} />
-                    Full Name
+                  <Text my="2">
+                    <Icon color="#3EA200" as={AiFillCheckCircle} mr="1" />
+                    Residencial Address
                   </Text>
-                  <Text my="2" fontSize="small">
-                    <Icon color="#3EA200" as={AiFillCheckCircle} />
-                    Full Name
+                  <Text my="2">
+                    <Icon color="#3EA200" as={AiFillCheckCircle} mr="1" />
+                    Telephone
                   </Text>
-                  <Text my="2" fontSize="small">
-                    <Icon color="#3EA200" as={AiFillCheckCircle} />
-                    Full Name
+                  <Text my="2">
+                    <Icon color="#3EA200" as={AiFillCheckCircle} mr="1" />
+                    Email
                   </Text>
-                  <Text my="2" fontSize="small">
-                    <Icon color="#3EA200" as={AiFillCheckCircle} />
-                    Full Name
+                  <Text my="2">
+                    <Icon color="#3EA200" as={AiFillCheckCircle} mr="1" />
+                    Date of Birth
                   </Text>
-                  <Text my="2" fontSize="small">
-                    <Icon color="#3EA200" as={AiFillCheckCircle} />
-                    Full Name
+                  <Text my="2">
+                    <Icon color="#3EA200" as={AiFillCheckCircle} mr="1" />
+                    Gender
                   </Text>
                 </Box>
-                <Box>
-                  <Text my="2" fontSize="small">
-                    <Icon color="#3EA200" as={AiFillCheckCircle} />
-                    Full Name
+                <Box fontSize="12px">
+                  <Text my="2">
+                    <Icon color="#3EA200" as={AiFillCheckCircle} mr="1" />
+                    Valid Identification
                   </Text>
-                  <Text my="2" fontSize="small">
-                    <Icon color="#3EA200" as={AiFillCheckCircle} />
-                    Full Name
+                  <Text my="2">
+                    <Icon color="#3EA200" as={AiFillCheckCircle} mr="1" />
+                    BVN
                   </Text>
-                  <Text my="2" fontSize="small">
-                    <Icon color="#3EA200" as={AiFillCheckCircle} />
-                    Full Name
+                  <Text my="2">
+                    <Icon color="#3EA200" as={AiFillCheckCircle} mr="1" />
+                    Proof of Address
                   </Text>
-                  <Text my="2" fontSize="small">
-                    <Icon color="#3EA200" as={AiFillCheckCircle} />
-                    Full Name
+                  <Text my="2">
+                    <Icon color="#3EA200" as={AiFillCheckCircle} mr="1" />
+                    Signature
                   </Text>
                 </Box>
               </Flex>

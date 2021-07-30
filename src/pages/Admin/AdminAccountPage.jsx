@@ -1,7 +1,8 @@
 import { Box, Flex, Grid, GridItem, Text } from '@chakra-ui/layout';
-import { Input } from '@chakra-ui/input';
+import { Input, InputGroup, InputLeftElement } from '@chakra-ui/input';
 import { Button } from '@chakra-ui/button';
 import { Icon } from '@chakra-ui/icon';
+import { Search2Icon } from '@chakra-ui/icons';
 import { SideNav } from './components/SideNav/SideNav';
 import { TopNav } from './components/TopNav/TopNav';
 
@@ -26,7 +27,7 @@ export const AdminAccountPage = () => {
         <TopNav title="Accounts" />
         <Box paddingLeft="5" paddingRight="10" paddingY="10">
           <Text fontWeight="bold">Account Opening</Text>
-          <Text w="30%" fontSize="small">
+          <Text w="35%" fontSize="small">
             Donec dapibus mauris id odio ornare tempus. Duis sit amet accumsan
             justo, quis tempor ligula.
           </Text>
@@ -35,7 +36,22 @@ export const AdminAccountPage = () => {
             alignItems="center"
             paddingY="10"
           >
-            <Input placeholder="Seach account holder" size="md" w="25%" />
+            <InputGroup
+              bg="#F4F4F4 0% 0% no-repeat padding-box"
+              border="none"
+              w="30%"
+              borderRadius="10px"
+            >
+              <InputLeftElement
+                pointerEvents="none"
+                children={<Search2Icon color="gray.300" />}
+              />
+              <Input
+                placeholder="Seach account holder"
+                size="md"
+                border="none"
+              />
+            </InputGroup>
             <Box>
               <Button
                 colorScheme="#1E0B89"

@@ -7,6 +7,7 @@ import BankIcon from '../../assets/images/bank_icon.svg';
 import Lauggage from '../../assets/images/lagguage.svg';
 import Card from '../../assets/images/card_icon.svg';
 import User from '../../assets/images/user_icon.svg';
+import Person from 'assets/images/person1.png';
 
 import { Bar } from 'react-chartjs-2';
 
@@ -26,7 +27,7 @@ const state = {
 export const AdminDashboard = () => {
   return (
     <Grid
-      h="100vh"
+      minH="100vh"
       templateRows="repeat(2, 1fr)"
       templateColumns="repeat(5, 1fr)"
       gap={0}
@@ -39,6 +40,23 @@ export const AdminDashboard = () => {
       <GridItem colSpan={4}>
         <TopNav title="Dashboard" />
         <Box mx="10" mt="15">
+          <Flex
+            justifyContent="flex-start"
+            alignItems="center"
+            marginTop="5"
+            marginBottom="10"
+          >
+            <img
+              src={Person}
+              alt="Person"
+              width="60px"
+              style={{ marginRight: 10 }}
+            />
+            <Box>
+              <Text fontWeight="bold">Hi Chijindu Amadi</Text>
+              <Text fontSize="small">Welcome to your admin dashboard</Text>
+            </Box>
+          </Flex>
           <Grid
             w="100%"
             h="270px"
@@ -124,82 +142,81 @@ export const AdminDashboard = () => {
               </Flex>
             </GridItem>
           </Grid>
-          <Box>
-            <Grid
-              w="100%"
-              templateRows="repeat(2, 1fr)"
-              templateColumns="repeat(5, 1fr)"
-              gap={3}
-            >
-              <GridItem colSpan="3">
-                <Box
-                  background="#fff"
-                  paddingX="3"
-                  paddingY="5"
-                  borderRadius="5"
-                  border="1px solid #E8E7E7"
-                >
-                  <Bar
-                    data={state}
-                    options={{
-                      title: {
-                        display: true,
-                        text: 'Average Rainfall per month',
-                        fontSize: 20,
-                      },
-                      legend: {
-                        display: true,
-                        position: 'right',
-                      },
-                    }}
-                  />
-                </Box>
-              </GridItem>
-              <GridItem colSpan="2">
-                <Box
-                  background="#fff"
-                  paddingX="3"
-                  paddingY="5"
-                  borderRadius="5"
-                  border="1px solid #E8E7E7"
-                >
-                  <Text fontWeight="bold">Customer Locations</Text>
-                  <Flex justifyContent="space-between " my="2">
-                    <Text>Lagos</Text>
-                    <Text>325,000</Text>
-                  </Flex>
-                  <Flex justifyContent="space-between " my="2">
-                    <Text>Abia</Text>
-                    <Text>225,000</Text>
-                  </Flex>
-                  <Flex justifyContent="space-between " my="2">
-                    <Text>Cross River</Text>
-                    <Text>125,000</Text>
-                  </Flex>
-                  <Flex justifyContent="space-between " my="2">
-                    <Text>Ogun</Text>
-                    <Text>95,000</Text>
-                  </Flex>
-                  <Flex justifyContent="space-between " my="2">
-                    <Text>Imo</Text>
-                    <Text>125,000</Text>
-                  </Flex>
-                  <Flex justifyContent="space-between">
-                    <Text>Anambra</Text>
-                    <Text>125,000</Text>
-                  </Flex>
-                  <Flex justifyContent="space-between">
-                    <Text>Rivers</Text>
-                    <Text>125,000</Text>
-                  </Flex>
-                  <Flex justifyContent="space-between">
-                    <Text>Kogi</Text>
-                    <Text>125,000</Text>
-                  </Flex>
-                </Box>
-              </GridItem>
-            </Grid>
-          </Box>
+          <Grid
+            w="100%"
+            templateRows="repeat(2, 1fr)"
+            templateColumns="repeat(5, 1fr)"
+            gap={3}
+            style={{ marginTop: -100 }}
+          >
+            <GridItem colSpan="3">
+              <Box
+                background="#fff"
+                paddingX="3"
+                paddingY="5"
+                borderRadius="5"
+                border="1px solid #E8E7E7"
+              >
+                <Bar
+                  data={state}
+                  options={{
+                    title: {
+                      display: true,
+                      text: 'Average Rainfall per month',
+                      fontSize: 20,
+                    },
+                    legend: {
+                      display: true,
+                      position: 'right',
+                    },
+                  }}
+                />
+              </Box>
+            </GridItem>
+            <GridItem colSpan="2">
+              <Box
+                background="#fff"
+                paddingX="3"
+                paddingY="5"
+                borderRadius="5"
+                border="1px solid #E8E7E7"
+              >
+                <Text fontWeight="bold">Customer Locations</Text>
+                <Flex justifyContent="space-between " my="2">
+                  <Text>Lagos</Text>
+                  <Text>325,000</Text>
+                </Flex>
+                <Flex justifyContent="space-between " my="2">
+                  <Text>Abia</Text>
+                  <Text>225,000</Text>
+                </Flex>
+                <Flex justifyContent="space-between " my="2">
+                  <Text>Cross River</Text>
+                  <Text>125,000</Text>
+                </Flex>
+                <Flex justifyContent="space-between " my="2">
+                  <Text>Ogun</Text>
+                  <Text>95,000</Text>
+                </Flex>
+                <Flex justifyContent="space-between " my="2">
+                  <Text>Imo</Text>
+                  <Text>125,000</Text>
+                </Flex>
+                <Flex justifyContent="space-between">
+                  <Text>Anambra</Text>
+                  <Text>125,000</Text>
+                </Flex>
+                <Flex justifyContent="space-between">
+                  <Text>Rivers</Text>
+                  <Text>125,000</Text>
+                </Flex>
+                <Flex justifyContent="space-between">
+                  <Text>Kogi</Text>
+                  <Text>125,000</Text>
+                </Flex>
+              </Box>
+            </GridItem>
+          </Grid>
         </Box>
       </GridItem>
     </Grid>
