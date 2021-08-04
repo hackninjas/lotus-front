@@ -15,12 +15,21 @@ const UserContext = createContext(initialValues);
 
 const { Provider } = UserContext;
 
-const register = async (data) => {
-  const res = await axios.post(`${process.env.REACT_APP_ENDPOINT_BASE_URL}​/api​/Onboarding​/register_user`,data)
-  const resData = await res.data
+const register = async data => {
+  const config = {
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  };
+  const res = await axios.post(
+    `${process.env.REACT_APP_ENDPOINT_BASE_URL}​/api​/Onboarding​/register_user`,
+    data,
+    config
+  );
+  const resData = await res.data;
 
-  console.log(resData)
-}
+  console.log(resData);
+};
 
 const UserProvider = ({ children }) => {
   const [userData, setUserData] = useState(initialValues);

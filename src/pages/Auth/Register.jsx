@@ -19,6 +19,7 @@ import { FaFacebook } from 'react-icons/fa';
 import { CustomDrawer } from 'shared/CustomDrawer';
 import { Login } from './Login';
 // import { UserContext } from '../../context/user';
+import { registerUser } from 'api/api';
 import { PasswordInput } from 'shared/PasswordInput';
 import { ConfirmPassword } from 'shared/confirmPassword';
 import { useToast } from 'hooks/useToast';
@@ -52,7 +53,7 @@ export const Register = () => {
   const { isOpen, onToggle } = useDisclosure();
   const [isLoading, setIsLoading] = useState(false);
   const { toastErrorSuccess } = useToast();
-  const { register, state } = useContext(UserContext);
+  const { state } = useContext(UserContext);
 
   const { values, handleChange, errors, touched, handleSubmit, handleBlur } =
     useFormik({
@@ -68,7 +69,7 @@ export const Register = () => {
         try {
           setIsLoading(true);
 
-          await register(JSON.stringify(values))
+          await registerUser(JSON.stringify(values));
 
           /// TODO: handle redirect here
           toastErrorSuccess('success', 'Registration Successful');

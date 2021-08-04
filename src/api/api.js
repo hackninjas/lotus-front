@@ -1,4 +1,5 @@
 import API from './axios';
+// import axios from 'axios';
 
 const routes = {
   accountLoginEmail: `/api/Onboarding/login`,
@@ -9,7 +10,7 @@ const routes = {
   sendCode: `/api/Onboarding/verifyPhone_sendOtp`,
   verifyCode: `/api/Onboarding/verifyPhone_validateOtp`,
   resendCode: `/api/Onboarding/resend_otp`,
-  openAccount: '/api/Onboarding/open_account'
+  openAccount: '/api/Onboarding/open_account',
 };
 
 const DEFAULT_ERROR_MESSAGE = 'An error occurred, please try again';
@@ -30,7 +31,6 @@ const getErrorMsg = error => {
 export const loginWithEmail = async loginDetails => {
   try {
     await API.post(routes.accountLoginEmail, loginDetails);
-    
   } catch (error) {
     let message = error.data.message;
     // let message = getErrorMsg(error);
@@ -40,9 +40,9 @@ export const loginWithEmail = async loginDetails => {
 
 export const registerUser = async registerDetails => {
   try {
-   const response = await API.post(routes.registerAsUser, registerDetails);
-   await console.log(response)
-   return response
+    const response = await API.post(routes.registerAsUser, registerDetails);
+    await console.log(response);
+    return response;
   } catch (error) {
     let message = getErrorMsg(error);
     throw new Error(message);
@@ -53,8 +53,10 @@ export const openAccount = async data => {
   try {
     await API.post(routes.openAccount, data);
   } catch (error) {
-    let message = error.response.data.errors.Bvn[0] ? error.response.data.errors.Bvn[0] : getErrorMsg(error);
-        console.log(error.response);
+    let message = error.response.data.errors.Bvn[0]
+      ? error.response.data.errors.Bvn[0]
+      : getErrorMsg(error);
+    console.log(error.response);
 
     throw new Error(message);
   }
@@ -113,5 +115,3 @@ export const resendOtp = async number => {
     throw new Error(message);
   }
 };
-
-
