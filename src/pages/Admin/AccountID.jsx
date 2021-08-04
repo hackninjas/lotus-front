@@ -79,7 +79,7 @@ const AccountID = () => {
                 fontSize="smaller"
               >
                 Decline
-              </Button>
+              </Button> 
               <Button
                 ml="2"
                 opacity="0.5"
