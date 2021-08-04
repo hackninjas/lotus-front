@@ -19,6 +19,9 @@ import { FaFacebook } from 'react-icons/fa';
 import { PasswordInput } from 'shared/PasswordInput';
 import { loginWithEmail } from 'api/api';
 import { useToast } from 'hooks/useToast';
+import GoogleLogin from 'react-google-login';
+import FacebookLogin from 'react-facebook-login';
+import { googleAuth } from '../../api/api';
 
 const password_regex =
   /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-])/;
@@ -42,6 +45,10 @@ const validationSchema = Yup.object().shape({
 
 export const Login = () => {
   const { replace } = useHistory();
+  const [payload, setPayload] = useState({
+    accessToken: '',
+    channel: 'google',
+  });
   const [isLoading, setIsLoading] = useState(false);
   const { toastErrorSuccess } = useToast();
   const { values, handleChange, errors, touched, handleSubmit, handleBlur } =
@@ -55,17 +62,43 @@ export const Login = () => {
         try {
           setIsLoading(true);
           await loginWithEmail(values);
-          replace('/dashboard')
-          
+          replace('/dashboard');
+
           toastErrorSuccess('success', 'login successful');
           /// TODO: handle redirect here
-
         } catch (error) {
           toastErrorSuccess('error', error.message);
           setIsLoading(false);
         }
       },
     });
+
+  const responseGoogle = async response => {
+    if (response) {
+      setPayload(prevState => (prevState.accessToken = response.tokenId));
+      console.log('gotten');
+      console.log(payload);
+
+      try {
+        await googleAuth(payload);
+      } catch (err) {
+        console.log(err);
+      }
+    }
+    console.log(response);
+    console.log(response.tokenId);
+  };
+
+  const responseFacebook = (response) => {
+    console.log(response);
+    // setData(response);
+    // setPicture(response.picture.data.url);
+    // if (response.accessToken) {
+    //   setLogin(true);
+    // } else {
+    //   setLogin(false);
+    // }
+  }
 
   return (
     <>
@@ -126,16 +159,14 @@ export const Login = () => {
             Login
           </Button>
         </form>
-        <Box 
-        textAlign="right" 
-        mt="4"  
-        color="lotusBlue.400" 
-        fontWeight="bold" 
-        fontSize="xs">
-          <Link
-            as={RLink}
-            to="/recover-password"
-          >
+        <Box
+          textAlign="right"
+          mt="4"
+          color="lotusBlue.400"
+          fontWeight="bold"
+          fontSize="xs"
+        >
+          <Link as={RLink} to="/recover-password">
             Forgot Password?
           </Link>
         </Box>
@@ -155,7 +186,7 @@ export const Login = () => {
           justifyContent="space-between"
           direction={{ base: 'column', sm: 'row' }}
         >
-          <Flex
+          {/* <Flex
             cursor="pointer"
             _hover={{
               bg: 'lotusBlue.300',
@@ -167,8 +198,16 @@ export const Login = () => {
             pr="2.5"
             flex={0.45}
             mb={{ base: '8', sm: '0' }}
-          >
-            <Flex
+          > */}
+
+          <FacebookLogin
+            appId="314410463583405"
+            autoLoad={true}
+            fields="name,email,picture"
+            scope="public_profile,user_friends"
+            icon="FaFacebook"
+          />
+          {/* <Flex
               height="43px"
               width="43px"
               borderRadius="full"
@@ -181,9 +220,10 @@ export const Login = () => {
             <Text color="white" fontSize="sm" ml="3">
               {' '}
               With Facebook
-            </Text>
-          </Flex>
-          <Flex
+            </Text> */}
+          {/* </Flex> */}
+
+          {/* <Flex
             cursor="pointer"
             _hover={{
               bg: 'whitesmoke',
@@ -195,22 +235,33 @@ export const Login = () => {
             pr="2.5"
             flex={0.45}
             borderWidth={1}
-          >
-            <Flex
-              height="43px"
-              width="43px"
-              borderRadius="full"
-              alignItems="center"
-              bg="white"
-              borderWidth={1}
-            >
-              <FcGoogle style={{ width: '100%', height: '80%' }} />
-            </Flex>
-            <Text color="black" fontSize="sm" ml="3">
-              With Google
-            </Text>
-          </Flex>
+          > */}
+          <GoogleLogin
+            clientId="625541948132-blg1gs4fng8njtt5sff6olprsiv6ukj4.apps.googleusercontent.com"
+            clientSecret="G2zpF_uQpRqY4t0yHDm_hjoM"
+            onSuccess={responseGoogle}
+            onFailure={responseGoogle}
+            cookiePolicy={'single_host_origin'}
+            // render={renderprops => (
+            //   <React.Fragment>
+            //     <Flex
+            //       height="43px"
+            //       width="43px"
+            //       borderRadius="full"
+            //       alignItems="center"
+            //       bg="white"
+            //       borderWidth={1}
+            //     >
+            //       <FcGoogle style={{ width: '100%', height: '80%' }} />
+            //     </Flex>
+            //     <Text color="black" fontSize="sm" ml="3">
+            //       With Google
+            //     </Text>
+            //   </React.Fragment>
+            // )}
+          />
         </Flex>
+        {/* </Flex> */}
       </Box>
     </>
   );

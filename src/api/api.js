@@ -3,6 +3,7 @@ import API from './axios';
 const routes = {
   accountLoginEmail: `/api/Onboarding/login`,
   registerAsUser: `/api/Onboarding/register_user`,
+  googleAuth: `/api/Onboarding/thirdparty_auth`
 };
 
 const DEFAULT_ERROR_MESSAGE = 'An error occurred, please try again';
@@ -52,6 +53,15 @@ export const registerUser = async registerDetails => {
 export const verifyBVN = async bvnNumber => {
   try {
     await API.get(`/api/Onboarding/verify_bvn?bvn=${bvnNumber}`);
+  } catch (error) {
+    let message = getErrorMsg(error);
+    throw new Error(message)
+  }
+};
+
+export const googleAuth = async payload => {
+  try {
+    await API.post(routes.googleAuth, payload);
   } catch (error) {
     let message = getErrorMsg(error);
     throw new Error(message)
