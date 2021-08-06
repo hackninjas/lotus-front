@@ -54,7 +54,7 @@ const validationSchema = Yup.object().shape({
 
 
 export const Register = () => {
-  const history = useHistory()
+  const { replace } = useHistory();
   const { isOpen, onToggle } = useDisclosure();
   const [isLoading, setIsLoading] = useState(false);
   const { toastErrorSuccess } = useToast();
@@ -73,19 +73,14 @@ export const Register = () => {
           setIsLoading(true);
 
           await registerUser(values);
-        //  let response = await registerUser(values);
-        //  if(response.status === 200){
-        //    history.push('/login')
-        //  }
-
-        //  return response;
+          toastErrorSuccess('success', 'Registration Successful');
+          replace('/dashboard')
 
           /// TODO: handle redirect here
 
-          toastErrorSuccess('success', 'Registration Successful');
         } catch (error) {
           console.log(error)
-          toastErrorSuccess('error', error.message);
+          toastErrorSuccess('error', 'Something went wrong, please try again');
           setIsLoading(false);
         }
       },

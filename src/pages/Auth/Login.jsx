@@ -22,6 +22,7 @@ import { useToast } from 'hooks/useToast';
 import GoogleLogin from 'react-google-login';
 import FacebookLogin from 'react-facebook-login';
 import { googleAuth } from '../../api/api';
+import LoadingSpinner from '../../shared/Spinner';
 
 const password_regex =
   /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-])/;
@@ -61,13 +62,14 @@ export const Login = () => {
       onSubmit: async values => {
         try {
           setIsLoading(true);
-          await loginWithEmail(values);
-          replace('/dashboard');
-
+         await loginWithEmail(values);
           toastErrorSuccess('success', 'login successful');
+          replace('/dashboard')
+
           /// TODO: handle redirect here
+          // history.push('/dashboard')
         } catch (error) {
-          toastErrorSuccess('error', error.message);
+          toastErrorSuccess('error', 'something went wrong, please try again'); 
           setIsLoading(false);
         }
       },
@@ -89,7 +91,7 @@ export const Login = () => {
     console.log(response.tokenId);
   };
 
-  const responseFacebook = (response) => {
+  const responseFacebook = response => {
     console.log(response);
     // setData(response);
     // setPicture(response.picture.data.url);
@@ -98,11 +100,12 @@ export const Login = () => {
     // } else {
     //   setLogin(false);
     // }
-  }
+  };
 
   return (
     <>
       <Box w="100%">
+        {isLoading && <LoadingSpinner />}
         <Heading color="lotusBlue.400" textAlign="left">
           Welcome back
         </Heading>
@@ -206,6 +209,7 @@ export const Login = () => {
             fields="name,email,picture"
             scope="public_profile,user_friends"
             icon="FaFacebook"
+            callbacks
           />
           {/* <Flex
               height="43px"

@@ -1,4 +1,5 @@
 import API from './axios';
+import { useHistory } from 'react-router-dom'
 
 const routes = {
   accountLoginEmail: `/api/Onboarding/login`,
@@ -36,8 +37,9 @@ export const loginWithEmail = async loginDetails => {
     let message = getSuccessMsg()
     console.log(message)
   } catch (error) {
-    let message = getErrorMsg(error);
-    throw new Error(message);
+    console.log(error)
+    // let message = getErrorMsg(error);
+    // throw new Error(message);
   }
 };
 
@@ -45,8 +47,9 @@ export const registerUser = async registerDetails => {
   try {
     await API.post(routes.registerAsUser, registerDetails);
   } catch (error) {
-    let message = getErrorMsg(error);
-    throw new Error(message)
+    console.log(error)
+    // let message = getErrorMsg(error);
+    // throw new Error(message)
   }
 };
 
