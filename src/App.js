@@ -4,15 +4,17 @@ import { MainRouter } from './router';
 import theme from './utils/theme';
 // import {FontFace} from './styles/font-face';
 import { UserProvider } from 'context';
-
+import UserDataProvider from './store/context';
 
 function App() {
   return (
     <>
       <ChakraProvider theme={theme}>
-      {/* <Global styles={GlobalStyles} /> */}
+        {/* <Global styles={GlobalStyles} /> */}
         <UserProvider>
-          <MainRouter />
+          <UserDataProvider>
+            <MainRouter />
+          </UserDataProvider>
         </UserProvider>
       </ChakraProvider>
       {/* <FontFace /> */}

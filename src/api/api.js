@@ -1,7 +1,6 @@
 import API from './axios';
-import { useHistory } from 'react-router-dom'
 
-const routes = {
+export const routes = {
   accountLoginEmail: `/api/Onboarding/login`,
   registerAsUser: `/api/Onboarding/register_user`,
   googleAuth: `/api/Onboarding/thirdparty_auth`
@@ -33,9 +32,10 @@ const getSuccessMsg = status => {
 
 export const loginWithEmail = async loginDetails => {
   try {
-    await API.post(routes.accountLoginEmail, loginDetails);
-    let message = getSuccessMsg()
-    console.log(message)
+    
+    let result = await API.post(routes.accountLoginEmail, loginDetails);
+    // let message = getSuccessMsg()
+    console.log(result)
   } catch (error) {
     console.log(error)
     // let message = getErrorMsg(error);

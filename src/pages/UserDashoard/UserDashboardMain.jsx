@@ -15,9 +15,12 @@ import {
 import { UserContext } from 'context';
 import { CreditCardIcon, DonutChartIcon, SendIcon } from 'shared/Icons';
 import { UserDashboardLayout } from './components/UserDashboardLayout';
+import { userAuth } from "../../store/context"
 
 export const UserDashboardMain = () => {
   const { userData } = useContext(UserContext);
+  const { initialValues } = useContext(userAuth);
+  console.log(initialValues)
   return (
     <UserDashboardLayout>
       <Flex justifyContent="space-between" alignItems="center">

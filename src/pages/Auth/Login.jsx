@@ -7,8 +7,8 @@ import {
   Divider,
   Flex,
 } from '@chakra-ui/react';
-import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import React, { useState, useReducer } from 'react';
+import { useHistory, Redirect } from 'react-router-dom';
 import { Link as RLink } from 'react-router-dom';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
@@ -17,12 +17,13 @@ import { Link } from 'react-router-dom';
 import { FcGoogle } from 'react-icons/fc';
 import { FaFacebook } from 'react-icons/fa';
 import { PasswordInput } from 'shared/PasswordInput';
-import { loginWithEmail } from 'api/api';
+import { routes } from 'api/api';
+import API from '../../api/axios';
 import { useToast } from 'hooks/useToast';
 import GoogleLogin from 'react-google-login';
 import FacebookLogin from 'react-facebook-login';
 import { googleAuth } from '../../api/api';
-import LoadingSpinner from '../../shared/Spinner';
+import { reducer, initialValues } from '../../store/state';
 
 const password_regex =
   /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-])/;
@@ -45,11 +46,27 @@ const validationSchema = Yup.object().shape({
 });
 
 export const Login = () => {
+  const [state, dispatch] = useReducer(reducer, initialValues);
+  console.log(state);
   const { replace } = useHistory();
   const [payload, setPayload] = useState({
     accessToken: '',
     channel: 'google',
   });
+
+  const loginWithEmail = async loginDetails => {
+    try {
+      let result = await API.post(routes.accountLoginEmail, loginDetails);
+      dispatch({ type: 'LOGIN', payload: result.data });
+      // let message = getSuccessMsg()
+      console.log(result);
+    } catch (error) {
+      console.log(error);
+      // let message = getErrorMsg(error);
+      // throw new Error(message);
+    }
+  };
+
   const [isLoading, setIsLoading] = useState(false);
   const { toastErrorSuccess } = useToast();
   const { values, handleChange, errors, touched, handleSubmit, handleBlur } =
@@ -62,14 +79,12 @@ export const Login = () => {
       onSubmit: async values => {
         try {
           setIsLoading(true);
-         await loginWithEmail(values);
-          toastErrorSuccess('success', 'login successful');
-          replace('/dashboard')
+          await loginWithEmail(values);
 
-          /// TODO: handle redirect here
-          // history.push('/dashboard')
+          toastErrorSuccess('success', 'login successful');
+          replace('/dashboard');
         } catch (error) {
-          toastErrorSuccess('error', 'something went wrong, please try again'); 
+          toastErrorSuccess('error', 'something went wrong, please try again');
           setIsLoading(false);
         }
       },
@@ -102,10 +117,15 @@ export const Login = () => {
     // }
   };
 
+  console.log(state.token)
+
+  if (state.token != null) {
+   return  <Redirect to="/dashboard" />;
+  }
+
   return (
     <>
       <Box w="100%">
-        {isLoading && <LoadingSpinner />}
         <Heading color="lotusBlue.400" textAlign="left">
           Welcome back
         </Heading>
