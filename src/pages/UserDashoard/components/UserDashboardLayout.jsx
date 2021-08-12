@@ -17,6 +17,7 @@ import { UserContext } from 'context';
 import { formatNumberToCurrency } from 'utils/functions';
 import { AlertWrapper } from 'shared/Alert';
 import AlertIcon from 'assets/svg/danger.svg';
+import { NavLink } from 'react-router-dom';
 
 export const UserDashboardLayout = ({ children }) => {
   const { userData } = useContext(UserContext);
@@ -82,15 +83,18 @@ export const UserDashboardLayout = ({ children }) => {
                   >
                     <Image src={AlertIcon} objectFit="100%" w="100%" />
                   </Flex>
-                  <Box flex={1}>
-                    <Text color="white" fontSize="xs">
-                      Upgrade your account to enjoy maximum capacity on your
-                      Lotus Account
-                    </Text>
-                    <Link color="lotusOrange" fontSize="sm">
-                      Upgrade Now
-                    </Link>
-                  </Box>
+
+                  <NavLink to="/upgrade">
+                    <Box flex={1}>
+                      <Text color="white" fontSize="xs">
+                        Upgrade your account to enjoy maximum capacity on your
+                        Lotus Account
+                      </Text>
+                      <Link color="lotusOrange" fontSize="sm">
+                        Upgrade Now
+                      </Link>
+                    </Box>
+                  </NavLink>
                 </Flex>
               </AlertWrapper>
             </Flex>

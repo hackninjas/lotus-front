@@ -128,12 +128,14 @@ export const UserDashboardMain = () => {
             <Link fontSize="sm" mr="5">
               Skip for now
             </Link>
+
             <Button 
             variant="primary"
              fontSize="sm"
              >
               Upgrade my account
             </Button>
+
           </Flex>
         </VStack>
       </Flex>
